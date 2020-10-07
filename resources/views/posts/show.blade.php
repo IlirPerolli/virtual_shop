@@ -22,7 +22,51 @@
                     <div class="single-post row">
                         <div class="col-lg-12">
                             <div class="feature-img">
-                                <img class="img-fluid" src="{{$post->photo->photo}}" alt="">
+{{--                                <img class="img-fluid" src="{{$post->photo->photo}}" alt="">--}}
+
+                                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                                    <ol class="carousel-indicators">
+                                        @if (strpos($post->photo->photo,',') !== false)
+                                            @foreach(explode(',',$post->photo->photo) as $photo)
+                                                {{--                                                Per te pare se ne cilin iterim eshte perdoret $loop --}}
+
+                                                <li data-target="#carouselExampleIndicators" {{$loop->index == 0 ? 'class=active' : '' }}></li>
+                                            @endforeach
+
+                                        @else
+                                            <li data-target="#carouselExampleIndicators" class="active"></li>
+
+                                        @endif
+
+
+                                    </ol>
+                                    <div class="carousel-inner">
+
+
+                                        @if (strpos($post->photo->photo,',') !== false)
+                                            @foreach(explode(',',$post->photo->photo) as $photo)
+{{--                                                Per te pare se ne cilin iterim eshte perdoret $loop --}}
+                                                <div class="carousel-item {{$loop->index == 0 ? "active" : '' }}">
+                                                <img class="d-block w-100" src="{{'/images/'.$photo}}" alt="First slide">
+                                                </div>
+
+                                            @endforeach
+
+                                        @else
+                                            <img class="d-block w-100" src="{{$post->photo->photo}}" alt="First slidee">
+
+                                        @endif
+
+                                    </div>
+                                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                         <div class="col-lg-3  col-md-3">
@@ -101,9 +145,9 @@
                             </div>
                         </div>
                         <div class="col-lg-9 col-md-9 blog_details">
-                            <h2>{{$post->body}}</h2>
+                            <h2>{{$post->title}}</h2>
                             <p class="excert">
-                                Ktu shkon teksti tjeter.
+                                {{$post->body}}
                             </p>
                             @if(auth()->check())
                             @if(auth()->user()->id == $post->user_id)

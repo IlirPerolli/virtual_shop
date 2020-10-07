@@ -20,6 +20,17 @@
                                 {{session('added_post')}}
                             </div>
                         @endif
+
+                            @error('title')
+                            <div class="alert alert-danger" role="alert">
+                                {{$message}}
+                            </div>
+                            @enderror
+                            @error('body')
+                            <div class="alert alert-danger" role="alert">
+                                {{$message}}
+                            </div>
+                            @enderror
                             @error('photo_id')
                             <div class="alert alert-danger" role="alert">
                                 {{$message}}
@@ -31,12 +42,14 @@
                         <form action="{{route('post.store')}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('POST')
-
                             <div class="mt-10">
-                                <textarea class="single-textarea" name="body" placeholder="Description" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Description'"></textarea>
+                                <input type="text" class="single-input" name="title" placeholder="Title" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Title'" value="{{ old('title') }}"/>
                             </div>
                             <div class="mt-10">
-                                <input type="file" name="photo_id" class="single-input">
+                                <textarea class="single-textarea" name="body" placeholder="Description" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Description'">{{@old('body')}}</textarea>
+                            </div>
+                            <div class="mt-10">
+                                <input type="file" name="photo_id[]" multiple class="single-input">
                             </div>
                             <div class="mt-10 float-right">
                                 <button class="genric-btn primary circle arrow" type="submit" >Create <span class="lnr lnr-arrow-right"></span></button>

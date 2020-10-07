@@ -10,14 +10,31 @@
                     <div class="col-lg-3 col-md-4 col-sm-6 ap">
                         <div style="text-align: left"><a href="{{route('user.show',$post->user->slug)}}" style="color:#777777;">{{"@".$post->user->username}}</a></div>
                         <div class="h_gallery_item" >
-                            <img src="{{$post->photo->photo}}" alt="" >
+                            @if (strpos($post->photo->photo,',') !== false)
+                                @foreach(explode(',',$post->photo->photo) as $photo)
+                                    <img src="{{'/images/'.$photo}}" alt="">
+                                    @break
+                                @endforeach
+
+                            @else
+                                <img src="{{$post->photo->photo}}" alt="">
+                            @endif
                             <div class="hover">
-                                @if($post->body)
-                                <a href="{{route('post.show',$post->slug)}}"><h4>{{$post->body}}</h4></a>
+                                @if($post->title)
+                                <a href="{{route('post.show',$post->slug)}}"><h4>{{$post->title}}</h4></a>
                                 @else
                                     <a href="{{route('post.show',$post->slug)}}"><h4>(No description)</h4></a>
                                 @endif
-                                <a class="light" href="{{$post->photo->photo}}"><i class="fa fa-expand"></i></a>
+
+                                    @if (strpos($post->photo->photo,',') !== false)
+                                        @foreach(explode(',',$post->photo->photo) as $photo)
+                                            <a class="light" href="{{'/images/'.$photo}}"><i class="fa fa-expand"></i></a>
+                                            @break
+                                        @endforeach
+
+                                    @else
+                                        <a class="light" href="{{$post->photo->photo}}"><i class="fa fa-expand"></i></a>
+                                    @endif
                             </div>
 
                         </div>

@@ -28,13 +28,22 @@ class PostsController extends Controller
 
         $user = Auth::user();
         $input = $request->all();
-        if ($file = $request->file('photo_id')){
-            $request->validate(['photo_id'=>'required|mimes:jpeg,png,jpg,svg|max:2048']);
-            $name = time().$file->getClientOriginalName();
-            $file->move('images', $name);
+        $request->validate(['photo_id'=>'required','photo_id.*' => 'image|mimes:jpeg,png,jpg,,svg|max:2048',
+            'title'=>'required|max:255|min:2',
+            'body'=>'required|max:1000|min:2'
+            ]);
+        $images = array();
+        if ($files = $request->file('photo_id')){
+
+            foreach ($files as $file) {
+                $name = time() . $file->getClientOriginalName();
+                $file->move('images', $name);
+                $images[] = $name;
+            }
+
             //$upload_url = public_path('/images').'/'.$name;
             //$filename = $this->compress_image($_FILES["photo_id"]["tmp_name"], $upload_url, 40);
-            $photo = Photo::create(['photo'=>$name]);
+            $photo = Photo::create(['photo'=>implode(",", $images)]);
             $input['photo_id']=$photo->id;
         }
         if($request->body == null){
@@ -112,7 +121,17 @@ class PostsController extends Controller
             abort(403, 'Unauthorized action.');
         }
         if ($post->photo){
-            unlink(public_path().$post->photo->photo);
+            if (strpos($post->photo->photo,',') !== false){
+                foreach(explode(',',$post->photo->photo) as $photo){
+                    unlink(public_path()."/images/".$photo);
+                }
+
+            }
+            else{
+                unlink(public_path().$post->photo->photo);
+            }
+
+
         }
         $post->delete();
         session()->flash('deleted_post', 'The post has been deleted');

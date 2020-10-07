@@ -11,6 +11,12 @@ class Photo extends Model
     protected $uploads = '/images/';
     protected $fillable = ['photo'];
     public function getPhotoAttribute($value){
-        return $this->uploads.$value;
+        if (strpos($value,',') === false){
+            return $this->uploads.$value;
+        }
+        else {
+            return $value;
+        }
+
     }
 }
