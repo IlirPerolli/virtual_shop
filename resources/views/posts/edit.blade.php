@@ -18,6 +18,22 @@
                                     {{session('nothing_updated')}}
                                 </div>
                             @endif
+                            @error('title')
+                            <div class="alert alert-danger" role="alert">
+                                {{$message}}
+                            </div>
+                            @enderror
+                            @error('body')
+                            <div class="alert alert-danger" role="alert">
+                                {{$message}}
+                            </div>
+                            @enderror
+                            @error('price')
+                            <div class="alert alert-danger" role="alert">
+                                {{$message}}
+                            </div>
+                            @enderror
+
                         <h3 class="mb-30 title_color">Edit Post</h3>
 
 
@@ -26,9 +42,14 @@
                             @method('PUT')
 
                             <div class="mt-10">
+                                <input type="text" class="single-input" name="title" placeholder="Title" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Title'" value="{{$post->title}}"/>
+                            </div>
+                            <div class="mt-10">
                                 <textarea class="single-textarea" name="body" placeholder="Description" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Description'">{{$post->body}}</textarea>
                             </div>
-
+                            <div class="mt-10">
+                                <input type="number" class="single-input" name="price" placeholder="Price" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Price'" value="{{ $post->price}}" step="0.01"/>
+                            </div>
                             <div class="mt-10 float-right">
                                 <button class="genric-btn primary circle arrow" type="submit" >Edit <span class="lnr lnr-arrow-right"></span></button>
 

@@ -31,9 +31,6 @@ Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::middleware('auth')->group(function(){
     Route::get('/posts/create', 'App\Http\Controllers\PostsController@create_multiple')->name('post.create.multiple');
     Route::post('/posts/create','App\Http\Controllers\PostsController@store_multiple')->name('post.store.multiple');
-    Route::get('/posts/creates', function (){
-       return view('posts.create1');
-    });
     Route::post('/posts/creates','App\Http\Controllers\PostsController@store_multiple1')->name('post.store.multiple1');
     Route::get('/post/create','App\Http\Controllers\PostsController@create')->name('post.create');
     Route::post('post','App\Http\Controllers\PostsController@store')->name('post.store');
@@ -55,7 +52,7 @@ Route::middleware('auth')->group(function(){
     Route::resource('comment/reply', 'App\Http\Controllers\CommentRepliesController');
     Route::post('/post/{post}/like', 'App\Http\Controllers\LikesController@like')->name('post.like');
     Route::post('/post/{post}/unlike', 'App\Http\Controllers\LikesController@unlike')->name('post.unlike');
-
+    Route::resource('/admin/category', 'App\Http\Controllers\CategoriesController');
 });
 //Route::resource('/post', 'PostsController');
 //Route::resource('/user', 'UserProfileController');

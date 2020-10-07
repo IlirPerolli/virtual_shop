@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Photo;
 use App\Models\Post;
 use Cviebrock\EloquentSluggable\Services\SlugService;
@@ -17,7 +18,8 @@ class PostsController extends Controller
     }
     public function create()
     {
-        return view('posts.create');
+        $categories = Category::all();
+        return view('posts.create', compact('categories'));
     }
     public function create_multiple()
     {
@@ -28,9 +30,10 @@ class PostsController extends Controller
 
         $user = Auth::user();
         $input = $request->all();
-        $request->validate(['photo_id'=>'required','photo_id.*' => 'image|mimes:jpeg,png,jpg,,svg|max:2048',
+        $request->validate(['photo_id'=>'required','photo_id.*' => 'image|mimes:jpeg,png,jpg,,svg|max:4096',
             'title'=>'required|max:255|min:2',
-            'body'=>'required|max:1000|min:2'
+            'body'=>'required|max:1000|min:2',
+            'category' => 'required|integer',
             ]);
         $images = array();
         if ($files = $request->file('photo_id')){
@@ -96,14 +99,22 @@ class PostsController extends Controller
         if (auth()->user()->id != $post->user->id){
             abort(403, 'Unauthorized action.');
         }
+
+        $post->title = $request->title;
         $post->body = $request->body;
-        if($post->isDirty('body')){
-            if($request->body == null){
+        $post->price = $request->price;
+        $slug = $post->slug;
+        $request->validate([ 'title'=>'required|max:255|min:2',
+            'body'=>'required|max:1000|min:2',
+            'price'=>'required|numeric|min:0']);
+        if($post->isDirty('title') || $post->isDirty('body') || $post->isDirty('price') ){
+            if($request->title == null){
                $slug = $post->slug = time().Str::random(30);
             }
-            else{
-                $slug = SlugService::createSlug(Post::class, 'slug', $post->body);
+            else if ($post->isDirty('title')){
+                $slug = SlugService::createSlug(Post::class, 'slug', $post->title);
             }
+
             session()->flash('post_updated', 'Post has been updated');
             $post->save();
             return redirect()->route('post.edit',$slug);

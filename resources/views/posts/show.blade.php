@@ -46,15 +46,16 @@
                                         @if (strpos($post->photo->photo,',') !== false)
                                             @foreach(explode(',',$post->photo->photo) as $photo)
 {{--                                                Per te pare se ne cilin iterim eshte perdoret $loop --}}
-                                                <div class="carousel-item {{$loop->index == 0 ? "active" : '' }}">
-                                                <img class="d-block w-100" src="{{'/images/'.$photo}}" alt="First slide">
+                                                <div class="carousel-item {{$loop->index == 0 ? "active" : '' }}" style="max-height: 600px">
+                                                <img class="d-block img-fluid" src="{{'/images/'.$photo}}" style="max-height: 600px; margin:auto" alt="First slide">
                                                 </div>
 
                                             @endforeach
 
                                         @else
-                                            <img class="d-block w-100" src="{{$post->photo->photo}}" alt="First slidee">
-
+                                            <div class="carousel-item active" style="max-height: 600px">
+                                            <img class="d-block w-100" src="{{$post->photo->photo}}"  style="max-height: 600px; margin:auto" alt="First slide">
+                                            </div>
                                         @endif
 
                                     </div>
