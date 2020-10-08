@@ -54,7 +54,7 @@
 
                                         @else
                                             <div class="carousel-item active" style="max-height: 600px">
-                                            <img class="d-block w-100" src="{{$post->photo->photo}}"  style="max-height: 600px; margin:auto" alt="First slide">
+                                            <img class="d-block img-fluid" src="{{$post->photo->photo}}"  style="max-height: 600px; margin:auto" alt="First slide">
                                             </div>
                                         @endif
 

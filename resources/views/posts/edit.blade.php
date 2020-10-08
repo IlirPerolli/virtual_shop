@@ -38,7 +38,7 @@
                                 {{$message}}
                             </div>
                             @enderror
-                            @error('category')
+                            @error('category_id')
                             <div class="alert alert-danger" role="alert">
                                 {{$message}}
                             </div>

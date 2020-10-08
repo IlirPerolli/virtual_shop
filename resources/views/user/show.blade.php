@@ -15,8 +15,12 @@
                 width: 90% !important;
                 margin: auto !important;
             }
+            .follow-form{
+                text-align: center !important;
+            }
             .media{
                 width: 100%;
+                text-align: center;
                 margin: 0!important;
                 display: inline-block;
             }
@@ -32,6 +36,9 @@
             .media{
                 width: auto !important;
             }
+        }
+        .follow-form{
+            text-align: left;
         }
     </style>
 @endsection
@@ -104,7 +111,7 @@
 {{--</div>--}}
 
 <div class="col-lg-6 col-12 m-auto" style="margin-top: 140px!important;">
-    <div class="media m-auto" style=" width: 500px">
+    <div class="media m-auto " style=" width: 500px">
     <img class="align-self-center mr-3 rounded-circle author_img" src="{{$user->photo->photo}}" alt="Generic placeholder image rounded-circle" alt="{{$user->name . " ". $user->surname}}" width="200px" height="200px">
 
         <div class="media-body ml-2">
@@ -113,7 +120,7 @@
         <h6 style="color:black;">Posts {{$user_posts}} | <a href="{{route('followings',$user->slug)}}" style="color:black">Following {{$followings}}</a> | <a href="{{route('followers',$user->slug)}}" style="color:black">Followers {{$followers}}</a></h6>
         <h5 class="mt-0">{{$user->name . " ". $user->surname}}</h5>
         <p>{{$user->bio}}</p>
-        <div style="margin:auto 0; text-align: left; margin-top:20px">
+        <div style="margin:auto 0; margin-top:20px" class="follow-form">
             @if(auth()->check() && auth()->user()->id != $user->id)
 
                 @if (auth()->user()->followings->contains($user->id))
