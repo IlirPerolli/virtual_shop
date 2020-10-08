@@ -52,7 +52,7 @@ Route::middleware('auth')->group(function(){
     Route::resource('comment/reply', 'App\Http\Controllers\CommentRepliesController');
     Route::post('/post/{post}/like', 'App\Http\Controllers\LikesController@like')->name('post.like');
     Route::post('/post/{post}/unlike', 'App\Http\Controllers\LikesController@unlike')->name('post.unlike');
-    Route::resource('/admin/category', 'App\Http\Controllers\CategoriesController');
+    Route::resource('category', 'App\Http\Controllers\CategoriesController');
 });
 //Route::resource('/post', 'PostsController');
 //Route::resource('/user', 'UserProfileController');

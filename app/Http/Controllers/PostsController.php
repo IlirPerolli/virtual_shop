@@ -33,8 +33,15 @@ class PostsController extends Controller
         $request->validate(['photo_id'=>'required','photo_id.*' => 'image|mimes:jpeg,png,jpg,,svg|max:4096',
             'title'=>'required|max:255|min:2',
             'body'=>'required|max:1000|min:2',
-            'category' => 'required|integer',
+            'price'=>'required|numeric|min:0',
+            'category_id' => 'required|integer',
             ]);
+        $category = Category::find($request->category_id);
+        if (!$category){
+            session()->flash('category_error', 'Oops... Category not found!');
+            return back();
+        }
+
         $images = array();
         if ($files = $request->file('photo_id')){
 
@@ -84,7 +91,8 @@ class PostsController extends Controller
         $views = $post->views+1;
         $post->update(['views'=>$views]);
         $comments = $post->comments;
-        return view('posts.show', compact('post','followers' , 'followings','user_posts', 'likes','views', 'comments'));
+        $category = $post->category;
+        return view('posts.show', compact('post','followers' , 'followings','user_posts', 'likes','views', 'comments', 'category'));
     }
     public function edit($slug)
     {
@@ -92,22 +100,30 @@ class PostsController extends Controller
         if (auth()->user()->id != $post->user->id){
             abort(403, 'Unauthorized action.');
         }
-        return view('posts.edit', compact('post'));
+        $categories = Category::all();
+        return view('posts.edit', compact('post','categories'));
     }
     public function update(Request $request, Post $post)
     {
         if (auth()->user()->id != $post->user->id){
             abort(403, 'Unauthorized action.');
         }
+        $category = Category::find($request->category_id);
+        if (!$category){
+            session()->flash('category_error', 'Oops... Category not found!');
+            return back();
+        }
 
         $post->title = $request->title;
         $post->body = $request->body;
         $post->price = $request->price;
+        $post->category_id = $request->category_id;
         $slug = $post->slug;
         $request->validate([ 'title'=>'required|max:255|min:2',
             'body'=>'required|max:1000|min:2',
-            'price'=>'required|numeric|min:0']);
-        if($post->isDirty('title') || $post->isDirty('body') || $post->isDirty('price') ){
+            'price'=>'required|numeric|min:0',
+            'category_id' => 'required|integer']);
+        if($post->isDirty('title') || $post->isDirty('body') || $post->isDirty('price') || $post->isDirty('category_id') ){
             if($request->title == null){
                $slug = $post->slug = time().Str::random(30);
             }

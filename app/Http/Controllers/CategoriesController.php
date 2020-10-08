@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class CategoriesController extends Controller
@@ -14,7 +15,7 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
@@ -48,9 +49,12 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        //
+
+        $category = Category::findBySlugOrFail($slug);
+        $posts = $category->posts()->paginate(20);
+        return view('categories.index', compact('posts', 'category'));
     }
 
     /**

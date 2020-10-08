@@ -20,6 +20,11 @@
                                 {{session('added_post')}}
                             </div>
                         @endif
+                            @if(session()->has('category_error'))
+                                <div class="alert alert-danger" role="alert">
+                                    {{session('category_error')}}
+                                </div>
+                            @endif
 
                             @error('title')
                             <div class="alert alert-danger" role="alert">
@@ -31,17 +36,23 @@
                                 {{$message}}
                             </div>
                             @enderror
+
+                            @error('price')
+                            <div class="alert alert-danger" role="alert">
+                                {{$message}}
+                            </div>
+                            @enderror
+                            @error('category_id')
+                            <div class="alert alert-danger" role="alert">
+                                {{$message}}
+                            </div>
+                            @enderror
                             @error('photo_id')
                             <div class="alert alert-danger" role="alert">
                                 {{$message}}
                             </div>
                             @enderror
                             @error('photo_id.*')
-                            <div class="alert alert-danger" role="alert">
-                                {{$message}}
-                            </div>
-                            @enderror
-                            @error('category')
                             <div class="alert alert-danger" role="alert">
                                 {{$message}}
                             </div>
@@ -59,16 +70,16 @@
                                 <textarea class="single-textarea" name="body" placeholder="Description" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Description'">{{@old('body')}}</textarea>
                             </div>
                             <div class="mt-10">
-                                <input type="number" class="single-input" name="price" placeholder="Price" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Price'" value="{{ old('price') }}" step="0.01"/>
+                                <input type="number" class="single-input" name="price" placeholder="Price" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Price'" value="{{ old('price') }}" step="0.01" min="0"/>
                             </div>
                             <div class="input-group-icon mt-10">
                                 <div class="form-select" id="default-select">
 
                                     <div class="icon"> <i class="fa fa-list" aria-hidden="true" style="margin-top: 15px"></i></div>
-                                    <select name="category">
+                                    <select name="category_id">
                                         <option value="" selected>Category</option>
                                        @foreach($categories as $category)
-                                            <option value="{{$category->id}}" {{ old('category') == $category->id ? 'selected' : ''}} >{{$category->name}}</option>
+                                            <option value="{{$category->id}}" {{ old('category_id') == $category->id ? 'selected' : ''}} >{{$category->name}}</option>
                                         @endforeach
                                     </select>
                                 </div>

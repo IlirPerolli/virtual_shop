@@ -18,6 +18,11 @@
                                     {{session('nothing_updated')}}
                                 </div>
                             @endif
+                            @if(session()->has('category_error'))
+                                <div class="alert alert-danger" role="alert">
+                                    {{session('category_error')}}
+                                </div>
+                            @endif
                             @error('title')
                             <div class="alert alert-danger" role="alert">
                                 {{$message}}
@@ -33,6 +38,12 @@
                                 {{$message}}
                             </div>
                             @enderror
+                            @error('category')
+                            <div class="alert alert-danger" role="alert">
+                                {{$message}}
+                            </div>
+                            @enderror
+
 
                         <h3 class="mb-30 title_color">Edit Post</h3>
 
@@ -49,6 +60,18 @@
                             </div>
                             <div class="mt-10">
                                 <input type="number" class="single-input" name="price" placeholder="Price" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Price'" value="{{ $post->price}}" step="0.01"/>
+                            </div>
+                            <div class="input-group-icon mt-10">
+                                <div class="form-select" id="default-select">
+
+                                    <div class="icon"> <i class="fa fa-list" aria-hidden="true" style="margin-top: 15px"></i></div>
+                                    <select name="category_id">
+                                        <option value="" selected>Category</option>
+                                        @foreach($categories as $category)
+                                            <option value="{{$category->id}}" {{ $post->category->id == $category->id ? 'selected' : ''}} >{{$category->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                             </div>
                             <div class="mt-10 float-right">
                                 <button class="genric-btn primary circle arrow" type="submit" >Edit <span class="lnr lnr-arrow-right"></span></button>

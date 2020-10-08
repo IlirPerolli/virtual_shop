@@ -20,7 +20,7 @@ class CreatePostsTable extends Migration
             $table->text('title')->nullable();
             $table->text('body')->nullable();
             $table->double('price')->nullable();
-            $table->integer('category')->nullable();
+            $table->integer('category_id')->nullable();
             $table->integer('views')->default(0);
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

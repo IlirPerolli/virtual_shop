@@ -72,13 +72,9 @@
                         </div>
                         <div class="col-lg-3  col-md-3">
                             <div class="blog_info text-right">
-                                <div class="post_tag">
-                                    <a href="#">Food,</a>
-                                    <a class="active" href="#">Technology,</a>
-                                    <a href="#">Politics,</a>
-                                    <a href="#">Lifestyle</a>
-                                </div>
+
                                 <ul class="blog_meta list">
+                                    <li><a href="{{route('category.show', $post->category->slug)}}">{{$post->category->name}}<i class="fa fa-list-alt" aria-hidden="true"></i></a></li>
                                     <li><a href="{{route('user.show', $post->user->slug)}}">{{$post->user->name. " ". $post->user->surname}}<i class="lnr lnr-user"></i></a></li>
                                     <li><a href="#">{{$post->created_at->diffForHumans()}}<i class="lnr lnr-calendar-full"></i></a></li>
                                     @if(auth()->check())
