@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Http\Requests\UserEditRequest;
+use App\Models\Category;
 use App\Models\Photo;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -47,12 +48,24 @@ class UserProfileController extends Controller
      */
     public function show($slug)
     {
+        //Show users that current user may know
+        if(auth()->check()){
+
+            $users = auth()->user()->followings()->pluck('leader_id');
+            $user = auth()->user()->id;
+            $users->push($user);
+            $users = User::whereNotIn('id', $users)->orderBy('name', 'ASC')->take(5)->get();
+        }
+        else{
+            $users = User::orderBy('name', 'ASC')->take(5)->get();
+        }
         $user = User::findBySlugOrFail($slug);
         $followers = $user->followers->count();
         $followings = $user->followings->count();
         $user_posts = $user->posts->count();
         $posts = $user->posts()->orderBy('created_at', 'desc')->paginate(10);
-        return view('user.show', compact('user','posts', 'followers', 'followings','user_posts' ));
+        $categories = Category::orderBy('name', 'ASC')->take(20)->get();
+        return view('user.show', compact('user','posts', 'followers', 'followings','user_posts', 'users', 'categories' ));
     }
 
     /**

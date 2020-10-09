@@ -53,6 +53,7 @@ Route::middleware('auth')->group(function(){
     Route::post('/post/{post}/like', 'App\Http\Controllers\LikesController@like')->name('post.like');
     Route::post('/post/{post}/unlike', 'App\Http\Controllers\LikesController@unlike')->name('post.unlike');
     Route::resource('category', 'App\Http\Controllers\CategoriesController');
+    Route::resource('city','App\Http\Controllers\CitiesController');
 });
 //Route::resource('/post', 'PostsController');
 //Route::resource('/user', 'UserProfileController');

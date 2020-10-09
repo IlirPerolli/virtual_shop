@@ -23,6 +23,11 @@
                                     {{session('category_error')}}
                                 </div>
                             @endif
+                            @if(session()->has('city_error'))
+                                <div class="alert alert-danger" role="alert">
+                                    {{session('city_error')}}
+                                </div>
+                            @endif
                             @error('title')
                             <div class="alert alert-danger" role="alert">
                                 {{$message}}
@@ -39,6 +44,11 @@
                             </div>
                             @enderror
                             @error('category_id')
+                            <div class="alert alert-danger" role="alert">
+                                {{$message}}
+                            </div>
+                            @enderror
+                            @error('city_id')
                             <div class="alert alert-danger" role="alert">
                                 {{$message}}
                             </div>
@@ -73,6 +83,20 @@
                                     </select>
                                 </div>
                             </div>
+
+                            <div class="input-group-icon mt-10">
+                                <div class="form-select" id="default-select">
+
+                                    <div class="icon"> <i class="fa fa-globe" aria-hidden="true" style="margin-top: 14px"></i></div>
+                                    <select name="city_id">
+                                        <option value="" selected>City</option>
+                                        @foreach($cities as $city)
+                                            <option value="{{$city->id}}" {{ $post->city->id == $city->id ? 'selected' : ''}} >{{$city->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+
                             <div class="mt-10 float-right">
                                 <button class="genric-btn primary circle arrow" type="submit" >Edit <span class="lnr lnr-arrow-right"></span></button>
 

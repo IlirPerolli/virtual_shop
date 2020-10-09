@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\City;
 use App\Models\Photo;
 use App\Models\Post;
 use Cviebrock\EloquentSluggable\Services\SlugService;
@@ -19,7 +20,8 @@ class PostsController extends Controller
     public function create()
     {
         $categories = Category::all();
-        return view('posts.create', compact('categories'));
+        $cities = City::all();
+        return view('posts.create', compact('categories', 'cities'));
     }
     public function create_multiple()
     {
@@ -35,10 +37,16 @@ class PostsController extends Controller
             'body'=>'required|max:1000|min:2',
             'price'=>'required|numeric|min:0',
             'category_id' => 'required|integer',
+            'city_id' => 'required|integer',
             ]);
         $category = Category::find($request->category_id);
+        $city = City::find($request->city_id);
         if (!$category){
             session()->flash('category_error', 'Oops... Category not found!');
+            return back();
+        }
+        if (!$city){
+            session()->flash('city_error', 'Oops... City not found!');
             return back();
         }
 
@@ -101,7 +109,8 @@ class PostsController extends Controller
             abort(403, 'Unauthorized action.');
         }
         $categories = Category::all();
-        return view('posts.edit', compact('post','categories'));
+        $cities = City::all();
+        return view('posts.edit', compact('post','categories', 'cities'));
     }
     public function update(Request $request, Post $post)
     {
@@ -109,20 +118,28 @@ class PostsController extends Controller
             abort(403, 'Unauthorized action.');
         }
         $category = Category::find($request->category_id);
+        $city = Category::find($request->city_id);
         $post->title = $request->title;
         $post->body = $request->body;
         $post->price = $request->price;
         $post->category_id = $request->category_id;
+        $post->city_id = $request->city_id;
         $slug = $post->slug;
         $request->validate([ 'title'=>'required|max:255|min:2',
             'body'=>'required|max:1000|min:2',
             'price'=>'required|numeric|min:0',
-            'category_id' => 'required|integer']);
+            'category_id' => 'required|integer',
+            'city_id' => 'required|integer'
+            ]);
         if (!$category){
             session()->flash('category_error', 'Oops... Category not found!');
             return back();
         }
-        if($post->isDirty('title') || $post->isDirty('body') || $post->isDirty('price') || $post->isDirty('category_id') ){
+        if (!$city){
+            session()->flash('city_error', 'Oops... Category not found!');
+            return back();
+        }
+        if($post->isDirty('title') || $post->isDirty('body') || $post->isDirty('price') || $post->isDirty('category_id') || $post->isDirty('city_id') ){
             if($request->title == null){
                $slug = $post->slug = time().Str::random(30);
             }

@@ -90,10 +90,10 @@
 {{--    </nav>--}}
 {{--</section>--}}
 
-<div class="container d-flex justify-content-center" style="margin-top: 100px">
+<div class="container d-flex justify-content-center flex-wrap" style="margin-top: 100px">
 
-    <ul class="list-unstyled col-12">
-
+    <ul class="list-unstyled col-lg-9 col-12">
+        @if(count($posts)>0)
         @foreach($posts as $post)
 
             <li class="media my-4 col-12 col-md-12 col-lg-12 media-list"  style="border: 0.5px solid #DFDFDF; border-radius: 0.25rem">
@@ -122,8 +122,50 @@
                 </div>
             </li>
         @endforeach
+        @else
+            <h4 style="margin-bottom: 20px; color:red" class="text-center">No posts found</h4>
+            @endif
 
     </ul>
+    <div class="col-lg-3 col-12" >
+        <div class="card" style="width: 18rem; margin-top:24px; padding: 20px; background: #FCFCFC">
+        <h5 class="card-title text-center p-2">People you may know</h5>
+        @if(count($users)>0)
+            @foreach($users as $user)
+                <div class="media mb-4">
+                    <a href="{{route('user.show',$user->slug)}}"> <img class="align-self-start mr-3 rounded-circle" src="{{$user->photo->photo}}" alt="{{$user->name . " ". $user->surname}}" width="50px" height="50px"></a>
+                    <div class="media-body">
+
+                            <a href="{{route('user.show',$user->slug)}}"> <h5 class="mt-0">{{$user->name . " ". $user->surname}}</h5></a>
+                            <form action="{{route('user.follow',$user->id)}}" method="post">
+
+                                @csrf
+                                @method('post')
+                                <button type="submit" class="btn btn-link" style="padding:0; margin:0; margin-top: -15px; cursor: pointer; text-decoration: none">Follow</button>
+                            </form>
+
+
+                    </div>
+                </div>
+
+            @endforeach
+        @else
+            <h4 style="margin-bottom: 20px; color:red" class="text-center">No users found</h4>
+        @endif
+        </div>
+
+
+        <div class="card" style="width: 18rem; margin-top:24px; padding: 20px; background: #FCFCFC">
+        <h5 class="card-title text-center p-2">Explore categories</h5>
+        <div style="display: inline-block" class="pb-4">
+
+            @foreach($categories as $category)
+                <a href="{{route('category.show',$category->slug)}}" style="padding: 5px">{{$category->name}}</a>
+            @endforeach
+        </div></div>
+
+
+    </div>
 
 </div>
 <nav aria-label="Pagination">
