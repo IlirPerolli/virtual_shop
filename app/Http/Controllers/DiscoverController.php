@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -29,11 +30,15 @@ class DiscoverController extends Controller
 
             $posts = Post::whereNotIn('user_id', $users)->orderBy('created_at', 'DESC')->paginate(20);
 
-            return view('discover.posts', compact('posts'));
+            $users = User::whereNotIn('id', $users)->orderBy('name', 'ASC')->take(5)->get();
+            $categories = Category::orderBy('name', 'ASC')->take(20)->get();
+            return view('discover.posts', compact('posts', 'users', 'categories'));
         }
         else{
             $posts = Post::orderBy('created_at', 'desc')->paginate(20);
-            return view('discover.posts', compact('posts'));
+            $users = User::orderBy('name', 'ASC')->take(5)->get();
+            $categories = Category::orderBy('name', 'ASC')->take(20)->get();
+            return view('discover.posts', compact('posts', 'users', 'categories'));
         }
     }
     public function users(){

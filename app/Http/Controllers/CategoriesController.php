@@ -65,7 +65,7 @@ class CategoriesController extends Controller
         }
 
         $category = Category::findBySlugOrFail($slug);
-        $posts = $category->posts()->paginate(20);
+        $posts = $category->posts()->orderBy('created_at','DESC')->paginate(20);
         $categories = Category::orderBy('name', 'ASC')->take(20)->get();
         return view('categories.index', compact('posts', 'category', 'users', 'categories' ));
     }

@@ -53,6 +53,12 @@ Route::middleware('auth')->group(function(){
     Route::post('/post/{post}/like', 'App\Http\Controllers\LikesController@like')->name('post.like');
     Route::post('/post/{post}/unlike', 'App\Http\Controllers\LikesController@unlike')->name('post.unlike');
 
+    Route::get('/city/create','App\Http\Controllers\CitiesController@create')->name('city.create');
+    Route::post('/city','App\Http\Controllers\CitiesController@store')->name('city.store');
+    Route::get('/category/create','App\Http\Controllers\CategoriesController@create')->name('category.create');
+    Route::post('/category','App\Http\Controllers\CategoriesController@store')->name('category.store');
+
+
 });
 //Route::resource('/post', 'PostsController');
 //Route::resource('/user', 'UserProfileController');
@@ -68,8 +74,12 @@ Route::get('/discover/users', 'App\Http\Controllers\DiscoverController@users')->
 
 Route::get('/user/{user}/followings', 'App\Http\Controllers\ProfileController@followings')->name('followings');
 Route::get('/user/{user}/followers', 'App\Http\Controllers\ProfileController@followers')->name('followers');
-Route::resource('category', 'App\Http\Controllers\CategoriesController');
-Route::resource('city','App\Http\Controllers\CitiesController');
+
+
+Route::get('/city/{city}','App\Http\Controllers\CitiesController@show')->name('city.show');
+Route::get('/category/{category}','App\Http\Controllers\CategoriesController@show')->name('category.show');
+
+
 Route::get('/search', 'App\Http\Controllers\SearchController@index')->name('search');
 //Route::get('/check', 'App\Http\Controllers\PostsController@check');
 

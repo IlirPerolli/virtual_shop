@@ -72,6 +72,7 @@
                     <a href="{{route('category.show',$category->slug)}}" style="padding: 5px">{{$category->name}}</a>
                 @endforeach
             </div></div>
+        
 
 
     </div>
