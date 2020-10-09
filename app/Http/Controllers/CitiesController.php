@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\City;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class CitiesController extends Controller
@@ -50,9 +52,22 @@ class CitiesController extends Controller
      */
     public function show($slug)
     {
+        //Show users that current user may know
+        if(auth()->check()){
+
+            $users = auth()->user()->followings()->pluck('leader_id');
+            $user = auth()->user()->id;
+            $users->push($user);
+            $users = User::whereNotIn('id', $users)->orderBy('name', 'ASC')->take(5)->get();
+        }
+        else{
+            $users = User::orderBy('name', 'ASC')->take(5)->get();
+        }
+
         $city = City::findBySlugOrFail($slug);
+        $categories = Category::orderBy('name', 'ASC')->take(20)->get();
         $posts = $city->posts()->paginate(20);
-        return view('cities.index', compact('posts', 'city'));
+        return view('cities.index', compact('posts', 'city',  'users', 'categories'));
     }
 
     /**

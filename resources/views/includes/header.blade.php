@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="{{asset('vendors/animate-css/animate.css')}}">
     <!-- main css -->
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('css/gallery-style.css')}}">
     <link rel="stylesheet" href="{{asset('css/responsive.css')}}">
     @yield('styles')
 </head>

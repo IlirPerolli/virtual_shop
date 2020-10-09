@@ -52,8 +52,7 @@ Route::middleware('auth')->group(function(){
     Route::resource('comment/reply', 'App\Http\Controllers\CommentRepliesController');
     Route::post('/post/{post}/like', 'App\Http\Controllers\LikesController@like')->name('post.like');
     Route::post('/post/{post}/unlike', 'App\Http\Controllers\LikesController@unlike')->name('post.unlike');
-    Route::resource('category', 'App\Http\Controllers\CategoriesController');
-    Route::resource('city','App\Http\Controllers\CitiesController');
+
 });
 //Route::resource('/post', 'PostsController');
 //Route::resource('/user', 'UserProfileController');
@@ -69,7 +68,8 @@ Route::get('/discover/users', 'App\Http\Controllers\DiscoverController@users')->
 
 Route::get('/user/{user}/followings', 'App\Http\Controllers\ProfileController@followings')->name('followings');
 Route::get('/user/{user}/followers', 'App\Http\Controllers\ProfileController@followers')->name('followers');
-
+Route::resource('category', 'App\Http\Controllers\CategoriesController');
+Route::resource('city','App\Http\Controllers\CitiesController');
 Route::get('/search', 'App\Http\Controllers\SearchController@index')->name('search');
 //Route::get('/check', 'App\Http\Controllers\PostsController@check');
 

@@ -1,47 +1,5 @@
 @extends('layouts.index')
-@section('styles')
-    <style>body{
-            background: #F9F9FF;
-        }
-        @media screen and (max-width: 340px) {
-            .card{
-                width:100% !important;
-            }
 
-        }
-        @media screen and (max-width: 640px){
-            .author_img{
-                margin:0!important;
-                width: 90% !important;
-                margin: auto !important;
-            }
-            .follow-form{
-                text-align: center !important;
-            }
-            .media{
-                width: 100%;
-                text-align: center;
-                margin: 0!important;
-                display: inline-block;
-            }
-            .media-body{
-                margin: 0!important;
-                margin-top: 15px!important;
-                width: 90% !important;
-            }
-
-        }
-
-        @media screen and (max-width: 940px){
-            .media{
-                width: auto !important;
-            }
-        }
-        .follow-form{
-            text-align: left;
-        }
-    </style>
-@endsection
 @section('title')
     <title>{{$user->name . " ". $user->surname}} &#8226; Profile</title>
 @endsection

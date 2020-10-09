@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class CategoriesController extends Controller
@@ -51,10 +52,22 @@ class CategoriesController extends Controller
      */
     public function show($slug)
     {
+        //Show users that current user may know
+        if(auth()->check()){
+
+            $users = auth()->user()->followings()->pluck('leader_id');
+            $user = auth()->user()->id;
+            $users->push($user);
+            $users = User::whereNotIn('id', $users)->orderBy('name', 'ASC')->take(5)->get();
+        }
+        else{
+            $users = User::orderBy('name', 'ASC')->take(5)->get();
+        }
 
         $category = Category::findBySlugOrFail($slug);
         $posts = $category->posts()->paginate(20);
-        return view('categories.index', compact('posts', 'category'));
+        $categories = Category::orderBy('name', 'ASC')->take(20)->get();
+        return view('categories.index', compact('posts', 'category', 'users', 'categories' ));
     }
 
     /**
