@@ -57,7 +57,9 @@
                     @endif
                     @if(auth()->check())
                         <li class="nav-item submenu dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{auth()->user()->name . " ". auth()->user()->surname}}</a>
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                @if (auth()->user()->is_business == 1){{auth()->user()->business_name}}@else{{auth()->user()->name . " ". auth()->user()->surname}}@endif
+                               </a>
                             <ul class="dropdown-menu">
                                 <li class="nav-item"><a class="nav-link" href="{{route('user.show',auth()->user()->slug)}}">Show Profile</a></li>
                                 <li class="nav-item"><a class="nav-link" href="{{route('user.edit',auth()->user()->slug)}}">Edit profile</a></li>

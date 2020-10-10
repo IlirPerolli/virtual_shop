@@ -88,7 +88,7 @@
                             <aside class="single_sidebar_widget author_widget">
                                 <img class="author_img rounded-circle" src="{{$user->photo->photo}}" alt="" style="width:200px; height: 200px">
                                     <a href="{{route('user.photo.edit')}}">Edit photo</a>
-                                <h4 style="margin-top: 10px!important;">{{$user->name . " ". $user->surname}}</h4>
+                                <h4 style="margin-top: 10px!important;">@if($user->is_business == 1){{$user->business_name}}@else {{$user->name . " ". $user->surname}}@endif</h4>
                                 <p>{{$user->bio}}</p>
                                 <div class="social_icon">
                                     <a href="#"><i class="fa fa-facebook"></i></a>

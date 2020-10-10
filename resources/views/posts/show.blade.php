@@ -74,7 +74,7 @@
                             <div class="blog_info text-right">
 
                                 <ul class="blog_meta list">
-                                    <li><a href="{{route('user.show', $post->user->slug)}}">{{$post->user->name. " ". $post->user->surname}}<i class="lnr lnr-user"></i></a></li>
+                                    <li><a href="{{route('user.show', $post->user->slug)}}">@if($post->user->is_business == 1){{$post->user->business_name}} @else {{$post->user->name . " ". $post->user->surname}}@endif<i class="lnr lnr-user"></i></a></li>
                                     <li><a href="{{route('category.show', $post->category->slug)}}">{{$post->category->name}}<i class="fa fa-list-alt" aria-hidden="true"></i></a></li>
                                     <li><a href="{{route('city.show', $post->city->slug)}}">{{$post->city->name}}<i class="fa fa-globe" aria-hidden="true"></i></a></li>
                                     <li><a href="#">{{$post->created_at->diffForHumans()}}<i class="lnr lnr-calendar-full"></i></a></li>
@@ -210,7 +210,7 @@
                                         <a href="{{route('user.show',$comment->user->slug)}}">  <img src="{{$comment->user->photo->photo}}" alt="" style="width:50px"></a>
                                     </div>
                                     <div class="desc">
-                                        <h5><a href="{{route('user.show', $comment->user->slug)}}">{{$comment->user->name . " ". $comment->user->surname}}</a></h5>
+                                        <h5><a href="{{route('user.show', $comment->user->slug)}}">@if($comment->user->is_business == 1){{$comment->user->business_name}} @else {{$comment->user->name . " ". $comment->user->surname}}@endif</a></h5>
                                         <p class="date">{{$comment->created_at->diffForHumans()}} </p>
                                         <p class="comment">
                                             {{$comment->body}}@if(auth()->check())  @if(auth()->user()->id == $comment->user->id) <a href="{{route('comment.edit',$comment->slug)}}"><img src="{{asset('img/edit.png')}}" style="width: 15px; margin-left:5px;" title="Edit comment"></a>@endif @endif
@@ -251,7 +251,7 @@
                                         <a href="{{route('user.show',$reply->user->slug)}}"> <img src="{{$reply->user->photo->photo}}" style="width:50px" alt=""></a>
                                     </div>
                                     <div class="desc">
-                                        <h5><a href="{{route('user.show',$reply->user->slug)}}">{{$reply->user->name . " " . $reply->user->surname}}</a></h5>
+                                        <h5><a href="{{route('user.show',$reply->user->slug)}}">@if($reply->user->is_business == 1){{$reply->user->business_name}} @else {{$reply->user->name . " ". $reply->user->surname}}@endif</a></h5>
                                         <p class="date">{{$reply->created_at->diffForHumans()}} </p>
                                         <p class="comment">
                                             {{$reply->body}}@if(auth()->check())  @if(auth()->user()->id == $reply->user->id) <a href="{{route('reply.edit',$reply->slug)}}"><img src="{{asset('img/edit.png')}}" style="width: 15px; margin-left:5px;" title="Edit reply"></a>@endif @endif
@@ -306,7 +306,10 @@
 {{--                        </aside>--}}
                         <aside class="single_sidebar_widget author_widget">
                             <img class="author_img rounded-circle" src="{{$post->user->photo->photo}}" alt="" style="width:250px; height: 250px">
-                            <a href="{{route('user.show', $post->user->slug)}}"><h4>{{$post->user->name. " ". $post->user->surname}}</h4></a>
+                            <a href="{{route('user.show', $post->user->slug)}}"><h4>@if($post->user->is_business == 1)
+                                        {{$post->user->business_name}}
+                                    @else {{$post->user->name . " ". $post->user->surname}}
+                                    @endif</h4></a>
                             <p>{{$post->user->bio}}</p>
                             <div class="social_icon">
                                 <a href="#"><i class="fa fa-facebook"></i></a>
