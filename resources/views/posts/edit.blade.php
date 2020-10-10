@@ -38,6 +38,11 @@
                                 {{$message}}
                             </div>
                             @enderror
+                            @error('mobile_number')
+                            <div class="alert alert-danger" role="alert">
+                                {{$message}}
+                            </div>
+                            @enderror
                             @error('price')
                             <div class="alert alert-danger" role="alert">
                                 {{$message}}
@@ -69,6 +74,9 @@
                                 <textarea class="single-textarea" name="body" placeholder="Description" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Description'">{{$post->body}}</textarea>
                             </div>
                             <div class="mt-10">
+                            <input type="number" class="single-input" name="mobile_number" placeholder="Mobile Number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Mobile Number'" value="{{ $post->mobile_number }}" min="0"/>
+                            </div>
+                                <div class="mt-10">
                                 <input type="number" class="single-input" name="price" placeholder="Price" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Price'" value="{{ $post->price}}" step="0.01"/>
                             </div>
                             <div class="input-group-icon mt-10">

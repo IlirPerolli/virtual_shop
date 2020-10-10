@@ -71,6 +71,7 @@ Route::get('/post/{post}','App\Http\Controllers\PostsController@show')->name('po
 
 Route::get('/discover/posts', 'App\Http\Controllers\DiscoverController@posts')->name('discover.posts');
 Route::get('/discover/users', 'App\Http\Controllers\DiscoverController@users')->name('discover.users');
+Route::get('/discover/companies', 'App\Http\Controllers\DiscoverController@companies')->name('discover.companies');
 
 Route::get('/user/{user}/followings', 'App\Http\Controllers\ProfileController@followings')->name('followings');
 Route::get('/user/{user}/followers', 'App\Http\Controllers\ProfileController@followers')->name('followers');

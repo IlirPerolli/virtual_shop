@@ -19,6 +19,7 @@ class CreatePostsTable extends Migration
             $table->integer('photo_id')->unsigned()->index();
             $table->text('title')->nullable();
             $table->text('body')->nullable();
+            $table->integer('mobile_number');
             $table->double('price')->nullable();
             $table->integer('category_id')->nullable();
             $table->integer('views')->default(0);

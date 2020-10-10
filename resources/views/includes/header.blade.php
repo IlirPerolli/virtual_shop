@@ -42,6 +42,7 @@
                         <ul class="dropdown-menu">
                             <li class="nav-item"><a class="nav-link" href="{{route('discover.posts')}}">Discover Posts</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{route('discover.users')}}">Discover Users</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{route('discover.companies')}}">Discover Companies</a></li>
                             </ul>
 
                     <li class="nav-item"><a class="nav-link" href="{{route('about')}}">About</a></li>

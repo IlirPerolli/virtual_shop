@@ -21,7 +21,7 @@
     <div class="whole-wrap" style="margin-top: 150px; margin-bottom: 150px;">
         <div class="container">
 
-           <h4 class="mb-4"><span style="color: #343a40;font-size: 22px">{{$user->name. " ". $user->surname}}'s </span>Followings:</h4>
+           <h4 class="mb-4"><span style="color: #343a40;font-size: 22px">@if($user->is_business == 1){{$user->business_name}} @else {{$user->name . " ". $user->surname}}@endif's </span>Followings:</h4>
             @if(count($followings)>0)
             @foreach($followings as $following)
 
@@ -29,10 +29,10 @@
                     <a href="{{route('user.show',$following->slug)}}"> <img class="align-self-start mr-3 rounded-circle" src="{{$following->photo->photo}}" alt="{{$following->name . " ". $following->surname}}" width="50px" height="50px"></a>
                     <div class="media-body">
                         @if($following->bio)
-                            <a href="{{route('user.show',$following->slug)}}"> <h5 class="mt-0">{{$following->name . " ". $following->surname}}</h5></a>
+                            <a href="{{route('user.show',$following->slug)}}"> <h5 class="mt-0">@if($following->is_business == 1){{$following->business_name}} @else {{$following->name . " ". $following->surname}}@endif</h5></a>
                             <p style="margin-top: -5px">{{$following->bio}}</p>
                         @else
-                            <a href="{{route('user.show',$following->slug)}}"> <h5 class="mt-0">{{$following->name . " ". $following->surname}}</h5></a>
+                            <a href="{{route('user.show',$following->slug)}}"> <h5 class="mt-0">@if($following->is_business == 1){{$following->business_name}} @else {{$following->name . " ". $following->surname}}@endif</h5></a>
                             <p style="margin-top: -5px">(No bio available)</p>
                         @endif
 

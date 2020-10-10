@@ -48,13 +48,30 @@ class DiscoverController extends Controller
             $user = auth()->user()->id;
             $users->push($user);
 
-            $users = User::whereNotIn('id', $users)->orderBy('name', 'ASC')->paginate(20);
+            $users = User::whereNotIn('id', $users)->where('is_business',0)->orderBy('name', 'ASC')->paginate(20);
 
             return view('discover.users', compact('users'));
         }
         else{
-            $users = User::orderBy('name', 'ASC')->paginate(20);
+            $users = User::orderBy('name', 'ASC')->where('is_business',0)->paginate(20);
             return view('discover.users', compact('users'));
+        }
+    }
+
+    public function companies(){
+        if(auth()->check()){
+
+            $users = auth()->user()->followings()->pluck('leader_id');
+            $user = auth()->user()->id;
+            $users->push($user);
+
+            $users = User::whereNotIn('id', $users)->where('is_business',1)->orderBy('name', 'ASC')->paginate(20);
+
+            return view('discover.companies', compact('users'));
+        }
+        else{
+            $users = User::orderBy('name', 'ASC')->where('is_business',1)->paginate(20);
+            return view('discover.companies', compact('users'));
         }
     }
     /**

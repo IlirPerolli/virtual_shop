@@ -32,9 +32,10 @@ class PostsController extends Controller
 
         $user = Auth::user();
         $input = $request->all();
-        $request->validate(['photo_id'=>'required','photo_id.*' => 'image|mimes:jpeg,png,jpg,,svg|max:4096',
+        $request->validate(['photo_id'=>'required','photo_id.*' => 'image|mimes:jpeg,png,jpg,svg|max:4096',
             'title'=>'required|max:255|min:2',
             'body'=>'required|max:1000|min:2',
+            'mobile_number'=>'required|numeric|min:0',
             'price'=>'required|numeric|min:0',
             'category_id' => 'required|integer',
             'city_id' => 'required|integer',
@@ -121,12 +122,14 @@ class PostsController extends Controller
         $city = Category::find($request->city_id);
         $post->title = $request->title;
         $post->body = $request->body;
+        $post->mobile_number = $request->mobile_number;
         $post->price = $request->price;
         $post->category_id = $request->category_id;
         $post->city_id = $request->city_id;
         $slug = $post->slug;
         $request->validate([ 'title'=>'required|max:255|min:2',
             'body'=>'required|max:1000|min:2',
+            'mobile_number'=>'required|numeric|min:0',
             'price'=>'required|numeric|min:0',
             'category_id' => 'required|integer',
             'city_id' => 'required|integer'
@@ -139,7 +142,7 @@ class PostsController extends Controller
             session()->flash('city_error', 'Oops... Category not found!');
             return back();
         }
-        if($post->isDirty('title') || $post->isDirty('body') || $post->isDirty('price') || $post->isDirty('category_id') || $post->isDirty('city_id') ){
+        if($post->isDirty('title') || $post->isDirty('body') || $post->isDirty('price') || $post->isDirty('category_id') || $post->isDirty('city_id') || $post->isDirty('mobile_number') ){
             if($request->title == null){
                $slug = $post->slug = time().Str::random(30);
             }
