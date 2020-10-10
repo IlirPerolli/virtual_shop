@@ -45,7 +45,10 @@
                         <a href="{{route('user.show',$user->slug)}}"> <img class="align-self-start mr-3 rounded-circle" src="{{$user->photo->photo}}" alt="{{$user->name . " ". $user->surname}}" width="50px" height="50px"></a>
                         <div class="media-body">
 
-                            <a href="{{route('user.show',$user->slug)}}"> <h5 class="mt-0">{{$user->name . " ". $user->surname}}</h5></a>
+                            <a href="{{route('user.show',$user->slug)}}"> <h5 class="mt-0">@if($user->is_business == 1)
+                                        {{$user->business_name}}
+                                    @else {{$user->name . " ". $user->surname}}
+                                    @endif</h5></a>
                             <form action="{{route('user.follow',$user->id)}}" method="post">
 
                                 @csrf
@@ -72,7 +75,7 @@
                     <a href="{{route('category.show',$category->slug)}}" style="padding: 5px">{{$category->name}}</a>
                 @endforeach
             </div></div>
-        
+
 
 
     </div>

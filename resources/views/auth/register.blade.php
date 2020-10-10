@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -37,20 +38,49 @@
                                 @enderror
                             </div>
                         </div>
+
                         <div class="form-group row">
+                            <div class="col-md-4"></div>
+
+                            <div class="col-md-6">
+                                <div class="custom-control custom-radio custom-control-inline" >
+                                    <input type="radio" id="is_business1" name="is_business" {{ old('is_business') == 0 ? 'checked' : ''}} class="custom-control-input" value="0" onclick="hideCompany()">
+                                    <label class="custom-control-label" for="is_business1">Individ</label>
+                                </div>
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" id="is_business2" name="is_business" {{ old('is_business') == 1 ? 'checked' : ''}} class="custom-control-input" value="1" onclick="showCompany()">
+                                    <label class="custom-control-label" for="is_business2">Company</label>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-group row">
+                        <div class="col-md-4"></div>
+
+                        <div class="col-md-6">
+                        @error('is_business')
+                        <span class="invalid-feedback" style="display: block" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                        @enderror
+                        </div></div>
+                        <div class="form-group row" id="business">
                             <label for="business_name" class="col-md-4 col-form-label text-md-right">{{ __('Business Name') }}</label>
 
                             <div class="col-md-6">
                                 <input id="business_name" type="text" class="form-control @error('business_name') is-invalid @enderror" name="business_name" value="{{ old('business_name') }}" autocomplete="business_name" >
 
+
+
+                            </div> <div class="col-md-4"></div>
+                            <div class="col-md-6">
                                 @error('business_name')
-                                <span class="invalid-feedback" role="alert">
+                                <span class="invalid-feedback" style="display: block" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
                         </div>
-
                         <div class="form-group row">
                             <label for="username" class="col-md-4 col-form-label text-md-right">{{ __('Username') }}</label>
 
@@ -62,6 +92,7 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+
                             </div>
                         </div>
 
@@ -114,4 +145,23 @@
         </div>
     </div>
 </div>
+
+
+@section('scripts')
+    <script>
+
+
+        function hideCompany(){
+            document.getElementById('business').style.display = "none";
+        }
+        function showCompany(){
+            document.getElementById('business').style.display = "flex";
+        }
+        if(document.getElementById("is_business1").checked){
+            document.getElementById('business').style.display = "none";
+        }
+
+    </script>
+@endsection
+
 @endsection
