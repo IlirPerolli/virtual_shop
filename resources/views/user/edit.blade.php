@@ -50,12 +50,16 @@
                             @error('email')
                             <span style="color:red">{{ $message }}</span>
                             @enderror
-                            <div class="mt-10">
-                                <input type="text" name="business_name" placeholder="Business Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Business Name'" class="single-input" value="{{$user->business_name}}">
-                            </div>
-                            @error('business_name')
-                            <span style="color:red">{{ $message }}</span>
-                            @enderror
+                            @if($user->is_business == 1)
+                                <div class="mt-10">
+                                    <input type="text" name="business_name" placeholder="Business Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Business Name'" class="single-input" value="{{$user->business_name}}">
+                                </div>
+                                @error('business_name')
+                                <span style="color:red">{{ $message }}</span>
+                                @enderror
+                                @endif
+
+
                             <div class="mt-10">
                                 <textarea class="single-textarea" placeholder="Bio" name="bio" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Bio'">{{$user->bio}}</textarea>
                             </div>
