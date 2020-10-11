@@ -78,6 +78,7 @@
                                     <li><a href="{{route('category.show', $post->category->slug)}}">{{$post->category->name}}<i class="fa fa-list-alt" aria-hidden="true"></i></a></li>
                                     <li><a href="{{route('city.show', $post->city->slug)}}">{{$post->city->name}}<i class="fa fa-globe" aria-hidden="true"></i></a></li>
                                     <li><a href="#">{{$post->mobile_number}}<i class="fa fa-phone" aria-hidden="true"></i></a></li>
+                                    <li><a href="#">{{$post->price}} &#8364;<i class="fa fa-money" aria-hidden="true"></i></a></li>
                                     <li><a href="#">{{$post->created_at->diffForHumans()}}<i class="lnr lnr-calendar-full"></i></a></li>
                                     @if(auth()->check())
                                     @if($post->user_id == auth()->user()->id)

@@ -21,11 +21,16 @@
                         </div>
                     @endif
 
-                    @error('title')
+                    @error('name')
                     <div class="alert alert-danger" role="alert">
                         {{$message}}
                     </div>
                     @enderror
+                        @error('photo_id')
+                        <div class="alert alert-danger" role="alert">
+                            {{$message}}
+                        </div>
+                        @enderror
 
                     <h3 class="mb-30 title_color">Add Category</h3>
 
@@ -49,7 +54,7 @@
 
             </div>
             @if(session()->has('deleted_category'))
-                <div class="alert alert-danger" role="alert">
+                <div class="alert alert-danger mt-4" role="alert">
                     {{session('deleted_category')}}
                 </div>
             @endif

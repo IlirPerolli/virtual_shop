@@ -17,7 +17,7 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        $categories = Category::orderBy('name','asc')->get();
+        $categories = Category::orderBy('name','asc')->paginate(10);
         return view('categories.index', compact('categories'));
     }
 
@@ -40,12 +40,14 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate(['name'=>'required|min:2|max:255','photo_id'=>'required','photo_id.*' => 'image|mimes:jpeg,png,jpg,svg|max:4096']);
+        $request->validate(['name'=>'required|min:2|max:255','photo_id'=>'required|image|mimes:jpeg,png,jpg,svg|max:4096']);
         $input = $request->all();
         if ($file = $request->file('photo_id')){
 
                 $name = time() . $file->getClientOriginalName();
-                $file->move('images', $name);
+            $upload_url = public_path('/images').'/'.$name;
+            $filename = $this->compress_image($_FILES["photo_id"]["tmp_name"], $upload_url, 40);
+              //  $file->move('images', $name);
 
             }
 
@@ -124,5 +126,16 @@ class CategoriesController extends Controller
         $category->delete();
         session()->flash('deleted_category', 'The category has been deleted');
         return back();
+    }
+        public  function compress_image($source_url, $destination_url, $quality) {
+        $info = getimagesize($source_url);
+        if ($info['mime'] == 'image/jpeg')
+            $image = imagecreatefromjpeg($source_url);
+        elseif ($info['mime'] == 'image/gif')
+            $image = imagecreatefromgif($source_url);
+        elseif ($info['mime'] == 'image/png')
+            $image = imagecreatefrompng($source_url);
+        imagejpeg($image, $destination_url, $quality);
+        return $destination_url;
     }
 }

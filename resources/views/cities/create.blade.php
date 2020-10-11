@@ -48,7 +48,7 @@
             </div>
 
             @if(session()->has('deleted_city'))
-                <div class="alert alert-danger" role="alert">
+                <div class="alert alert-danger mt-4" role="alert">
                     {{session('deleted_city')}}
                 </div>
             @endif
