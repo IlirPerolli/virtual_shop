@@ -68,7 +68,7 @@
 
 
         <div class="card" style="width: 18rem; margin-top:24px; padding: 20px; background: #FCFCFC">
-            <h5 class="card-title text-center p-2">Explore categories</h5>
+            <a href="{{route('categories')}}"><h5 class="card-title text-center p-2">Explore categories</h5></a>
             <div style="display: inline-block" class="pb-4">
 
                 @foreach($categories as $category)

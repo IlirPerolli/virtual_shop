@@ -23,9 +23,12 @@ class Category extends Model
         ];
     }
     use HasFactory;
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'photo_id'];
     public function posts(){
 
         return $this->hasMany(Post::class);
+    }
+    public function photo(){
+        return $this->belongsTo(Photo::class);
     }
 }

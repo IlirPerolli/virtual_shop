@@ -47,6 +47,38 @@
 
             </div>
 
+            @if(session()->has('deleted_city'))
+                <div class="alert alert-danger" role="alert">
+                    {{session('deleted_city')}}
+                </div>
+            @endif
+            <table class="table table-bordered" style="margin-top: 50px">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">City</th>
+                    <th scope="col">Options</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($cities as $city)
+                    <tr>
+                        <th scope="row">{{$city->id}}</th>
+                        <td><a href="{{route('city.show',$city->slug)}}">{{$city->name}}</a></td>
+                        <td>
+                            <form action="{{route('city.destroy',$city->id)}}" method="post" style="float: right">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-outline-danger" style="cursor: pointer">Delete</button>
+                            </form>
+                        </td>
+
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+
+
         </div>
     </div>
 

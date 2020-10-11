@@ -55,8 +55,10 @@ Route::middleware('auth')->group(function(){
 
     Route::get('/city/create','App\Http\Controllers\CitiesController@create')->name('city.create');
     Route::post('/city','App\Http\Controllers\CitiesController@store')->name('city.store');
+    Route::delete('/city/{city}/destroy','App\Http\Controllers\CitiesController@destroy')->name('city.destroy');
     Route::get('/category/create','App\Http\Controllers\CategoriesController@create')->name('category.create');
     Route::post('/category','App\Http\Controllers\CategoriesController@store')->name('category.store');
+    Route::delete('/category/{category}/destroy','App\Http\Controllers\CategoriesController@destroy')->name('category.destroy');
 
 
 });
@@ -79,7 +81,7 @@ Route::get('/user/{user}/followers', 'App\Http\Controllers\ProfileController@fol
 
 Route::get('/city/{city}','App\Http\Controllers\CitiesController@show')->name('city.show');
 Route::get('/category/{category}','App\Http\Controllers\CategoriesController@show')->name('category.show');
-
+Route::get('/categories','App\Http\Controllers\CategoriesController@index')->name('categories');
 
 Route::get('/search', 'App\Http\Controllers\SearchController@index')->name('search');
 //Route::get('/check', 'App\Http\Controllers\PostsController@check');

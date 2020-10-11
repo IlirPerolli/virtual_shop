@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Photo;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -16,7 +17,8 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-
+        $categories = Category::orderBy('name','asc')->get();
+        return view('categories.index', compact('categories'));
     }
 
     /**
@@ -26,7 +28,8 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        return view ('categories.create');
+        $categories = Category::orderBy('name','asc')->get();
+        return view ('categories.create', compact('categories'));
     }
 
     /**
@@ -37,11 +40,24 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate(['name'=>'required|min:2|max:255']);
+        $request->validate(['name'=>'required|min:2|max:255','photo_id'=>'required','photo_id.*' => 'image|mimes:jpeg,png,jpg,svg|max:4096']);
         $input = $request->all();
+        if ($file = $request->file('photo_id')){
+
+                $name = time() . $file->getClientOriginalName();
+                $file->move('images', $name);
+
+            }
+
+            //$upload_url = public_path('/images').'/'.$name;
+            //$filename = $this->compress_image($_FILES["photo_id"]["tmp_name"], $upload_url, 40);
+            $photo = Photo::create(['photo'=>$name]);
+            $input['photo_id']=$photo->id;
+
         Category::create($input);
         session()->flash('added_category', 'Category added sucessfully');
         return back();
+
     }
 
     /**
@@ -67,7 +83,7 @@ class CategoriesController extends Controller
         $category = Category::findBySlugOrFail($slug);
         $posts = $category->posts()->orderBy('created_at','DESC')->paginate(20);
         $categories = Category::orderBy('name', 'ASC')->take(20)->get();
-        return view('categories.index', compact('posts', 'category', 'users', 'categories' ));
+        return view('categories.show', compact('posts', 'category', 'users', 'categories' ));
     }
 
     /**
@@ -99,8 +115,14 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Category $category)
     {
-        //
+
+      $photo = $category->photo->photo;
+      unlink(public_path().$photo);
+
+        $category->delete();
+        session()->flash('deleted_category', 'The category has been deleted');
+        return back();
     }
 }

@@ -26,7 +26,8 @@ class CitiesController extends Controller
      */
     public function create()
     {
-        return view ('cities.create');
+        $cities = City::orderBy('name', 'asc')->get();
+        return view ('cities.create', compact('cities'));
     }
 
     /**
@@ -67,7 +68,7 @@ class CitiesController extends Controller
         $city = City::findBySlugOrFail($slug);
         $categories = Category::orderBy('name', 'ASC')->take(20)->get();
         $posts = $city->posts()->orderBy('created_at','DESC')->paginate(20);
-        return view('cities.index', compact('posts', 'city',  'users', 'categories'));
+        return view('cities.show', compact('posts', 'city',  'users', 'categories'));
     }
 
     /**
@@ -99,8 +100,12 @@ class CitiesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(City $city)
     {
-        //
+
+
+        $city->delete();
+        session()->flash('deleted_city', 'The city has been deleted');
+        return back();
     }
 }
