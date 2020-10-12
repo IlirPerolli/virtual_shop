@@ -79,7 +79,7 @@
         <div class="media-body ml-2">
         <h5 class="mt-0">{{"@".$user->username}}</h5>
 
-        <h6 style="color:black;">Posts {{$user_posts}} | <a href="{{route('followings',$user->slug)}}" style="color:black">Following {{$followings}}</a> | <a href="{{route('followers',$user->slug)}}" style="color:black">Followers {{$followers}}</a></h6>
+        <h6 style="color:black;">Postime {{$user_posts}} | <a href="{{route('followings',$user->slug)}}" style="color:black">Ndjek {{$followings}}</a> | <a href="{{route('followers',$user->slug)}}" style="color:black">Ndjek&euml;s {{$followers}}</a></h6>
         <h5 class="mt-0">@if($user->is_business == 1){{$user->business_name}}@else {{$user->name . " ". $user->surname}}@endif</h5>
         <p>{{$user->bio}}</p>
         <div style="margin:auto 0; margin-top:20px" class="follow-form">

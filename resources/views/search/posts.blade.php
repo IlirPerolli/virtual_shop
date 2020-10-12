@@ -21,7 +21,7 @@
         .container{
             margin-top: 10px!important;
         }
-      
+
     </style>
 @endsection
 @section('content')
@@ -32,11 +32,11 @@
         <div class="container">
             <div class="col-lg-5 col-sm-6 m-auto" style="margin-bottom: 50px !important;">
                 <aside class="f_widget news_widget mt-5">
-                    <h3>Search Posts</h3>
+                    <h3>K&euml;rko postime</h3>
                     <form action="{{route('search.posts')}}" method="GET" role="search">
 
                         <div class="input-group d-flex flex-row">
-                            <input name="q" placeholder="Search Posts" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search Posts'" type="text" style="background:white;border: 1px solid #d6d6d6;color:black" autocomplete="off">
+                            <input name="q" placeholder="K&euml;rko postime" onfocus="this.placeholder = ''" onblur="this.placeholder = 'K&euml;rko postime'" type="text" style="background:white;border: 1px solid #d6d6d6;color:black" autocomplete="off">
                             <button class="btn sub-btn" type="submit"><span class="lnr lnr-arrow-right"></span></button>
 
                         </div>

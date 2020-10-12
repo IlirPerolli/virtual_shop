@@ -60,7 +60,7 @@
                             @enderror
 
 
-                        <h3 class="mb-30 title_color">Edit Post</h3>
+                        <h3 class="mb-30 title_color">Ndrysho Postimin</h3>
 
 
                         <form action="{{route('post.update', $post->id)}}" method="POST">
@@ -68,23 +68,23 @@
                             @method('PUT')
 
                             <div class="mt-10">
-                                <input type="text" class="single-input" name="title" placeholder="Title" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Title'" value="{{$post->title}}"/>
+                                <input type="text" class="single-input" name="title" placeholder="Titulli" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Titulli'" value="{{$post->title}}"/>
                             </div>
                             <div class="mt-10">
-                                <textarea class="single-textarea" name="body" placeholder="Description" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Description'">{{$post->body}}</textarea>
+                                <textarea class="single-textarea" name="body" placeholder="P&euml;rshkrimi" onfocus="this.placeholder = ''" onblur="this.placeholder = 'P&euml;rshkrimi'">{{$post->body}}</textarea>
                             </div>
                             <div class="mt-10">
-                            <input type="number" class="single-input" name="mobile_number" placeholder="Mobile Number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Mobile Number'" value="{{ $post->mobile_number }}" min="0"/>
+                            <input type="number" class="single-input" name="mobile_number" placeholder="Numri i telefonit" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Numri i telefonit'" value="{{ $post->mobile_number }}" min="0"/>
                             </div>
                                 <div class="mt-10">
-                                <input type="number" class="single-input" name="price" placeholder="Price" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Price'" value="{{ $post->price}}" step="0.01"/>
+                                <input type="number" class="single-input" name="price" placeholder="&Ccedil;mimi" onfocus="this.placeholder = ''" onblur="this.placeholder = '&Ccedil;mimi'" value="{{ $post->price}}" step="0.01"/>
                             </div>
                             <div class="input-group-icon mt-10">
                                 <div class="form-select" id="default-select">
 
                                     <div class="icon"> <i class="fa fa-list" aria-hidden="true" style="margin-top: 15px"></i></div>
                                     <select name="category_id">
-                                        <option value="" selected>Category</option>
+                                        <option value="" selected>Kategoria</option>
                                         @foreach($categories as $category)
                                             <option value="{{$category->id}}" {{ $post->category->id == $category->id ? 'selected' : ''}} >{{$category->name}}</option>
                                         @endforeach
@@ -97,7 +97,7 @@
 
                                     <div class="icon"> <i class="fa fa-globe" aria-hidden="true" style="margin-top: 14px"></i></div>
                                     <select name="city_id">
-                                        <option value="" selected>City</option>
+                                        <option value="" selected>Qyteti</option>
                                         @foreach($cities as $city)
                                             <option value="{{$city->id}}" {{ $post->city->id == $city->id ? 'selected' : ''}} >{{$city->name}}</option>
                                         @endforeach
@@ -106,7 +106,7 @@
                             </div>
 
                             <div class="mt-10 float-right">
-                                <button class="genric-btn primary circle arrow" type="submit" >Edit <span class="lnr lnr-arrow-right"></span></button>
+                                <button class="genric-btn primary circle arrow" type="submit" >Ndrysho <span class="lnr lnr-arrow-right"></span></button>
 
                             </div>
 

@@ -28,7 +28,7 @@
 
 
 
-            <h3 class="text-center" style="margin-bottom: 50px;">Discover Companies</h3>
+            <h3 class="text-center" style="margin-bottom: 50px;">Eksploro Kompani</h3>
             <div class="row">
                 @if(count($users)>0)
                     @foreach($users as $user)
@@ -43,7 +43,7 @@
 
                     @endforeach
                 @else
-                    <h4 style="margin-bottom: 20px; color:red; margin:auto" class="text-center">No companies found</h4>
+                    <h4 style="margin-bottom: 20px; color:red; margin:auto" class="text-center">Nuk u gjet asnj&euml; kompani</h4>
                 @endif
             </div>
 

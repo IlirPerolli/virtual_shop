@@ -26,33 +26,33 @@
                                 {{session('updated_user')}}
                             </div>
                         @endif
-                        <h3 class="mb-30 title_color">Edit Profile</h3>
+                        <h3 class="mb-30 title_color">Ndrysho profilin</h3>
 
 
                         <form action="{{route('user.update',$user->id)}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('PATCH')
                             <div class="mt-10">
-                                <input type="text" name="name" placeholder="First Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'First Name'"  class="single-input" required value="{{$user->name}}">
+                                <input type="text" name="name" placeholder="Emri" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Emri'"  class="single-input" required value="{{$user->name}}">
                             </div>
                             @error('name')
                             <span style="color:red">{{ $message }}</span>
                             @enderror
                             <div class="mt-10">
-                                <input type="text" name="surname" placeholder="Last Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Last Name'" class="single-input" required value="{{$user->surname}}">
+                                <input type="text" name="surname" placeholder="Mbiemri" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Mbiemri'" class="single-input" required value="{{$user->surname}}">
                             </div>
                             @error('surname')
                             <span style="color:red">{{ $message }}</span>
                             @enderror
                             <div class="mt-10">
-                                <input type="email" name="email" placeholder="Email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email address'" required class="single-input" value="{{$user->email}}">
+                                <input type="email" name="email" placeholder="Email-adresa" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email-adresa'" required class="single-input" value="{{$user->email}}">
                             </div>
                             @error('email')
                             <span style="color:red">{{ $message }}</span>
                             @enderror
                             @if($user->is_business == 1)
                                 <div class="mt-10">
-                                    <input type="text" name="business_name" placeholder="Business Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Business Name'" class="single-input" value="{{$user->business_name}}">
+                                    <input type="text" name="business_name" placeholder="Emri i biznesit" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Emri i biznesit'" class="single-input" value="{{$user->business_name}}">
                                 </div>
                                 @error('business_name')
                                 <span style="color:red">{{ $message }}</span>
@@ -74,7 +74,7 @@
 {{--                                <input type="password" name="password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" class="single-input">--}}
 {{--                            </div>--}}
                             <div class="mt-10 text-center">
-                                <a href="{{route('user.password.edit')}}">Change password</a>
+                                <a href="{{route('user.password.edit')}}">Ndrysho fjal&euml;kalimin</a>
                             </div>
 
                             <div class="mt-10 float-right">
@@ -87,7 +87,7 @@
                         <div class="blog_right_sidebar">
                             <aside class="single_sidebar_widget author_widget">
                                 <img class="author_img rounded-circle" src="{{$user->photo->photo}}" alt="" style="width:200px; height: 200px">
-                                    <a href="{{route('user.photo.edit')}}">Edit photo</a>
+                                    <a href="{{route('user.photo.edit')}}">Ndrysho foton</a>
                                 <h4 style="margin-top: 10px!important;">@if($user->is_business == 1){{$user->business_name}}@else {{$user->name . " ". $user->surname}}@endif</h4>
                                 <p>{{$user->bio}}</p>
                                 <div class="social_icon">
@@ -96,7 +96,7 @@
                                     <a href="#"><i class="fa fa-github"></i></a>
                                     <a href="#"><i class="fa fa-behance"></i></a>
                                 </div>
-                                <h6 style="color:black; text-align: center">Posts {{$user_posts}} | <a href="{{route('followings',$user->slug)}}" style="color:black">Following {{$followings}}</a> | <a href="{{route('followers',$user->slug)}}" style="color:black">Followers {{$followers}}</a></h6>
+                                <h6 style="color:black; text-align: center">Postime {{$user_posts}} | <a href="{{route('followings',$user->slug)}}" style="color:black">Ndjekje {{$followings}}</a> | <a href="{{route('followers',$user->slug)}}" style="color:black">Ndjek&euml;s {{$followers}}</a></h6>
                                 <p>{{$user->about}}</p>
                             </aside>
                         </div>

@@ -18,7 +18,7 @@
                                 {{session('nothing_updated')}}
                             </div>
                         @endif
-                        <h3 class="mb-30 title_color">Edit Post</h3>
+                        <h3 class="mb-30 title_color">Ndrysho p&euml;rgjigjen</h3>
 
 
                         <form action="{{route('reply.update', $reply->id)}}" method="POST">
@@ -26,11 +26,11 @@
                             @method('PUT')
 
                             <div class="mt-10">
-                                <textarea class="single-textarea" name="body" placeholder="Description" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Description'">{{$reply->body}}</textarea>
+                                <textarea class="single-textarea" name="body" placeholder="P&euml;rgjigjja" onfocus="this.placeholder = ''" onblur="this.placeholder = 'P&euml;rgjigjja'">{{$reply->body}}</textarea>
                             </div>
 
                             <div class="mt-10 float-right">
-                                <button class="genric-btn primary circle arrow" type="submit" >Edit <span class="lnr lnr-arrow-right"></span></button>
+                                <button class="genric-btn primary circle arrow" type="submit" >Ndrysho <span class="lnr lnr-arrow-right"></span></button>
 
                             </div>
 

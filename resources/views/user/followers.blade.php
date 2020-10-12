@@ -21,7 +21,7 @@
     <div class="whole-wrap" style="margin-top: 150px; margin-bottom: 150px;">
         <div class="container">
 
-            <h4 class="mb-4"><span style="color: #343a40;font-size: 22px">@if($user->is_business == 1){{$user->business_name}} @else {{$user->name . " ". $user->surname}}@endif's </span>Followers:</h4>
+            <h4 class="mb-4"><span style="color: #343a40;font-size: 22px">@if($user->is_business == 1){{$user->business_name}} @else {{$user->name . " ". $user->surname}}@endif's </span>Ndjek&euml;sit:</h4>
         @if(count($followers)>0)
             @foreach($followers as $follower)
 
@@ -41,7 +41,7 @@
 
                 @endforeach
             @else
-                <h5 class="text-center" style="color:red">No followers found.</h5>
+                <h5 class="text-center" style="color:red">Nuk u gjet asnj&euml; ndjekje.</h5>
                 @endif
 
         </div>

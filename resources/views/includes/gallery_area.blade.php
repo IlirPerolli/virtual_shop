@@ -23,7 +23,7 @@
                         @if($post->title)
                             <a href="{{route('post.show',$post->slug)}}">  <h5 class="mt-0 mb-1"> {{Str::limit($post->title, 50)}}</h5></a>
                         @else
-                            <a href="{{route('post.show',$post->slug)}}">  <h5 class="mt-0 mb-1">(No description)</h5></a>
+                            <a href="{{route('post.show',$post->slug)}}">  <h5 class="mt-0 mb-1">(Ska p&euml;rshkrim)</h5></a>
                         @endif
 
                         {{Str::limit($post->body, 200)}}
@@ -32,13 +32,13 @@
                 </li>
             @endforeach
         @else
-            <h4 style="margin-bottom: 20px; color:red" class="text-center">No posts found</h4>
+            <h4 style="margin-bottom: 20px; color:red" class="text-center">Nuk u gjet&euml;n postime</h4>
         @endif
 
     </ul>
     <div class="col-lg-3 col-12" >
         <div class="card" style="width: 18rem; margin-top:24px; padding: 20px; background: #FCFCFC">
-            <h5 class="card-title text-center p-2">People you may know</h5>
+            <h5 class="card-title text-center p-2">Njer&euml;z q&euml; mund t'i njihni</h5>
             @if(count($users)>0)
                 @foreach($users as $user)
                     <div class="media mb-4">
@@ -53,7 +53,7 @@
 
                                 @csrf
                                 @method('post')
-                                <button type="submit" class="btn btn-link" style="padding:0; margin:0; margin-top: -15px; cursor: pointer; text-decoration: none">Follow</button>
+                                <button type="submit" class="btn btn-link" style="padding:0; margin:0; margin-top: -15px; cursor: pointer; text-decoration: none">Ndjek</button>
                             </form>
 
 
@@ -63,14 +63,14 @@
 
                 @endforeach
             @else
-                <h4 style="margin-bottom: 20px; color:red" class="text-center">No users found</h4>
+                <h4 style="margin-bottom: 20px; color:red" class="text-center">Nuk u gjet&euml;n p&euml;rdorues</h4>
             @endif
-            <a href="{{route('search.users')}}"><h6 class="text-center">Search more</h6></a>
+            <a href="{{route('search.users')}}"><h6 class="text-center">K&euml;rko p&euml;rdorues</h6></a>
         </div>
 
 
         <div class="card" style="width: 18rem; margin-top:24px; padding: 20px; background: #FCFCFC">
-            <a href="{{route('categories')}}"><h5 class="card-title text-center p-2">Explore categories</h5></a>
+            <a href="{{route('categories')}}"><h5 class="card-title text-center p-2">Eksploro kategori</h5></a>
             <div style="display: inline-block" class="pb-4">
 
                 @foreach($categories as $category)

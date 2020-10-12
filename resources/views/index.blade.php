@@ -845,9 +845,9 @@
 @section('content')
     @if(@auth()->guest())
     <div class="container" style="margin-top: 150px;">
-        <h1>NewsFeed</h1>
+        <h1>Postimet</h1>
 
-            <h4 class="text-center" style="margin-bottom: 50px">You need to login to see NewsFeed</h4>
+            <h4 class="text-center" style="margin-bottom: 50px">Duhet t&euml; kyçeni të shihni postimet</h4>
 
     </div>
     @endif

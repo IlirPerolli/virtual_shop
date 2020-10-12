@@ -30,7 +30,7 @@
                                 <img class="author_img rounded-circle" src="{{$user->photo->photo}}" alt="" style="width:250px">
 
                                 <div class="col-lg-12 col-md-12" style="margin:0 auto;">
-                                        <h3 class="mb-30 mt-10 title_color">Edit Photo</h3>
+                                        <h3 class="mb-30 mt-10 title_color">Ndrysho foton</h3>
                                     @if(session('updated_photo'))
                                         <div class="alert alert-success">
                                         {{session('updated_photo')}}
@@ -46,7 +46,7 @@
                                             @csrf
                                             @method('PATCH')
                                             <div class="mt-10">
-                                                <button class="genric-btn link" type="submit" name="remove_photo" style="text-decoration: none" >Remove photo</button>
+                                                <button class="genric-btn link" type="submit" name="remove_photo" style="text-decoration: none" >Fshij foton</button>
                                             </div>
 
                                         </form>

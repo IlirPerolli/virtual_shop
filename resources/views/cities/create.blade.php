@@ -27,18 +27,18 @@
                     </div>
                     @enderror
 
-                    <h3 class="mb-30 title_color">City</h3>
+                    <h3 class="mb-30 title_color">Qyteti</h3>
 
 
                     <form action="{{route('city.store')}}" method="POST" >
                         @csrf
                         @method('POST')
                         <div class="mt-10">
-                            <input type="text" class="single-input" name="name" autofocus placeholder="Title" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Title'" value="{{ old('title') }}"/>
+                            <input type="text" class="single-input" name="name" autofocus placeholder="Emri" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Emri'" value="{{ old('name') }}"/>
                         </div>
 
                         <div class="mt-10 float-right">
-                            <button class="genric-btn primary circle arrow" type="submit" >Create <span class="lnr lnr-arrow-right"></span></button>
+                            <button class="genric-btn primary circle arrow" type="submit" >Krijo <span class="lnr lnr-arrow-right"></span></button>
 
                         </div>
 
@@ -56,8 +56,8 @@
                 <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">City</th>
-                    <th scope="col">Options</th>
+                    <th scope="col">Qyteti</th>
+                    <th scope="col">Opsionet</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -69,7 +69,7 @@
                             <form action="{{route('city.destroy',$city->id)}}" method="post" style="float: right">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-outline-danger" style="cursor: pointer">Delete</button>
+                                <button type="submit" class="btn btn-outline-danger" style="cursor: pointer">Fshij</button>
                             </form>
                         </td>
 

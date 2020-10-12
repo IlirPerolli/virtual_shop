@@ -71,30 +71,30 @@
                                 {{$message}}
                             </div>
                             @enderror
-                        <h3 class="mb-30 title_color">Add Post</h3>
+                        <h3 class="mb-30 title_color">Krijo postim</h3>
 
 
                         <form action="{{route('post.store')}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('POST')
                             <div class="mt-10">
-                                <input type="text" class="single-input" name="title" placeholder="Title" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Title'" value="{{ old('title') }}"/>
+                                <input type="text" class="single-input" name="title" placeholder="Titulli" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Titulli'" value="{{ old('title') }}"/>
                             </div>
                             <div class="mt-10">
-                                <textarea class="single-textarea" name="body" placeholder="Description" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Description'">{{@old('body')}}</textarea>
+                                <textarea class="single-textarea" name="body" placeholder="P&euml;rshkrimi" onfocus="this.placeholder = ''" onblur="this.placeholder = 'P&euml;rshkrimi'">{{@old('body')}}</textarea>
                             </div>
                             <div class="mt-10">
-                                <input type="number" class="single-input" name="mobile_number" placeholder="Mobile Number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Mobile Number'" value="{{ old('mobile_number') }}" min="0"/>
+                                <input type="number" class="single-input" name="mobile_number" placeholder="Numri i telefonit" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Numri i telefonit'" value="{{ old('mobile_number') }}" min="0"/>
                             </div>
                             <div class="mt-10">
-                                <input type="number" class="single-input" name="price" placeholder="Price" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Price'" value="{{ old('price') }}" step="0.01" min="0"/>
+                                <input type="number" class="single-input" name="price" placeholder="&Ccedil;mimi" onfocus="this.placeholder = ''" onblur="this.placeholder = '&Ccedil;mimi'" value="{{ old('price') }}" step="0.01" min="0"/>
                             </div>
                             <div class="input-group-icon mt-10">
                                 <div class="form-select" id="default-select">
 
                                     <div class="icon"> <i class="fa fa-list" aria-hidden="true" style="margin-top: 15px"></i></div>
                                     <select name="category_id">
-                                        <option value="" selected>Category</option>
+                                        <option value="" selected>Kategoria</option>
                                        @foreach($categories as $category)
                                             <option value="{{$category->id}}" {{ old('category_id') == $category->id ? 'selected' : ''}} >{{$category->name}}</option>
                                         @endforeach
@@ -107,7 +107,7 @@
 
                                     <div class="icon"> <i class="fa fa-globe" aria-hidden="true" style="margin-top: 14px"></i></div>
                                     <select name="city_id">
-                                        <option value="" selected>City</option>
+                                        <option value="" selected>Qyteti</option>
                                         @foreach($cities as $city)
                                             <option value="{{$city->id}}" {{ old('city_id') == $city->id ? 'selected' : ''}} >{{$city->name}}</option>
                                         @endforeach

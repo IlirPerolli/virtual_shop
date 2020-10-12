@@ -92,11 +92,11 @@
                                                 @csrf
 {{--                                                Nese eshte postimi yt--}}
                                                 @if($post->user_id == auth()->user()->id)
-                                                <button type="submit" class="btn btn-danger" style="cursor:pointer;">{{$likes}} Likes <svg width="1em" height="1em" style="margin-bottom:-3px"  viewBox="0 0 16 16" class="bi bi-heart-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                <button type="submit" class="btn btn-danger" style="cursor:pointer;">{{$likes}} P&euml;lqime <svg width="1em" height="1em" style="margin-bottom:-3px"  viewBox="0 0 16 16" class="bi bi-heart-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                         <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
                                                     </svg> </button>
                                                 @else
-                                                    <button type="submit" class="btn btn-danger" style="cursor:pointer;">Liked <svg width="1em" height="1em" style="margin-bottom:-3px"  viewBox="0 0 16 16" class="bi bi-heart-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                    <button type="submit" class="btn btn-danger" style="cursor:pointer;">E p&euml;lqyer<svg width="1em" height="1em" style="margin-bottom:-3px"  viewBox="0 0 16 16" class="bi bi-heart-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                             <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
                                                         </svg> </button>
 
@@ -110,10 +110,10 @@
                                                 @csrf
 {{--                                                Nese eshte postimi yt--}}
                                                 @if($post->user_id == auth()->user()->id)
-                                                <button type="submit" class="btn btn-outline-danger" style="cursor:pointer;">{{$likes}} Likes <svg width="1em" height="1em" style="margin-bottom:-3px" viewBox="0 0 16 16" class="bi bi-heart" fill="currentColor" xmlns="http://www.w3.org/2000/svg"> <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/></svg> </button>
+                                                <button type="submit" class="btn btn-outline-danger" style="cursor:pointer;">{{$likes}} P&euml;lqime <svg width="1em" height="1em" style="margin-bottom:-3px" viewBox="0 0 16 16" class="bi bi-heart" fill="currentColor" xmlns="http://www.w3.org/2000/svg"> <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/></svg> </button>
                                                 @else
 
-                                                    <button type="submit" class="btn btn-outline-danger" style="cursor:pointer;">Like <svg width="1em" height="1em" style="margin-bottom:-3px" viewBox="0 0 16 16" class="bi bi-heart" fill="currentColor" xmlns="http://www.w3.org/2000/svg"> <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/></svg> </button>
+                                                    <button type="submit" class="btn btn-outline-danger" style="cursor:pointer;">P&euml;lqe <svg width="1em" height="1em" style="margin-bottom:-3px" viewBox="0 0 16 16" class="bi bi-heart" fill="currentColor" xmlns="http://www.w3.org/2000/svg"> <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/></svg> </button>
 
                                                 @endif
                                             </form>
@@ -131,7 +131,7 @@
 
 
 
-                                    <li><a href="#comments-area">{{$comments->count()}} Comments<i class="lnr lnr-bubble"></i></a></li>
+                                    <li><a href="#comments-area">{{$comments->count()}} Komente<i class="lnr lnr-bubble"></i></a></li>
                                     <li>
 
                                     </li>
@@ -152,12 +152,12 @@
                             @if(auth()->check())
                             @if(auth()->user()->id == $post->user_id)
 
-                                        <a href="{{route('post.edit',$post->slug)}}" class="genric-btn info-border circle">Update Post</a>
+                                        <a href="{{route('post.edit',$post->slug)}}" class="genric-btn info-border circle">Ndrysho postimin</a>
 
                             <form action="{{route('post.destroy', $post->id)}}" method="POST" style="display: inline-block;margin:5px">
                                 @csrf
                                 @method('delete')
-                                <button class="genric-btn danger-border circle" type="submit" >Delete Post</button>
+                                <button class="genric-btn danger-border circle" type="submit" >Fshij postimin</button>
                             </form>
                                 @endif
                             @endif
@@ -202,7 +202,7 @@
                             @error('body')
                                 <div class="alert alert-danger">{{$message}}</div>
                             @enderror
-                        <h4>{{$comments->count()}} Comments</h4>
+                        <h4>{{$comments->count()}} Komente</h4>
                         @if(count($comments)>0)
                             @foreach($comments as $comment)
                         <div class="comment-list">
@@ -226,7 +226,7 @@
                                     @csrf
                                     @method('DELETE')
                                     <div class="delete-btn">
-                                        <button type="submit" class="genric-btn danger-border radius medium">Delete</button>
+                                        <button type="submit" class="genric-btn danger-border radius medium">Fshij</button>
                                     </div>
                                 </form>
                                 @endif
@@ -236,10 +236,10 @@
                                 @csrf
                                 <input type="hidden" name="comment_id" value="{{$comment->id}}">
                             <div class="mt-10">
-                                <input type="text" name="body" style="border: 1px solid lightgrey" placeholder="Write a reply" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Write a reply'" class="single-input" required>
+                                <input type="text" name="body" style="border: 1px solid lightgrey" placeholder="Shkruaj nj&euml; p&euml;rgjigje" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Write a reply'" class="single-input" required>
                             </div>
                                 <div class="mt-10" style="display:none">
-                                    <button type="submit" class="btn-reply text-uppercase" style="cursor:pointer;">Reply</button>
+                                    <button type="submit" class="btn-reply text-uppercase" style="cursor:pointer;">P&euml;rgjigju</button>
                                 </div>
                             </form>
                         </div>
@@ -267,7 +267,7 @@
                                         @csrf
                                         @method('DELETE')
                                         <div class="delete-btn">
-                                            <button type="submit" class="genric-btn danger-border radius medium">Delete</button>
+                                            <button type="submit" class="genric-btn danger-border radius medium">Fshij</button>
                                         </div>
                                     </form>
                                 @endif
@@ -280,18 +280,18 @@
                         @endif
                         @endforeach
                         @else
-                            <h4 class="text-center">You can be the first to comment, so go ahead!</h4>
+                            <h4 class="text-center">Ju mund t&euml; jeni i pari q&euml; komentoni, k&euml;shtu q&euml; vazhdoni!</h4>
                         @endif
                     </div>
                     <div class="comment-form">
-                        <h4>Leave a Comment</h4>
+                        <h4>L&euml;je nj&euml; koment</h4>
                         <form action="{{route('comment.store')}}" method="post">
                             @csrf
                             <input type="hidden" name="post_id" value="{{$post->id}}">
                             <div class="form-group">
-                                <textarea class="form-control mb-10" rows="5" name="body" placeholder="Write a Comment" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Messege'" required=""></textarea>
+                                <textarea class="form-control mb-10" rows="5" name="body" placeholder="Shkruaj komentin" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Shkruaj komentin'" required=""></textarea>
                             </div>
-                            <button type="submit" class="primary-btn button_hover" style="cursor:pointer;">Post Comment</button>
+                            <button type="submit" class="primary-btn button_hover" style="cursor:pointer;">Posto komentin</button>
                         </form>
                     </div>
                 </div>
@@ -319,7 +319,7 @@
                                 <a href="#"><i class="fa fa-github"></i></a>
                                 <a href="#"><i class="fa fa-behance"></i></a>
                             </div>
-                            <h6 style="color:black; text-align: center">Posts {{$user_posts}} | <a href="{{route('followings',$post->user->slug)}}" style="color:black">Following {{$followings}}</a> | <a href="{{route('followers',$post->user->slug)}}" style="color:black">Followers {{$followers}}</a></h6>
+                            <h6 style="color:black; text-align: center">Postime {{$user_posts}} | <a href="{{route('followings',$post->user->slug)}}" style="color:black">Ndjekje {{$followings}}</a> | <a href="{{route('followers',$post->user->slug)}}" style="color:black">Ndjek&euml;s {{$followers}}</a></h6>
                             <div class="br"></div>
                             @if(auth()->check() && auth()->user()->id != $post->user->id)
 

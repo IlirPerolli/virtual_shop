@@ -18,7 +18,7 @@
                                 {{session('nothing_updated')}}
                             </div>
                         @endif
-                        <h3 class="mb-30 title_color">Edit Post</h3>
+                        <h3 class="mb-30 title_color">Ndrysho komentin</h3>
 
 
                         <form action="{{route('comment.update', $comment->id)}}" method="POST">
@@ -26,11 +26,11 @@
                             @method('PUT')
 
                             <div class="mt-10">
-                                <textarea class="single-textarea" name="body" placeholder="Description" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Description'">{{$comment->body}}</textarea>
+                                <textarea class="single-textarea" name="body" placeholder="Komenti" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Komenti'">{{$comment->body}}</textarea>
                             </div>
 
                             <div class="mt-10 float-right">
-                                <button class="genric-btn primary circle arrow" type="submit" >Edit <span class="lnr lnr-arrow-right"></span></button>
+                                <button class="genric-btn primary circle arrow" type="submit" >Ndrysho <span class="lnr lnr-arrow-right"></span></button>
 
                             </div>
 
