@@ -4,7 +4,7 @@
     <div class="container d-flex justify-content-center flex-wrap" style="margin-top: 150px">
 
         <div class="container">
-            <h1 class="mb-5">NewsFeed</h1>
+            <h1 class="mb-5">Postimet</h1>
 
         </div>
         @if(auth()->user()->followings->count()>0)
@@ -45,8 +45,8 @@
 
             <div class="container">
 
-                <h4 class="text-center">No posts</h4>
-                <h4 class="text-center" style="margin-bottom: 50px">How about following someone?</h4>
+                <h4 class="text-center">Nuk u gjet&euml;n postime</h4>
+                <h4 class="text-center" style="margin-bottom: 50px">Si thua t&euml; ndjek&euml;sh dik&euml;?</h4>
 
             </div>
 

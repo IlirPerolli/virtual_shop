@@ -96,7 +96,7 @@
                                                         <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
                                                     </svg> </button>
                                                 @else
-                                                    <button type="submit" class="btn btn-danger" style="cursor:pointer;">E p&euml;lqyer<svg width="1em" height="1em" style="margin-bottom:-3px"  viewBox="0 0 16 16" class="bi bi-heart-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                    <button type="submit" class="btn btn-danger" style="cursor:pointer;">E p&euml;lqyer <svg width="1em" height="1em" style="margin-bottom:-3px"  viewBox="0 0 16 16" class="bi bi-heart-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                             <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
                                                         </svg> </button>
 
@@ -327,7 +327,7 @@
                                 <form action="{{route('user.unfollow',$post->user->id)}}" method="post">
                                     @csrf
                                     @method('post')
-                                    <button class="genric-btn primary radius" type="submit">Following</button>
+                                    <button class="genric-btn primary radius" type="submit">Ndjekur</button>
                                 </form>
 
 {{--                                    @if(session('success_follow'))--}}
@@ -341,7 +341,7 @@
                                 <form action="{{route('user.follow',$post->user->id)}}" method="post">
                                     @csrf
                                     @method('post')
-                                    <button class="genric-btn primary radius" type="submit">Follow</button>
+                                    <button class="genric-btn primary radius" type="submit">Ndjek</button>
                                 </form>
 
 {{--                                @if(session('success_unfollow'))--}}
@@ -358,7 +358,7 @@
                                 <form action="{{route('user.follow',$post->user->id)}}" method="post">
                                     @csrf
                                     @method('post')
-                                    <button class="genric-btn primary radius" type="submit">Follow</button>
+                                    <button class="genric-btn primary radius" type="submit">Ndjek</button>
                                 </form>
                                 @endif
 

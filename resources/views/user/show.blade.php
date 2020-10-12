@@ -90,7 +90,7 @@
 
                         @csrf
                         @method('post')
-                        <button class="genric-btn primary radius" type="submit">Following</button>
+                        <button class="genric-btn primary radius" type="submit">Ndjekur</button>
                     </form>
                     <br>
                     {{--                                    @if(session('success_follow'))--}}
@@ -105,7 +105,7 @@
 
                         @csrf
                         @method('post')
-                        <button class="genric-btn primary radius" type="submit">Follow</button>
+                        <button class="genric-btn primary radius" type="submit">Ndjek</button>
                     </form>
                     <br>
                     {{--                                @if(session('success_unfollow'))--}}
@@ -123,7 +123,7 @@
 
                     @csrf
                     @method('post')
-                    <button class="genric-btn primary radius" type="submit">Follow</button>
+                    <button class="genric-btn primary radius" type="submit">Ndjek</button>
                 </form>
             @endif
 
