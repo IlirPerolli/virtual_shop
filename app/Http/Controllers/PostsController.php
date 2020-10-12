@@ -19,8 +19,8 @@ class PostsController extends Controller
     }
     public function create()
     {
-        $categories = Category::all();
-        $cities = City::all();
+        $categories = Category::orderBy('name','asc')->get();
+        $cities = City::orderBy('name','asc')->get();
         return view('posts.create', compact('categories', 'cities'));
     }
     public function create_multiple()
