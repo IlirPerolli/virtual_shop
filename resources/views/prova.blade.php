@@ -1,8 +1,11 @@
 @extends('layouts.index')
+@section('title')
+    <title>Bigfish &#8226; Search </title>
+@endsection
 @section('styles')
-    <style>body{
-            background: #F9F9FF;
-        }
+    <style>/* This css file is to over write bootstarp css
+---------------------------------------------------------------------- */
+
 
         /*
         Theme Name: Modern - Bootstrap 4 Cards
@@ -774,7 +777,6 @@
         /* ======= GENERAL  ======= */
 
         body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
-
             font-weight: 300;
             line-height: 1.5em;
         }
@@ -808,7 +810,6 @@
             line-height: 1.6em;
             margin: 15px 0 15px;
             font-weight: 700;
-
             text-align: center;
         }
 
@@ -817,7 +818,6 @@
             line-height: 1.4em;
             margin: 30px 0 30px;
             font-weight: 700;
-
             text-align: center;
         }
 
@@ -838,19 +838,59 @@
         }
 
     </style>
-        @endsection
-@section('title')
-    <title>Bigfish &#8226; Home </title>
-    @endsection
-@section('content')
-    @if(@auth()->guest())
-    <div class="container" style="margin-top: 150px;">
-        <h1>NewsFeed</h1>
-
-            <h4 class="text-center" style="margin-bottom: 50px">You need to login to see NewsFeed</h4>
-
-    </div>
-    @endif
-@include('includes.home_gallery_area')
-
 @endsection
+@section('content')
+
+
+    @if (auth()->check())
+        <div class="container d-flex justify-content-center flex-wrap" style="margin-top: 150px">
+            Newsfeed
+            @if(auth()->user()->followings->count()>0)
+            <div class="row">
+                @foreach($posts as $post)
+                <div class="col-md-4">
+                    <div class="card card-blog">
+                        <div class="card-image">
+                            <a href="#">
+                                @if (strpos($post->photo->photo,',') !== false)
+                                    @foreach(explode(',',$post->photo->photo) as $photo)
+                                        <img class="img" src="{{'/images/'.$photo}}">
+                                        @break
+                                    @endforeach
+
+                                @else
+                                    <img class="img" src="{{$post->photo->photo}}">
+
+                                @endif
+
+                                <div class="card-caption"> {{$post->title}} </div>
+                            </a>
+                            <div class="ripple-cont"></div>
+                        </div>
+                        <div class="table">
+                            <a href="{{route('user.show',$post->user->slug)}}" style="color:#777777;"> <h6 class="category text-info">{{$post->user->name . " ". $post->user->surname}}</h6></a>
+                            <p class="card-description"> {{$post->body}} </p>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+                @endforeach
+            </div>
+            @else
+
+                <h3 class="text-center">No posts:(</h3>
+                <h4 class="text-center"> How about following someone?</h4>
+                @endif
+
+            <nav aria-label="Pagination" style="margin-top: 50px">
+                <ul class="pagination justify-content-center">
+                    {{$posts->links()}}
+                </ul>
+            </nav>
+        </div>
+
+    @endif
+    @endsection

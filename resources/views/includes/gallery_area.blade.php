@@ -58,12 +58,14 @@
 
 
                         </div>
+
                     </div>
 
                 @endforeach
             @else
                 <h4 style="margin-bottom: 20px; color:red" class="text-center">No users found</h4>
             @endif
+            <a href="{{route('search.users')}}"><h6 class="text-center">Search more</h6></a>
         </div>
 
 

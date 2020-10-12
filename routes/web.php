@@ -29,9 +29,6 @@ Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 
 Route::middleware('auth')->group(function(){
-    Route::get('/posts/create', 'App\Http\Controllers\PostsController@create_multiple')->name('post.create.multiple');
-    Route::post('/posts/create','App\Http\Controllers\PostsController@store_multiple')->name('post.store.multiple');
-    Route::post('/posts/creates','App\Http\Controllers\PostsController@store_multiple1')->name('post.store.multiple1');
     Route::get('/post/create','App\Http\Controllers\PostsController@create')->name('post.create');
     Route::post('post','App\Http\Controllers\PostsController@store')->name('post.store');
     Route::delete('/post/{post}','App\Http\Controllers\PostsController@destroy')->name('post.destroy');
@@ -83,7 +80,10 @@ Route::get('/city/{city}','App\Http\Controllers\CitiesController@show')->name('c
 Route::get('/category/{category}','App\Http\Controllers\CategoriesController@show')->name('category.show');
 Route::get('/categories','App\Http\Controllers\CategoriesController@index')->name('categories');
 
-Route::get('/search', 'App\Http\Controllers\SearchController@index')->name('search');
+Route::get('/search/users', 'App\Http\Controllers\SearchController@users')->name('search.users');
+Route::get('/search/posts', 'App\Http\Controllers\SearchController@posts')->name('search.posts');
 //Route::get('/check', 'App\Http\Controllers\PostsController@check');
-
+Route::get('/prova',function(){
+   return view('prova');
+});
 Route::get('/{user}','App\Http\Controllers\UserProfileController@show')->name('user.show');

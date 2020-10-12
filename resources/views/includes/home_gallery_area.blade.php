@@ -1,62 +1,63 @@
+
+
 @if (auth()->check())
-<!--================Home Gallery Area =================-->
-<section class="home_gallery_area p_120">
-    <div class="container box_1620"><h3 class="text-center" style="margin-bottom: 50px;">Newsfeed</h3>
+    <div class="container d-flex justify-content-center flex-wrap" style="margin-top: 150px">
+
+        <div class="container">
+            <h1 class="mb-5">NewsFeed</h1>
+
+        </div>
         @if(auth()->user()->followings->count()>0)
-       <div class="gallery_f_inner row imageGallery1">
-
+            <div class="row">
                 @foreach($posts as $post)
-
-                    <div class="col-lg-3 col-md-4 col-sm-6 ap">
-                        <div style="text-align: left"><a href="{{route('user.show',$post->user->slug)}}" style="color:#777777;">{{"@".$post->user->username}}</a></div>
-                        <div class="h_gallery_item" >
-                            @if (strpos($post->photo->photo,',') !== false)
-                                @foreach(explode(',',$post->photo->photo) as $photo)
-                                    <img src="{{'/images/'.$photo}}" alt="">
-                                    @break
-                                @endforeach
-
-                            @else
-                                <img src="{{$post->photo->photo}}" alt="">
-                            @endif
-                            <div class="hover">
-                                @if($post->title)
-                                <a href="{{route('post.show',$post->slug)}}"><h4>{{$post->title}}</h4></a>
-                                @else
-                                    <a href="{{route('post.show',$post->slug)}}"><h4>(No description)</h4></a>
-                                @endif
-
+                    <div class="col-md-4">
+                        <div class="card card-blog">
+                            <div class="card-image">
+                                <a href="#">
                                     @if (strpos($post->photo->photo,',') !== false)
                                         @foreach(explode(',',$post->photo->photo) as $photo)
-                                            <a class="light" href="{{'/images/'.$photo}}"><i class="fa fa-expand"></i></a>
+                                            <img class="img" src="{{'/images/'.$photo}}">
                                             @break
                                         @endforeach
 
                                     @else
-                                        <a class="light" href="{{$post->photo->photo}}"><i class="fa fa-expand"></i></a>
-                                    @endif
-                            </div>
+                                        <img class="img" src="{{$post->photo->photo}}">
 
+                                    @endif
+
+                                    <a href="{{route('post.show',$post->slug)}}"> <div class="card-caption"> {{$post->title}} </div></a>
+                                </a>
+                                <div class="ripple-cont"></div>
+                            </div>
+                            <div class="table">
+                                <a href="{{route('user.show',$post->user->slug)}}" style="color:#777777;"> <h6 class="category text-info"><i class="fa fa-user" style="margin-right: 5px" aria-hidden="true"></i>@if($post->user->is_business == 1){{$post->user->business_name}} @else {{$post->user->name . " ". $post->user->surname}}@endif</h6></a>
+                                <a href="{{route('post.show',$post->slug)}}"> <p class="card-description"> {{Str::limit($post->body,150)}} </p></a>
+                            </div>
                         </div>
 
                     </div>
+
+
+
                 @endforeach
-
-
-        </div>
+            </div>
         @else
 
-                <h3 class="text-center">No posts:(</h3>
-            <h4 class="text-center"> How about following someone?</h4>
+            <div class="container">
+
+                <h4 class="text-center">No posts</h4>
+                <h4 class="text-center" style="margin-bottom: 50px">How about following someone?</h4>
+
+            </div>
+
+
         @endif
+
         <nav aria-label="Pagination" style="margin-top: 50px">
             <ul class="pagination justify-content-center">
                 {{$posts->links()}}
             </ul>
         </nav>
     </div>
-</section>
-<!--================End Home Gallery Area =================-->
 
 @endif
-

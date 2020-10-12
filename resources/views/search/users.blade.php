@@ -1,5 +1,7 @@
 @extends('layouts.index')
-<title>Bigfish &#8226; Search </title>
+@section('title')
+    <title>Bigfish &#8226; Search </title>
+@endsection
 @section('styles')
     <style>body{
             background: #F9F9FF;
@@ -26,7 +28,7 @@
             <div class="col-lg-5 col-sm-6 m-auto" style="margin-bottom: 50px !important;">
                 <aside class="f_widget news_widget mt-5">
                     <h3>Search Users</h3>
-                    <form action="{{route('search')}}" method="GET" role="search">
+                    <form action="{{route('search.users')}}" method="GET" role="search">
 
                         <div class="input-group d-flex flex-row">
                             <input name="q" placeholder="Search Users" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search Users'" type="text" style="background:white;border: 1px solid #d6d6d6;color:black" autocomplete="off">

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -13,7 +15,11 @@ class SearchController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index(){
+        //
+    }
+
+    public function users(Request $request)
     {
         $input = $request->q;
 
@@ -22,6 +28,7 @@ class SearchController extends Controller
                 ->orWhere(DB::raw('CONCAT( surname, " ", name)'), 'like', '%' . $input . '%')
                 ->orWhere(DB::raw('CONCAT( name, surname)'), 'like', '%' . $input . '%')
                 ->orWhere(DB::raw('CONCAT( surname, name)'), 'like', '%' . $input . '%')
+                ->orWhere(DB::raw('CONCAT( business_name)'), 'like', '%' . $input . '%')
                 ->orWhere(DB::raw('CONCAT( username)'), 'like', '%' . $input . '%')
                 ->orWhere(DB::raw('CONCAT( slug)'), 'like', '%' . $input . '%')
                 ->orWhere('email', 'like', '%' . $input . '%')->get();
@@ -30,7 +37,7 @@ class SearchController extends Controller
             }
             else{
                 session()->flash('user_not_found', "No Details found. Try to search again !");
-                return redirect()->route('search');
+                return redirect()->route('search.users');
 
             }
         }
@@ -38,6 +45,44 @@ class SearchController extends Controller
         return view('search.users');
     }
 
+
+    public function posts(Request $request)
+    {
+        $input = $request->q;
+        $categories = Category::orderBy('name', 'ASC')->take(20)->get();
+        //Show users that current user may know
+        if(auth()->check()){
+
+            $users = auth()->user()->followings()->pluck('leader_id');
+            $user = auth()->user()->id;
+            $users->push($user);
+            $users = User::whereNotIn('id', $users)->orderBy('name', 'ASC')->take(5)->get();
+        }
+        else{
+            $users = User::orderBy('name', 'ASC')->take(5)->get();
+        }
+
+        if ($input!='') {
+            $posts = Post::where(DB::raw('CONCAT( title, " ", body)'), 'like', '%' . $input . '%')
+                ->orWhere(DB::raw('CONCAT( body, " ", title)'), 'like', '%' . $input . '%')
+                ->orWhere(DB::raw('CONCAT( title, body)'), 'like', '%' . $input . '%')
+                ->orWhere(DB::raw('CONCAT( body, title)'), 'like', '%' . $input . '%')
+                ->orWhere(DB::raw('CONCAT( price)'), 'like', '%' . $input . '%')
+                ->orWhere(DB::raw('CONCAT( mobile_number)'), 'like', '%' . $input . '%')
+                ->orWhere(DB::raw('CONCAT( slug)'), 'like', '%' . $input . '%')
+                ->paginate(10);
+            if(count($posts)>0){
+                return view('search.posts', compact('posts','users', 'categories'));
+            }
+            else{
+                session()->flash('post_not_found', "No Details found. Try to search again !");
+                return redirect()->route('search.posts');
+
+            }
+        }
+
+        return view('search.posts', compact('users', 'categories'));
+    }
     /**
      * Show the form for creating a new resource.
      *

@@ -23,10 +23,6 @@ class PostsController extends Controller
         $cities = City::orderBy('name','asc')->get();
         return view('posts.create', compact('categories', 'cities'));
     }
-    public function create_multiple()
-    {
-        return view('posts.multi_create');
-    }
     public function store(Request $request)
     {
 
@@ -73,20 +69,6 @@ class PostsController extends Controller
         $user->posts()->create($input);
         session()->flash('added_post', 'Post created successfully');
         return back();
-    }
-    public function store_multiple(Request $request){
-
-        $file = $request->file('file');
-        $name = time().$file->getClientOriginalName();
-        $file->move('images', $name);
-        $user = Auth::user();
-        $photo = Photo::create(['photo'=>$name]);
-        $user = auth()->user();
-        $slug = time().Str::random(30);
-        $input = ['user_id'=>$user->id,'photo_id'=>$photo->id, 'slug'=>$slug];
-        $user->posts()->create($input);
-
-
     }
 
     public function show($slug)
