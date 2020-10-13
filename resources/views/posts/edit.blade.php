@@ -1,5 +1,17 @@
 @extends('layouts.index')
-<title>Bigfish &#8226; Edit Post </title>
+@section('title')
+<title>Bufi &#8226; Edito postimin </title>
+@endsection
+@section('styles')
+    <style>body{
+            background: #F9F9FF;
+        }
+        .form-select .nice-select .list{
+            height: 250px;
+            overflow: auto;
+        }
+    </style>
+@endsection
 @section('content')
     <div class="whole-wrap" style="margin-top:80px;">
         <div class="container">

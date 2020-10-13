@@ -1,5 +1,8 @@
 @extends('layouts.index')
-<title>{{$user->name . " ". $user->surname}} &#8226; Followings </title>
+@section('title')
+    <title>{{$user->name . " ". $user->surname}} &#8226; Njekjet </title>
+@endsection
+
 @section('styles')
     <style>body{
             background: #F9F9FF;

@@ -1,5 +1,7 @@
 @extends('layouts.index')
-<title>Bigfish &#8226; Discover Users </title>
+@section('title')
+<title>Bufi &#8226; Eksploro njer&euml;z </title>
+@endsection
 @section('styles')
     <style>body{
             background: #F9F9FF;

@@ -91,8 +91,8 @@ class PostsController extends Controller
         if (auth()->user()->id != $post->user->id){
             abort(403, 'Unauthorized action.');
         }
-        $categories = Category::all();
-        $cities = City::all();
+        $categories = Category::orderBy('name','asc')->get();
+        $cities = City::orderBy('name','asc')->get();
         return view('posts.edit', compact('post','categories', 'cities'));
     }
     public function update(Request $request, Post $post)
@@ -101,7 +101,7 @@ class PostsController extends Controller
             abort(403, 'Unauthorized action.');
         }
         $category = Category::find($request->category_id);
-        $city = Category::find($request->city_id);
+        $city = City::find($request->city_id);
         $post->title = $request->title;
         $post->body = $request->body;
         $post->mobile_number = $request->mobile_number;

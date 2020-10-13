@@ -1,5 +1,7 @@
 @extends('layouts.index')
-<title>Bigfish &#8226; Post </title>
+@section('title')
+<title>Bufi &#8226; {{$post->title}} </title>
+@endsection
 @section('styles')
     <style>body{
             background: #F9F9FF;
@@ -129,19 +131,12 @@
 
                                     </li>
                                 </ul>
-                                <ul class="social-links">
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-github"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-behance"></i></a></li>
-                                </ul>
+
                             </div>
                         </div>
                         <div class="col-lg-9 col-md-9 blog_details">
                             <h2>{{$post->title}}</h2>
-                            <p class="excert">
-                                {{$post->body}}
-                            </p>
+                            <p class="excert"><pre style="font-size: 14px;font-family: Poppins, sans-serif;font-weight: 300;color: #777777;"> {{$post->body}}</pre></p>
                             @if(auth()->check())
                             @if(auth()->user()->id == $post->user_id)
 
@@ -306,13 +301,8 @@
                                     @else {{$post->user->name . " ". $post->user->surname}}
                                     @endif</h4></a>
                             <p>{{$post->user->bio}}</p>
-                            <div class="social_icon">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-github"></i></a>
-                                <a href="#"><i class="fa fa-behance"></i></a>
-                            </div>
-                            <h6 style="color:black; text-align: center">Postime {{$user_posts}} | <a href="{{route('followings',$post->user->slug)}}" style="color:black">Ndjekje {{$followings}}</a> | <a href="{{route('followers',$post->user->slug)}}" style="color:black">Ndjek&euml;s {{$followers}}</a></h6>
+
+                            <h6 style="color:black; text-align: center; margin-top:15px">Postime {{$user_posts}} | <a href="{{route('followings',$post->user->slug)}}" style="color:black">Ndjekje {{$followings}}</a> | <a href="{{route('followers',$post->user->slug)}}" style="color:black">Ndjek&euml;s {{$followers}}</a></h6>
                             <div class="br"></div>
                             @if(auth()->check() && auth()->user()->id != $post->user->id)
 

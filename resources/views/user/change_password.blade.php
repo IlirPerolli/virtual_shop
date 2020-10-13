@@ -9,7 +9,9 @@
     </style>
 @endsection
 @section('content')
-    <title>{{$user->name . " ". $user->surname}} &#8226; Profile</title>
+    @section('title')
+    <title>{{$user->name . " ". $user->surname}} &#8226; Profili</title>
+    @endsection
     @include('includes.profile_banner_area')
 
 
@@ -63,13 +65,8 @@
                                 <img class="author_img rounded-circle" src="{{$user->photo->photo}}" alt="" style="width:250px; height: 250px">
                                 <h4>{{$user->name . " ". $user->surname}}</h4>
                                 <p>{{$user->bio}}</p>
-                                <div class="social_icon">
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                    <a href="#"><i class="fa fa-github"></i></a>
-                                    <a href="#"><i class="fa fa-behance"></i></a>
-                                </div>
-                                <h6 style="color:black">Postime {{$user_posts}} | <a href="{{route('followings',$user->slug)}}" style="color:black">Ndjekje {{$followings}}</a> | <a href="{{route('followers',$user->slug)}}" style="color:black">Ndjek&euml;s {{$followers}}</a></h6>
+
+                                <h6 style="color:black; margin-top: 15px">Postime {{$user_posts}} | <a href="{{route('followings',$user->slug)}}" style="color:black">Ndjekje {{$followings}}</a> | <a href="{{route('followers',$user->slug)}}" style="color:black">Ndjek&euml;s {{$followers}}</a></h6>
                                 <p>{{$user->about}}</p>
                             </aside>
                         </div>

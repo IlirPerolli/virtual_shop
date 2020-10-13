@@ -840,7 +840,7 @@
     </style>
         @endsection
 @section('title')
-    <title>Bigfish &#8226; Home </title>
+    <title>Bufi &#8226; Ballina </title>
     @endsection
 @section('content')
     @if(@auth()->guest())

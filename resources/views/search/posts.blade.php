@@ -1,6 +1,6 @@
 @extends('layouts.index')
 @section('title')
-    <title>Bigfish &#8226; Search </title>
+    <title>Bufi &#8226; K&euml;rko </title>
 @endsection
 @section('styles')
     <style>body{

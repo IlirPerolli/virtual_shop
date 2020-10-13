@@ -12,7 +12,9 @@
     </style>
 @endsection
 @section('content')
-    <title>{{$user->name . " ". $user->surname}} &#8226; Profile</title>
+    @section('title')
+    <title>{{$user->name . " ". $user->surname}} &#8226; Profili</title>
+    @endsection
     @include('includes.profile_banner_area')
 
 

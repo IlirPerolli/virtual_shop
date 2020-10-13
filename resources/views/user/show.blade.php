@@ -5,7 +5,7 @@
                {{$user->business_name}}
         @else {{$user->name . " ". $user->surname}}
                @endif
-        &#8226; Profile</title>
+        &#8226; Profili</title>
 @endsection
 
 @section('content')

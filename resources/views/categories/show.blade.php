@@ -1,6 +1,6 @@
 @extends('layouts.index')
 @section('title')
-    <title>Bigfish &#8226; Category </title>
+    <title>Bufi &#8226; {{$category->name}} </title>
 @endsection
 @section('content')
 

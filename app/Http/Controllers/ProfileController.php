@@ -53,7 +53,7 @@ class ProfileController extends Controller
             return view('index', compact('posts'));
         }
         else{
-            return view('index');
+            return redirect()->route('discover.posts');
         }
     }
 //    public function users(){

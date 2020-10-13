@@ -1,6 +1,6 @@
 @extends('layouts.index')
 @section('title')
-    <title>Bigfish &#8226; Discover Posts </title>
+    <title>Bufi &#8226; Eksploro postime </title>
 @endsection
 @section('content')
 

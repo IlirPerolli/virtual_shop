@@ -1,5 +1,7 @@
 @extends('layouts.index')
-<title>Bigfish &#8226; Create Category </title>
+@section('title')
+    <title>Bufi &#8226; Krijo kategori </title>
+@endsection
 @section('styles')
     <style>body{
             background: #F9F9FF;

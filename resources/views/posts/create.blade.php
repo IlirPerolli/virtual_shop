@@ -1,8 +1,14 @@
 @extends('layouts.index')
-<title>Bigfish &#8226; Create Post </title>
+@section('title')
+<title>Bufi &#8226; Krijo postim </title>
+@endsection
 @section('styles')
     <style>body{
             background: #F9F9FF;
+        }
+        .form-select .nice-select .list{
+            height: 250px;
+            overflow: auto;
         }
      </style>
 @endsection
@@ -119,7 +125,7 @@
                                 <input type="file" name="photo_id[]" multiple class="single-input">
                             </div>
                             <div class="mt-10 float-right">
-                                <button class="genric-btn primary circle arrow" type="submit" >Create <span class="lnr lnr-arrow-right"></span></button>
+                                <button class="genric-btn primary circle arrow" type="submit" >Krijo <span class="lnr lnr-arrow-right"></span></button>
 
                             </div>
 

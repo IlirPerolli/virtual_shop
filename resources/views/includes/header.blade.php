@@ -28,7 +28,7 @@
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container box_1620">
             <!-- Brand and toggle get grouped for better mobile display -->
-            <a class="navbar-brand logo_h" href="{{route('home')}}"><img src="{{asset('img/tedox.png')}}" alt="" style="width: 50px"></a>
+            <a class="navbar-brand logo_h" href="{{route('home')}}"><img src="{{asset('img/bufi.png')}}" alt="" style="width: 70px"></a>D
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -37,7 +37,10 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                 <ul class="nav navbar-nav menu_nav ml-auto">
-                    <li class="nav-item"><a class="nav-link" href="{{route('home')}}">Ballina</a></li>
+                    @if(auth()->check())
+                        <li class="nav-item"><a class="nav-link" href="{{route('home')}}">Ballina</a></li>
+
+                    @endif
                     <li class="nav-item submenu dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Eksploro</a>
                         <ul class="dropdown-menu">
