@@ -126,7 +126,7 @@
 
 
 
-                                    <li><a href="#comments-area">{{$comments->count()}} Komente<i class="lnr lnr-bubble"></i></a></li>
+                                    <li><a href="#comments-area" style="margin-top: 15px">{{$comments->count()}} Komente<i class="lnr lnr-bubble"></i></a></li>
                                     <li>
 
                                     </li>
