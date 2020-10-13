@@ -59,15 +59,18 @@
             </div>
 
             @endforeach
+
+                <nav aria-label="Pagination">
+                    <ul class="pagination justify-content-center">
+                        {{$users->links()}}
+                    </ul>
+                </nav>
             @endif
             @if(Session::has('user_not_found'))
                         <div class="alert alert-danger">{{session('user_not_found')}}</div>
                     @endif
-            <nav aria-label="Pagination">
-                <ul class="pagination justify-content-center">
-                    {{$users->links()}}
-                </ul>
-            </nav>
+
+
             </div>
 
 
