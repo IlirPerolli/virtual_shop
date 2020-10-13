@@ -31,7 +31,9 @@ class SearchController extends Controller
                 ->orWhere(DB::raw('CONCAT( business_name)'), 'like', '%' . $input . '%')
                 ->orWhere(DB::raw('CONCAT( username)'), 'like', '%' . $input . '%')
                 ->orWhere(DB::raw('CONCAT( slug)'), 'like', '%' . $input . '%')
-                ->orWhere('email', 'like', '%' . $input . '%')->get();
+                ->orWhere('email', 'like', '%' . $input . '%')
+                ->paginate(10)->appends(request()->query());
+            //Kjo appends per te marrur edhe get requestat tjere ne get metoden
             if(count($users)>0){
                 return view('search.users', compact('users'));
             }
@@ -70,7 +72,8 @@ class SearchController extends Controller
                 ->orWhere(DB::raw('CONCAT( price)'), 'like', '%' . $input . '%')
                 ->orWhere(DB::raw('CONCAT( mobile_number)'), 'like', '%' . $input . '%')
                 ->orWhere(DB::raw('CONCAT( slug)'), 'like', '%' . $input . '%')
-                ->paginate(10);
+                ->paginate(10)->appends(request()->query());
+            //Kjo appends per te marrur edhe get requestat tjere ne get metoden
             if(count($posts)>0){
                 return view('search.posts', compact('posts','users', 'categories'));
             }

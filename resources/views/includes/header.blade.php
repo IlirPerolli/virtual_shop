@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" href="{{asset('img/favicon.png')}}" type="image/png">
+    <link rel="icon" href="{{asset('img/bufi.png')}}" type="image/png">
     @yield('title')
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{asset('css/bootstrap.css')}}">
@@ -28,7 +28,7 @@
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container box_1620">
             <!-- Brand and toggle get grouped for better mobile display -->
-            <a class="navbar-brand logo_h" href="{{route('home')}}"><img src="{{asset('img/bufi.png')}}" alt="" style="width: 70px"></a>D
+            <a class="navbar-brand logo_h" href="{{route('home')}}"><img src="{{asset('img/bufi.png')}}" alt="" style="width: 45px"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>

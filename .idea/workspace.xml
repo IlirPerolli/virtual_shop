@@ -3,51 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="00153e13-9524-46f1-a4c4-64867ab51702" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CategoriesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CategoriesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PostsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PostsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/1602102943Samsung-Galaxy-A50---A30-live-images-show-Infinity-U-displays-multiple-cameras.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/1602102943maxresdefault.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/1602103037mi-a3_19_759.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/1602135827945950.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/1602135827re6j6n.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/1602196151apps.2077.13510798887944958.1cbb07fe-9248-4631-abbf-fd9d580231db.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/1602196151capsule_616x353.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/16022840322942A29C-BE11-42FA-B9E3-BE424317DD23.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/160245427751JFZ7U25-L._AC_SL1100_.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/1602524897120847466_4788555614518265_8712299066898572362_n.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/1602524897121336101_2457669657867136_2929400177024666479_n.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/1602524897121352771_650868765853031_4706334918130049994_n.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/1602524897121430621_384371642706707_2871014102633247494_n.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/1602524897121433877_679931719291446_7708805998671409100_n.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/categories/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/categories/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/categories/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/categories/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/categories/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/categories/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/cities/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cities/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/cities/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cities/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/commentReplies/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/commentReplies/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/comments/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/comments/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/discover.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/discover.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/discover/companies.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/discover/companies.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/discover/posts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/discover/posts.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/discover/users.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/discover/users.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SearchController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SearchController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/bufi.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/bufi.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/includes/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/posts/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/posts/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/posts/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/posts/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/posts/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/posts/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/prova.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/search/posts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/search/posts.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/search/users.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/search/users.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user/change_password.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/change_password.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user/change_photo.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/change_photo.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user/followers.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/followers.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user/followings.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/followings.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/show.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -261,7 +220,8 @@
       <workItem from="1602453148991" duration="2340000" />
       <workItem from="1602515123579" duration="11087000" />
       <workItem from="1602530567115" duration="2712000" />
-      <workItem from="1602606643302" duration="11921000" />
+      <workItem from="1602606643302" duration="12133000" />
+      <workItem from="1602628200239" duration="1024000" />
     </task>
     <servers />
   </component>
