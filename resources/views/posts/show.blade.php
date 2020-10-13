@@ -136,7 +136,7 @@
                         </div>
                         <div class="col-lg-9 col-md-9 blog_details">
                             <h2>{{$post->title}}</h2>
-                            <p class="excert"><pre style="font-size: 14px;font-family: Poppins, sans-serif;font-weight: 300;color: #777777;"> {{$post->body}}</pre></p>
+                            <p class="excert"><pre style="font-size: 14px;font-family: Poppins, sans-serif;font-weight: 300;color: #777777; white-space: pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;"> {{$post->body}}</pre></p>
                             @if(auth()->check())
                             @if(auth()->user()->id == $post->user_id)
 

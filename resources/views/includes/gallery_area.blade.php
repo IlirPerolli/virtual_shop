@@ -5,7 +5,7 @@
         @if(count($posts)>0)
             @foreach($posts as $post)
 
-                <li class="media my-4 col-12 col-md-12 col-lg-12 media-list"  style="border: 0.5px solid #DFDFDF; border-radius: 0.25rem">
+                <li class="media my-4 col-12 col-md-12 col-lg-12 media-list"  style="border: 0.5px solid #DFDFDF; border-radius: 0.25rem; word-break:break-all; word-break:break-word; ">
                     <div class="box mr-3" style="width: 250px">
                         @if (strpos($post->photo->photo,',') !== false)
                             @foreach(explode(',',$post->photo->photo) as $photo)
