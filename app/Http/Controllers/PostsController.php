@@ -39,11 +39,11 @@ class PostsController extends Controller
         $category = Category::find($request->category_id);
         $city = City::find($request->city_id);
         if (!$category){
-            session()->flash('category_error', 'Oops... Category not found!');
+            session()->flash('category_error', 'Oops... Kategoria nuk u gjet.');
             return back();
         }
         if (!$city){
-            session()->flash('city_error', 'Oops... City not found!');
+            session()->flash('city_error', 'Oops... Qyteti nuk u gjet.');
             return back();
         }
 
@@ -67,7 +67,7 @@ class PostsController extends Controller
 
         $input['user_id']=$user->id;
         $user->posts()->create($input);
-        session()->flash('added_post', 'Post created successfully');
+        session()->flash('added_post', 'Postimi u krijua me sukses.');
         return back();
     }
 
@@ -117,11 +117,11 @@ class PostsController extends Controller
             'city_id' => 'required|integer'
             ]);
         if (!$category){
-            session()->flash('category_error', 'Oops... Category not found!');
+            session()->flash('category_error', 'Oops... Kategoria nuk u gjet.');
             return back();
         }
         if (!$city){
-            session()->flash('city_error', 'Oops... Category not found!');
+            session()->flash('city_error', 'Oops... Qyteti nuk u gjet.');
             return back();
         }
         if($post->isDirty('title') || $post->isDirty('body') || $post->isDirty('price') || $post->isDirty('category_id') || $post->isDirty('city_id') || $post->isDirty('mobile_number') ){
@@ -132,12 +132,12 @@ class PostsController extends Controller
                 $slug = SlugService::createSlug(Post::class, 'slug', $post->title);
             }
 
-            session()->flash('post_updated', 'Post has been updated');
+            session()->flash('post_updated', 'Postimi u ndryshua me sukses');
             $post->save();
             return redirect()->route('post.edit',$slug);
         }
         else{
-            session()->flash('nothing_updated', 'Nothing has been updated');
+            session()->flash('nothing_updated', 'Asgjë nuk u ndryshua.');
 
         }
         return back();
@@ -162,7 +162,7 @@ class PostsController extends Controller
 
         }
         $post->delete();
-        session()->flash('deleted_post', 'The post has been deleted');
+        session()->flash('deleted_post', 'Postimi u fshi me sukses.');
         return redirect()->route('user.show',auth()->user()->slug);
     }
 //    public  function compress_image($source_url, $destination_url, $quality) {

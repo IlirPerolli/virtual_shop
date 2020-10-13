@@ -89,12 +89,12 @@ class PostCommentsController extends Controller
         if($comment->isDirty('body')){
 
                 $slug = SlugService::createSlug(Comment::class, 'slug', $comment->body);
-            session()->flash('comment_updated', 'Comment has been updated');
+            session()->flash('comment_updated', 'Komenti u ndryshua me sukses.');
             $comment->save();
             return redirect()->route('comment.edit',$slug);
         }
         else{
-            session()->flash('nothing_updated', 'Nothing has been updated');
+            session()->flash('nothing_updated', 'Asgjë nuk u ndryshua.');
 
         }
         return back();
@@ -117,7 +117,7 @@ class PostCommentsController extends Controller
 //        }
 
         $comment->delete();
-        session()->flash('deleted_comment',"Comment has been deleted");
+        session()->flash('deleted_comment',"Komenti u fshi me sukses.");
         return back();
     }
 }

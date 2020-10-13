@@ -47,7 +47,7 @@
             </div>
 
             @if(isset($posts))
-                <div class="col-9"><h3 class="text-left mt-4 ml-3">Search results for: {{$_GET['q']}}</h3></div><div class="col-3 d-none d-lg-block"></div>
+                <div class="col-9"><h3 class="text-left mt-4 ml-3">Rezultatet e kërkimit për: {{$_GET['q']}}</h3></div><div class="col-3 d-none d-lg-block"></div>
                 @include('includes.gallery_area')
             @endif
             @if(Session::has('post_not_found'))

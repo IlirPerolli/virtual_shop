@@ -87,12 +87,12 @@ class UserChangePasswordController extends Controller
 
                     $password = Hash::make($request->password);
                     auth()->user()->update(['password' => $password]);
-                    session()->flash('password_changed', 'Password changed successfully!');
+                    session()->flash('password_changed', 'Fjalëkalimi u ndryshua me sukses.');
                     return redirect()->route('user.password.edit');
                 }
                 else
                 {
-                   session()->flash('invalid-current-password', 'The current password is invalid');
+                   session()->flash('invalid-current-password', 'Fjalëkalimi i tanishëm është gabim.');
                     return redirect()->route('user.password.edit');
                 }
             }

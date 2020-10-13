@@ -79,7 +79,7 @@
 
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="nav-item"><a href="{{route('search.users')}}" class="search"><i class="lnr lnr-magnifier"></i></a></li>
+                    <li class="nav-item"><a href="{{route('search.posts')}}" class="search"><i class="lnr lnr-magnifier"></i></a></li>
                 </ul>
             </div>
         </div>

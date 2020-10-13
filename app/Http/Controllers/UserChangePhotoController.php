@@ -86,7 +86,7 @@ class UserChangePhotoController extends Controller
                 $photo = Photo::create(['photo'=>$name]);
                 $input['photo_id'] = $photo->id;
                 $user->update($input);
-                session()->flash('updated_photo', 'The profile picture has been updated');
+                session()->flash('updated_photo', 'Foto e profilit u ndryshua me sukses.');
                 return back();
 
 
@@ -112,7 +112,7 @@ class UserChangePhotoController extends Controller
         else{
             unlink(public_path().$user->photo->photo);
             $user->update(['photo_id'=>1]);
-            session()->flash('deleted_photo', 'The profile picture has been deleted');
+            session()->flash('deleted_photo', 'Foto e profilit u fshi me sukses.');
             return back();
         }
 

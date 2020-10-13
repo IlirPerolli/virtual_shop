@@ -36,7 +36,7 @@ class SearchController extends Controller
                 return view('search.users', compact('users'));
             }
             else{
-                session()->flash('user_not_found', "No Details found. Try to search again !");
+                session()->flash('user_not_found', "Nuk u gjet asnjë përdorues");
                 return redirect()->route('search.users');
 
             }
@@ -75,7 +75,7 @@ class SearchController extends Controller
                 return view('search.posts', compact('posts','users', 'categories'));
             }
             else{
-                session()->flash('post_not_found', "No Details found. Try to search again !");
+                session()->flash('post_not_found', "Nuk u gjet asnjë postim.");
                 return redirect()->route('search.posts');
 
             }

@@ -91,12 +91,12 @@ class CommentRepliesController extends Controller
         if($reply->isDirty('body')){
 
             $slug = SlugService::createSlug(CommentReply::class, 'slug', $reply->body);
-            session()->flash('reply_updated', 'Reply has been updated');
+            session()->flash('reply_updated', 'Përgjigjja u ndryshua me sukses.');
             $reply->save();
             return redirect()->route('reply.edit',$slug);
         }
         else{
-            session()->flash('nothing_updated', 'Nothing has been updated');
+            session()->flash('nothing_updated', 'Asgjë nuk u ndryshua.');
 
         }
         return back();
@@ -114,7 +114,7 @@ class CommentRepliesController extends Controller
             abort(403, 'Unauthorized action.');
         }
         $reply->delete();
-        session()->flash('deleted_reply',"Reply has been deleted");
+        session()->flash('deleted_reply',"Përgjigjja u fshi me sukses.");
         return back();
     }
 }

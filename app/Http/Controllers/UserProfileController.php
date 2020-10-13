@@ -107,7 +107,7 @@ class UserProfileController extends Controller
 
             $input = $request->all();
         $user->update($input);
-        session()->flash('updated_user', 'The profile has been updated');
+        session()->flash('updated_user', 'Profili u ndryshua me sukses.');
         return back();
 
     }

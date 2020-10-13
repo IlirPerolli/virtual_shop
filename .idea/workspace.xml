@@ -3,9 +3,19 @@
   <component name="ChangeListManager">
     <list default="true" id="00153e13-9524-46f1-a4c4-64867ab51702" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/includes/home_gallery_area.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/home_gallery_area.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CategoriesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CategoriesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CitiesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CitiesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CommentRepliesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CommentRepliesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PostCommentsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PostCommentsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PostsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PostsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SearchController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SearchController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserChangePasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserChangePasswordController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserChangePhotoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserChangePhotoController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserProfileController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/includes/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/header.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/posts/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/posts/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/search/posts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/search/posts.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -218,7 +228,8 @@
       <workItem from="1602410369295" duration="3077000" />
       <workItem from="1602453148991" duration="2340000" />
       <workItem from="1602515123579" duration="11087000" />
-      <workItem from="1602530567115" duration="2543000" />
+      <workItem from="1602530567115" duration="2712000" />
+      <workItem from="1602606643302" duration="2321000" />
     </task>
     <servers />
   </component>

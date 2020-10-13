@@ -13,33 +13,33 @@ class ProfileController extends Controller
 
         if(!$user) {
 
-            session()->flash('user_error','User does not exist.' );
+            session()->flash('user_error','Përdoruesi nuk ekziston.' );
             return back();
         }
         if(auth()->user()->id == $user->id){
-            session()->flash('user_error','Cannot follow yourself.' );
+            session()->flash('user_error','Nuk mund të ndiqni veten.' );
             return back();
         }
 
         $user->followers()->attach(auth()->user()->id);
-        session()->flash('success_follow','Successfully followed the user.' );
+        session()->flash('success_follow','Përdoruesi u ndoq me sukses.' );
         return back();
     }
     public function unFollowUser(User $user)
     {
 
         if(!$user) {
-            session()->flash('user_error','User does not exist.' );
+            session()->flash('user_error','Përdoruesi nuk ekziston' );
             return back();
 
         }
         if(auth()->user()->id == $user->id){
-            session()->flash('user_error','Cannot unfollow yourself.' );
+            session()->flash('user_error','Nuk mund të ndiqni veten.' );
             return back();
         }
 
         $user->followers()->detach(auth()->user()->id);
-        session()->flash('success_unfollow','Successfully unfollowed the user' );
+        session()->flash('success_unfollow','Ndjekja u hoq me sukses.' );
         return back();
     }
     public function posts(){

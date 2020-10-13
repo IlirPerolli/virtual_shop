@@ -57,7 +57,7 @@ class CategoriesController extends Controller
             $input['photo_id']=$photo->id;
 
         Category::create($input);
-        session()->flash('added_category', 'Category added sucessfully');
+        session()->flash('added_category', 'Kategoria u shtua me sukses.');
         return back();
 
     }
@@ -124,7 +124,7 @@ class CategoriesController extends Controller
       unlink(public_path().$photo);
 
         $category->delete();
-        session()->flash('deleted_category', 'The category has been deleted');
+        session()->flash('deleted_category', 'Kategoria u fshi me sukses.');
         return back();
     }
         public  function compress_image($source_url, $destination_url, $quality) {

@@ -41,7 +41,7 @@ class CitiesController extends Controller
         $request->validate(['name'=>'required|min:2|max:255']);
         $input = $request->all();
         City::create($input);
-        session()->flash('added_city', 'City added sucessfully');
+        session()->flash('added_city', 'Qyteti u shtua me sukses.');
         return back();
     }
 
@@ -105,7 +105,7 @@ class CitiesController extends Controller
 
 
         $city->delete();
-        session()->flash('deleted_city', 'The city has been deleted');
+        session()->flash('deleted_city', 'Qyteti u fshi me sukses.');
         return back();
     }
 }
