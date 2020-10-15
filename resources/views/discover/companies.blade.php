@@ -35,7 +35,7 @@
                 @if(count($users)>0)
                     @foreach($users as $user)
                         <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-                            <div class="border text-center" style="border-radius: 10px">
+                            <div class="border text-center" style="border-radius: 10px; border-color: #E3E3E3!important;">
                                 <a href="{{route('user.show',$user->slug)}}"> <img id="special" class="rounded-circle img-fluid user_img" style="width: 120px; margin-top: 25px;" src="{{$user->photo->photo}}"></a>
                                 <a href="{{route('user.show',$user->slug)}}" style="color: black"><h5 class="text-center mt-3 mb-4">{{Str::limit($user->business_name,30)}}</h5></a>
                                 <a href="{{route('user.show',$user->slug)}}" style="color: grey;"><h6 class="text-center mt-3 mb-4" style="margin-top: -25px!important;">{{"@".Str::limit($user->username,30)}}</h6></a>
