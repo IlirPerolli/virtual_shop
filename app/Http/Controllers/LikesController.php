@@ -53,9 +53,11 @@ class LikesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        //
+        $post = Post::findBySlugOrFail($slug);
+        $users = $post->likes()->paginate(10);
+        return view('posts.likes', compact('post','users'));
     }
 
     /**

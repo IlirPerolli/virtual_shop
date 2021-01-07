@@ -82,6 +82,7 @@
                                     <li><a href="#">{{$post->mobile_number}}<i class="fa fa-phone" aria-hidden="true"></i></a></li>
                                     <li><a href="#">{{$post->price}} &#8364;<i class="fa fa-money" aria-hidden="true"></i></a></li>
                                     <li><a href="#">{{$post->created_at->diffForHumans()}}<i class="lnr lnr-calendar-full"></i></a></li>
+                                    <li><a href="{{route('post.likes',$post->slug)}}">{{$likes}} P&euml;lqime</a> </li>
                                     @if(auth()->check())
                                     @if($post->user_id == auth()->user()->id)
                                     <li><a href="#">{{$post->views}} Views<i class="lnr lnr-eye"></i></a></li>
