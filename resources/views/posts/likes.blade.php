@@ -23,7 +23,7 @@
 @section('content')
     <div class="whole-wrap" style="margin-top: 150px; margin-bottom: 150px;">
         <div class="container">
-            <h4 class="mb-4"><span style="color: #343a40;font-size: 22px">{{$post->title}}</span> Pelqimet:</h4>
+            <h4 class="mb-4"><span style="color: #343a40;font-size: 22px">{{$post->title}}</span> P&euml;lqimet:</h4>
             @if(count($users)>0)
                 @foreach($users as $user)
 

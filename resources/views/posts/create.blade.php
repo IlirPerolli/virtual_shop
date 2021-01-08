@@ -26,6 +26,11 @@
                                 {{session('added_post')}}
                             </div>
                         @endif
+                            @if(session()->has('max_photos'))
+                            <div class="alert alert-danger" role="alert">
+                                {{session('max_photos')}}
+                            </div>
+                        @endif
                             @if(session()->has('category_error'))
                                 <div class="alert alert-danger" role="alert">
                                     {{session('category_error')}}

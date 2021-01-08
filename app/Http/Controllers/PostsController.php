@@ -55,6 +55,10 @@ class PostsController extends Controller
                 $file->move('images', $name);
                 $images[] = $name;
             }
+            if (count($images)>5){
+                session()->flash('max_photos', 'Nuk lejohen më shumë se 5 foto.');
+                return back();
+            }
 
             //$upload_url = public_path('/images').'/'.$name;
             //$filename = $this->compress_image($_FILES["photo_id"]["tmp_name"], $upload_url, 40);
