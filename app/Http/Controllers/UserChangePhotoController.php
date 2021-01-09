@@ -81,7 +81,14 @@ class UserChangePhotoController extends Controller
             }
 
                 $request->validate(['photo_id'=>'required|mimes:jpeg,png,jpg,svg|max:2048']);
-                $name = time().$file->getClientOriginalName();
+            if (strpos($file->getClientOriginalName(),'chat') !== false) {
+                $file_name = $file->getClientOriginalName();
+                $name = time().str_replace("chat",$user->username,$file_name); //Per shkak te serverit qe se perkrah fjalen chat
+            }
+            else{
+                $name = time() . $file->getClientOriginalName();
+            }
+//                $name = time().$file->getClientOriginalName();
                 $file->move('images', $name);
                 $photo = Photo::create(['photo'=>$name]);
                 $input['photo_id'] = $photo->id;

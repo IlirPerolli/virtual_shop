@@ -27,6 +27,7 @@ class PostsController extends Controller
     {
 
         $user = Auth::user();
+
         $input = $request->all();
         $request->validate(['photo_id'=>'required','photo_id.*' => 'image|mimes:jpeg,png,jpg,svg|max:4096',
             'title'=>'required|max:255|min:2',
@@ -51,7 +52,14 @@ class PostsController extends Controller
         if ($files = $request->file('photo_id')){
 
             foreach ($files as $file) {
-                $name = time() . $file->getClientOriginalName();
+                if (strpos($file->getClientOriginalName(),'chat') !== false) {
+                    $file_name = $file->getClientOriginalName();
+                    $name = time().str_replace("chat",$user->username,$file_name); //Per shkak te serverit qe se perkrah fjalen chat
+                }
+                else{
+                    $name = time() . $file->getClientOriginalName();
+                }
+
                 $file->move('images', $name);
                 $images[] = $name;
             }
