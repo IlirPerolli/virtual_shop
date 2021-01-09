@@ -91,7 +91,7 @@
                                 <img class="author_img rounded-circle" src="{{$user->photo->photo}}" alt="" style="width:200px; height: 200px">
                                     <a href="{{route('user.photo.edit')}}">Ndrysho foton</a>
                                 <h4 style="margin-top: 10px!important;">@if($user->is_business == 1){{$user->business_name}}@else {{$user->name . " ". $user->surname}}@endif</h4>
-                                <p>{{$user->bio}}</p>
+                                <p style="width:100%; word-break: break-all; word-break: break-word">{{$user->bio}}</p>
 
                                 <h6 style="color:black; text-align: center; margin-top: 15px">Postime {{$user_posts}} | <a href="{{route('followings',$user->slug)}}" style="color:black">Ndjekje {{$followings}}</a> | <a href="{{route('followers',$user->slug)}}" style="color:black">Ndjek&euml;s {{$followers}}</a></h6>
                                 <p>{{$user->about}}</p>

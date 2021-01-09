@@ -64,7 +64,7 @@
                             <aside class="single_sidebar_widget author_widget">
                                 <img class="author_img rounded-circle" src="{{$user->photo->photo}}" alt="" style="width:250px; height: 250px">
                                 <h4>{{$user->name . " ". $user->surname}}</h4>
-                                <p>{{$user->bio}}</p>
+                                <p style="width:100%; word-break: break-all; word-break: break-word">{{$user->bio}}</p>
 
                                 <h6 style="color:black; margin-top: 15px">Postime {{$user_posts}} | <a href="{{route('followings',$user->slug)}}" style="color:black">Ndjekje {{$followings}}</a> | <a href="{{route('followers',$user->slug)}}" style="color:black">Ndjek&euml;s {{$followers}}</a></h6>
                                 <p>{{$user->about}}</p>

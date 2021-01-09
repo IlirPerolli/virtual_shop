@@ -37,7 +37,7 @@
 
     </ul>
     <div class="col-lg-3 col-12" >
-        <div class="card" style="width: 18rem; margin-top:24px; padding: 20px; background: #FCFCFC">
+        <div class="card m-auto" style="width: 18rem; margin-top:24px !important; padding: 20px; background: #FCFCFC">
         <h5 class="card-title text-center p-2">Njer&euml;z q&euml; mund t'i njihni</h5>
         @if(count($users)>0)
             @foreach($users as $user)
@@ -66,7 +66,7 @@
         </div>
 
 
-        <div class="card" style="width: 18rem; margin-top:24px; padding: 20px; background: #FCFCFC">
+        <div class="card m-auto" style="width: 18rem; margin-top:24px !important; padding: 20px; background: #FCFCFC">
             <a href="{{route('categories')}}"> <h5 class="card-title text-center p-2">Eksploro kategori</h5></a>
         <div style="display: inline-block" class="pb-4">
 

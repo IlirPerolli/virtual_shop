@@ -301,7 +301,7 @@
                                         {{$post->user->business_name}}
                                     @else {{$post->user->name . " ". $post->user->surname}}
                                     @endif</h4></a>
-                            <p>{{$post->user->bio}}</p>
+                            <p style="width:100%; word-break: break-all; word-break: break-word">{{$post->user->bio}}</p>
 
                             <h6 style="color:black; text-align: center; margin-top:15px">Postime {{$user_posts}} | <a href="{{route('followings',$post->user->slug)}}" style="color:black">Ndjekje {{$followings}}</a> | <a href="{{route('followers',$post->user->slug)}}" style="color:black">Ndjek&euml;s {{$followers}}</a></h6>
                             <div class="br"></div>

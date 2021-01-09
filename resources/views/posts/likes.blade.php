@@ -32,7 +32,7 @@
                         <div class="media-body">
                             @if($user->bio)
                                 <a href="{{route('user.show',$user->slug)}}"> <h5 class="mt-0">@if($user->is_business == 1){{$user->business_name}} @else {{$user->name . " ". $user->surname}}@endif</h5></a>
-                                <p style="margin-top: -5px">{{$follower->bio}}</p>
+                                <p style="margin-top: -5px; width:100%; word-break: break-all; word-break: break-word" title="{{$user->bio}}">{{Str::limit($user->bio,50)}}</p>
                             @else
                                 <a href="{{route('user.show',$user->slug)}}"> <h5 class="mt-0">@if($user->is_business == 1){{$user->business_name}} @else {{$user->name . " ". $user->surname}}@endif</h5></a>
                                 <p style="margin-top: -5px">(No bio available)</p>
