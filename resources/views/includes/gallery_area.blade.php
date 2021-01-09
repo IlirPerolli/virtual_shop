@@ -1,4 +1,12 @@
-
+<style>@media screen and (max-width: 960px){
+        .media-body{
+            width: 100% !important;
+        }
+        .user-avatar{
+            margin-right: 0px !important;
+            margin-top: 25px;
+        }
+    }</style>
 <div class="container d-flex justify-content-center flex-wrap" style="margin-top: 100px">
     @yield('gallery_title')
     <ul class="list-unstyled col-lg-9 col-12">
@@ -42,7 +50,7 @@
             @if(count($users)>0)
                 @foreach($users as $user)
                     <div class="media mb-4">
-                        <a href="{{route('user.show',$user->slug)}}"> <img class="align-self-start mr-3 rounded-circle" src="{{$user->photo->photo}}" alt="{{$user->name . " ". $user->surname}}" width="50px" height="50px"></a>
+                        <a href="{{route('user.show',$user->slug)}}"> <img class="align-self-start mr-3 rounded-circle user-avatar" src="{{$user->photo->photo}}" alt="{{$user->name . " ". $user->surname}}" width="50px" height="50px"></a>
                         <div class="media-body">
 
                             <a href="{{route('user.show',$user->slug)}}"> <h5 class="mt-0">@if($user->is_business == 1)

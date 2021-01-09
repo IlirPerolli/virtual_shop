@@ -82,7 +82,7 @@
                                     <li><a href="#">{{$post->mobile_number}}<i class="fa fa-phone" aria-hidden="true"></i></a></li>
                                     <li><a href="#">{{$post->price}} &#8364;<i class="fa fa-money" aria-hidden="true"></i></a></li>
                                     <li><a href="#">{{$post->created_at->diffForHumans()}}<i class="lnr lnr-calendar-full"></i></a></li>
-                                    <li><a href="{{route('post.likes',$post->slug)}}">{{$likes}} P&euml;lqime</a> </li>
+                                    <li><a href="{{route('post.likes',$post->slug)}}">{{$likes}} P&euml;lqime<i class="fa fa-heart" aria-hidden="true"></i></a> </li>
                                     @if(auth()->check())
                                     @if($post->user_id == auth()->user()->id)
                                     <li><a href="#">{{$post->views}} Views<i class="lnr lnr-eye"></i></a></li>
@@ -137,7 +137,7 @@
                         </div>
                         <div class="col-lg-9 col-md-9 blog_details">
                             <h2>{{$post->title}}</h2>
-                            <p class="excert"><pre style="font-size: 14px;font-family: Poppins, sans-serif;font-weight: 300;color: #777777; white-space: pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;"> {{$post->body}}</pre></p>
+                            <p class="excert"><pre style="font-size: 14px;font-family: Poppins, sans-serif;font-weight: 300;color: #777777; white-space: pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;">{{$post->body}}</pre></p>
                             @if(auth()->check())
                             @if(auth()->user()->id == $post->user_id)
 

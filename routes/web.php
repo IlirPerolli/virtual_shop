@@ -49,7 +49,6 @@ Route::middleware('auth')->group(function(){
     Route::resource('comment/reply', 'App\Http\Controllers\CommentRepliesController');
     Route::post('/post/{post}/like', 'App\Http\Controllers\LikesController@like')->name('post.like');
     Route::post('/post/{post}/unlike', 'App\Http\Controllers\LikesController@unlike')->name('post.unlike');
-    Route::get('/post/{post}/likes', 'App\Http\Controllers\LikesController@show')->name('post.likes');
     Route::get('/city/create','App\Http\Controllers\CitiesController@create')->name('city.create');
     Route::post('/city','App\Http\Controllers\CitiesController@store')->name('city.store');
     Route::delete('/city/{city}/destroy','App\Http\Controllers\CitiesController@destroy')->name('city.destroy');
@@ -74,6 +73,7 @@ Route::get('/discover/companies', 'App\Http\Controllers\DiscoverController@compa
 
 Route::get('/user/{user}/followings', 'App\Http\Controllers\ProfileController@followings')->name('followings');
 Route::get('/user/{user}/followers', 'App\Http\Controllers\ProfileController@followers')->name('followers');
+Route::get('/post/{post}/likes', 'App\Http\Controllers\LikesController@show')->name('post.likes');
 
 
 Route::get('/city/{city}','App\Http\Controllers\CitiesController@show')->name('city.show');
