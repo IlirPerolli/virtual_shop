@@ -10,7 +10,7 @@ body{
 @media screen and (max-width: 640px){
     .author_img{
         margin:0!important;
-        width: 90% !important;
+        width: 70% !important;
         margin: auto !important;
     }
     .follow-form{
@@ -31,8 +31,12 @@ body{
 }
 
 @media screen and (max-width: 940px){
+
     .media{
         width: auto !important;
+    }
+    .user-media-on-profile{
+        width:100% !important;
     }
 }
 .follow-form{

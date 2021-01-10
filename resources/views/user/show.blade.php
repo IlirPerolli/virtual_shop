@@ -73,7 +73,7 @@
 {{--</div>--}}
 
 <div class="col-lg-6 col-12 m-auto" style="margin-top: 140px!important;">
-    <div class="media m-auto " style=" width: 500px">
+    <div class="media m-auto user-media-on-profile" style=" width: 500px">
     <img class="align-self-center mr-3 rounded-circle author_img" src="{{$user->photo->photo}}" alt="Generic placeholder image rounded-circle" alt="{{$user->name . " ". $user->surname}}" width="200px" height="200px">
 
         <div class="media-body ml-2">
