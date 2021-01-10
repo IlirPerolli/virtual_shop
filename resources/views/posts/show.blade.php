@@ -30,9 +30,10 @@
                                     <ol class="carousel-indicators">
                                         @if (strpos($post->photo->photo,',') !== false)
                                             @foreach(explode(',',$post->photo->photo) as $photo)
+                                                @if ($loop->index==0) @continue @endif
                                                 {{--                                                Per te pare se ne cilin iterim eshte perdoret $loop --}}
 
-                                                <li data-target="#carouselExampleIndicators" {{$loop->index == 0 ? 'class=active' : '' }}></li>
+                                                <li data-target="#carouselExampleIndicators" {{$loop->index == 1 ? 'class=active' : '' }}></li>
                                             @endforeach
 
                                         @else
@@ -47,8 +48,10 @@
 
                                         @if (strpos($post->photo->photo,',') !== false)
                                             @foreach(explode(',',$post->photo->photo) as $photo)
+
+                                                @if ($loop->index==0) @continue @endif
 {{--                                                Per te pare se ne cilin iterim eshte perdoret $loop --}}
-                                                <div class="carousel-item {{$loop->index == 0 ? "active" : '' }}" style="max-height: 600px">
+                                                <div class="carousel-item {{$loop->index == 1 ? "active" : '' }}" style="max-height: 600px">
                                                 <img class="d-block img-fluid" src="{{'/images/'.$photo}}" style="max-height: 600px; margin:auto" alt="First slide">
                                                 </div>
 
@@ -225,7 +228,7 @@
                                 @csrf
                                 <input type="hidden" name="comment_id" value="{{$comment->id}}">
                             <div class="mt-10">
-                                <input type="text" name="body" style="border: 1px solid lightgrey" placeholder="Shkruaj nj&euml; p&euml;rgjigje" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Write a reply'" class="single-input" required>
+                                <input type="text" name="body" style="border: 1px solid lightgrey" placeholder="Shkruaj nj&euml; p&euml;rgjigje" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Shkruaj nj&euml; p&euml;rgjigje'" class="single-input" required>
                             </div>
                                 <div class="mt-10" style="display:none">
                                     <button type="submit" class="btn-reply text-uppercase" style="cursor:pointer;">P&euml;rgjigju</button>

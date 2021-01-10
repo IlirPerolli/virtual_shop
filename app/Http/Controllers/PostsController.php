@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class PostsController extends Controller
 {
@@ -49,9 +50,11 @@ class PostsController extends Controller
         }
 
         $images = array();
+        $iteration = 0;
         if ($files = $request->file('photo_id')){
 
             foreach ($files as $file) {
+                $iteration++;//per mi bo resize veq foton e par
                 if (strpos($file->getClientOriginalName(),'chat') !== false) {
                     $file_name = $file->getClientOriginalName();
                     $name = time().str_replace("chat",$user->username,$file_name); //Per shkak te serverit qe se perkrah fjalen chat
@@ -60,10 +63,19 @@ class PostsController extends Controller
                     $name = time() . $file->getClientOriginalName();
                 }
 
+                if($iteration == 1){
+                    $image_resize = Image::make($file->getRealPath());
+                    $image_resize->resize(300, 300);
+                    $image_resize->save('images/'.$name);  //ME RESIZE
+                    $images[] = $name;  //ME RESIZE
+                }
+
+                $name = '1_'.$name; //Ndrysho emrin e files
+
                 $file->move('images', $name);
                 $images[] = $name;
             }
-            if (count($images)>5){
+            if (count($images)>6){//6 se 1 foto shkon per resize
                 session()->flash('max_photos', 'Nuk lejohen më shumë se 5 foto.');
                 return back();
             }
@@ -190,4 +202,10 @@ class PostsController extends Controller
 //    }
         //Nese deshirojme te kompresojme filet e kemi kete mundesi prej ketij funksioni
 
+
+
+//$image_resize = Image::make($file->getRealPath());
+//$image_resize->resize(300, 300);
+//$image_resize->save('images/'.$name);
+//$images[] = $name; ME RESIZE
 }

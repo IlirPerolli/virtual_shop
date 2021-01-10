@@ -2,10 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="00153e13-9524-46f1-a4c4-64867ab51702" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/bigfishV1.0.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/bigfishV1.0.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PostsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PostsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserChangePhotoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserChangePhotoController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/160213572843021464_2808964505795872_2350237337373376512_o.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/posts/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/posts/show.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,6 +142,7 @@
       <path value="$PROJECT_DIR$/vendor/laravel/ui" />
       <path value="$PROJECT_DIR$/vendor/cviebrock/eloquent-sluggable" />
       <path value="$PROJECT_DIR$/vendor/cocur/slugify" />
+      <path value="$PROJECT_DIR$/vendor/intervention/image" />
     </include_path>
   </component>
   <component name="ProjectId" id="1hJs3Tcc7s5oUiX3u5pqHSqwbdA" />
@@ -246,37 +251,15 @@
       <workItem from="1610189266486" duration="1899000" />
       <workItem from="1610200177519" duration="49000" />
       <workItem from="1610205972940" duration="608000" />
-      <workItem from="1610229993161" duration="972000" />
+      <workItem from="1610229993161" duration="1242000" />
+      <workItem from="1610241742444" duration="63000" />
+      <workItem from="1610241932437" duration="262000" />
+      <workItem from="1610244334667" duration="143000" />
+      <workItem from="1610284591525" duration="6387000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1602265335627">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1602265335627" />
-    <state x="858" y="177" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1602515722983">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="858" y="177" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1602515722983" />
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1602412995306">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1602412995306" />
-    <state x="486" y="135" key="NewPhpClassDialog" timestamp="1599741998889">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="486" y="135" key="NewPhpClassDialog/0.0.1536.824@0.0.1536.824" timestamp="1599741998889" />
-    <state x="425" y="187" key="run.anything.popup" timestamp="1602281697543">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1602281697543" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1607175136106">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1607175136106" />
   </component>
 </project>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Photo;
 use Illuminate\Http\Request;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class UserChangePhotoController extends Controller
 {
@@ -89,7 +90,13 @@ class UserChangePhotoController extends Controller
                 $name = time() . $file->getClientOriginalName();
             }
 //                $name = time().$file->getClientOriginalName();
-                $file->move('images', $name);
+
+            $image_resize = Image::make($file->getRealPath());
+$image_resize->resize(300, 300);
+$image_resize->save('images/'.$name);
+$images[] = $name;
+//ME RESIZE
+                //$file->move('images', $name);
                 $photo = Photo::create(['photo'=>$name]);
                 $input['photo_id'] = $photo->id;
                 $user->update($input);
