@@ -51,6 +51,15 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Post::class, 'likes', 'user_id', 'post_id')->withTimestamps()->withPivot('user_id', 'post_id');
     }
+    public function role(){
+        return $this->belongsTo(Role::class);
+    }
+    public function isAdmin(){
+        if ($this->role->name == "administrator"){
+            return true;
+        }
+        return false;
+    }
     /**
      * The attributes that should be hidden for arrays.
      *

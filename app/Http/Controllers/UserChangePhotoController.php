@@ -81,7 +81,7 @@ class UserChangePhotoController extends Controller
                 unlink(public_path().$user->photo->photo);
             }
 
-                $request->validate(['photo_id'=>'required|mimes:jpeg,png,jpg,svg|max:2048']);
+                $request->validate(['photo_id'=>'required|mimes:jpeg,png,jpg,svg|max:10240']);
             if (strpos($file->getClientOriginalName(),'chat') !== false) {
                 $file_name = $file->getClientOriginalName();
                 $name = time().str_replace("chat",$user->username,$file_name); //Per shkak te serverit qe se perkrah fjalen chat

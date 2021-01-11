@@ -27,7 +27,10 @@ Auth::routes();
 
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
-
+Route::middleware(['auth', 'admin'])->group(function(){
+    Route::get('/admin/posts', 'App\Http\Controllers\AdminController@index')->name('admin.posts');
+    Route::delete('admin/post/{post}','App\Http\Controllers\AdminController@destroy')->name('admin.post.destroy');
+});
 Route::middleware('auth')->group(function(){
     Route::get('/post/create','App\Http\Controllers\PostsController@create')->name('post.create');
     Route::post('post','App\Http\Controllers\PostsController@store')->name('post.store');
