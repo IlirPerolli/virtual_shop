@@ -92,7 +92,7 @@ class UserChangePhotoController extends Controller
 //                $name = time().$file->getClientOriginalName();
 
             $image_resize = Image::make($file->getRealPath());
-$image_resize->resize(300, 300);
+$image_resize->fit(300, 300);
 $image_resize->save('images/'.$name);
 $images[] = $name;
 //ME RESIZE

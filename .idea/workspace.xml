@@ -3,18 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="00153e13-9524-46f1-a4c4-64867ab51702" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PostsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PostsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserChangePhotoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserChangePhotoController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/1602616836121153095_2787262948184696_8145439451862116909_n.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/1602624174GTX-1050-TI-Kartel-grafike (1).jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/1602624174GTX-1050-TI-Kartel-grafike.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/161029585016101530101602624174GTX-1050-TI-Kartel-grafike.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/1610295901foto.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/1_161029585016101530101602624174GTX-1050-TI-Kartel-grafike.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/1_1610295901foto.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/16102957928c240577-039e-46bf-9f84-5979ac1f8af51999.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/user/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/show.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -270,7 +262,9 @@
       <workItem from="1610307926147" duration="136000" />
       <workItem from="1610309884876" duration="917000" />
       <workItem from="1610312780184" duration="189000" />
-      <workItem from="1610402809832" duration="2935000" />
+      <workItem from="1610402809832" duration="3998000" />
+      <workItem from="1610452123500" duration="567000" />
+      <workItem from="1610457530778" duration="390000" />
     </task>
     <servers />
   </component>

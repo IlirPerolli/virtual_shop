@@ -65,7 +65,7 @@ class PostsController extends Controller
 
                 if($iteration == 1){
                     $image_resize = Image::make($file->getRealPath());
-                    $image_resize->resize(300, 300);
+                    $image_resize->fit(300, 300);
                     $image_resize->save('images/'.$name);  //ME RESIZE
                     $images[] = $name;  //ME RESIZE
                 }

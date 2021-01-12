@@ -128,10 +128,12 @@
             @endif
 
         </div>
-
     </div>
+
 </div>
+
 </div>
+
     <div class="col-lg-6 m-auto">
         @if(session()->has('deleted_post'))<br>
         <div class="alert alert-danger" role="alert">
