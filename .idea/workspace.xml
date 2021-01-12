@@ -3,10 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="00153e13-9524-46f1-a4c4-64867ab51702" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PostsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PostsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserChangePhotoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserChangePhotoController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/16102957928c240577-039e-46bf-9f84-5979ac1f8af51999.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/includes/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/posts/likes.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/posts/likes.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/search/users.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/search/users.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/user/followers.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/followers.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/user/followings.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/followings.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +27,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -264,7 +273,8 @@
       <workItem from="1610312780184" duration="189000" />
       <workItem from="1610402809832" duration="3998000" />
       <workItem from="1610452123500" duration="567000" />
-      <workItem from="1610457530778" duration="390000" />
+      <workItem from="1610457530778" duration="666000" />
+      <workItem from="1610484083769" duration="1071000" />
     </task>
     <servers />
   </component>

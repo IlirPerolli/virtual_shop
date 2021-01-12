@@ -17,7 +17,19 @@
 
         ::-ms-input-placeholder { /* Microsoft Edge */
             color: black !important;
-        }</style>
+        }
+        @media screen and (max-width: 640px){
+            .media{
+                width:auto !important;
+                display: flex;
+                text-align: left;
+            }
+            .media-body{
+                margin: 0!important;
+                width: 90% !important;
+            }
+        }
+    </style>
 @endsection
 @section('content')
 

@@ -77,9 +77,6 @@
                         <li class="nav-item"><a class="nav-link" href="{{ url('/logout') }}">Shkyqu</a></li>
                     @endif
 
-
-
-
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="nav-item"><a href="{{route('search.posts')}}" class="search"><i class="lnr lnr-magnifier"></i></a></li>

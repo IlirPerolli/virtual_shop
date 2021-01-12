@@ -7,18 +7,31 @@
     <style>body{
             background: #F9F9FF;
         }
-        ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+        ::placeholder {
             color: black !important;
-            opacity: 1; /* Firefox */
+            opacity: 1;
         }
 
-        :-ms-input-placeholder { /* Internet Explorer 10-11 */
+        :-ms-input-placeholder {
             color: black !important;
         }
 
-        ::-ms-input-placeholder { /* Microsoft Edge */
+        ::-ms-input-placeholder {
             color: black !important;
-        }</style>
+        }
+        @media screen and (max-width: 640px){
+            .media{
+                width:auto !important;
+                display: flex;
+                text-align: left;
+            }
+            .media-body{
+                margin: 0!important;
+                width: 90% !important;
+            }
+        }
+
+    </style>
 @endsection
 @section('content')
     <div class="whole-wrap" style="margin-top: 150px; margin-bottom: 150px;">
