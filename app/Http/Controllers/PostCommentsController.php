@@ -44,7 +44,8 @@ class PostCommentsController extends Controller
             'body'=>$request->body
         ];
         Comment::create($data);
-        return back();
+//        return back();
+        return redirect()->to(url()->previous() . '#comments-area');
     }
 
     /**
@@ -118,6 +119,8 @@ class PostCommentsController extends Controller
 
         $comment->delete();
         session()->flash('deleted_comment',"Komenti u fshi me sukses.");
-        return back();
+//        return back();
+        return redirect()->to(url()->previous() . '#comments-area');
+
     }
 }

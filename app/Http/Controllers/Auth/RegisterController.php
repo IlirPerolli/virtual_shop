@@ -56,7 +56,7 @@ class RegisterController extends Controller
             'surname' => ['required', 'string', 'max:255'],
             'is_business' => ['required','numeric', 'min:0', 'max:1'],
             'business_name' => ['required_if:is_business,1','nullable','string', 'min:2', 'max:255'],
-            'username' => ['required', 'string','min:3', 'max:255', 'unique:users','alpha_dash'],
+            'username' => ['required', 'string','min:3', 'max:255', 'unique:users','regex:/^[A-Za-z0-9]+$/'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
@@ -76,8 +76,8 @@ class RegisterController extends Controller
             'surname' => $data['surname'],
             'business_name' => $data['business_name'],
             'is_business' => $data['is_business'],
-            'username' => $data['username'],
-            'slug'=>$data['username'],
+            'username' => strtolower($data['username']),
+            'slug'=>strtolower($data['username']),
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);

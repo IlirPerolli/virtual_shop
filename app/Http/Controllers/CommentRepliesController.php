@@ -46,7 +46,8 @@ class CommentRepliesController extends Controller
 
         ];
         CommentReply::create($data);
-        return back();
+//        return back();
+        return redirect()->to(url()->previous() . '#comments-area');
     }
 
     /**
@@ -115,6 +116,7 @@ class CommentRepliesController extends Controller
         }
         $reply->delete();
         session()->flash('deleted_reply',"Përgjigjja u fshi me sukses.");
-        return back();
+//        return back();
+        return redirect()->to(url()->previous() . '#comments-area');
     }
 }
