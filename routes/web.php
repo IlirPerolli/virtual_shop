@@ -86,7 +86,4 @@ Route::get('/categories','App\Http\Controllers\CategoriesController@index')->nam
 Route::get('/search/users', 'App\Http\Controllers\SearchController@users')->name('search.users');
 Route::get('/search/posts', 'App\Http\Controllers\SearchController@posts')->name('search.posts');
 //Route::get('/check', 'App\Http\Controllers\PostsController@check');
-Route::get('/prova',function(){
-   return view('prova');
-});
 Route::get('/{user}','App\Http\Controllers\UserProfileController@show')->name('user.show');

@@ -93,16 +93,16 @@
                             @csrf
                             @method('POST')
                             <div class="mt-10">
-                                <input type="text" class="single-input" name="title" placeholder="Titulli" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Titulli'" value="{{ old('title') }}"/>
+                                <input type="text" class="single-input" name="title" placeholder="Titulli" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Titulli'" value="{{ old('title') }}" autocomplete="off" required/>
                             </div>
                             <div class="mt-10">
-                                <textarea class="single-textarea" name="body" placeholder="P&euml;rshkrimi" onfocus="this.placeholder = ''" onblur="this.placeholder = 'P&euml;rshkrimi'">{{@old('body')}}</textarea>
+                                <textarea class="single-textarea" name="body" placeholder="P&euml;rshkrimi" onfocus="this.placeholder = ''" onblur="this.placeholder = 'P&euml;rshkrimi'" autocomplete="off" required>{{@old('body')}}</textarea>
                             </div>
                             <div class="mt-10">
-                                <input type="number" class="single-input" name="mobile_number" placeholder="Numri i telefonit" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Numri i telefonit'" value="{{ old('mobile_number') }}" min="0"/>
+                                <input type="number" class="single-input" name="mobile_number" placeholder="Numri i telefonit" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Numri i telefonit'" value="{{ old('mobile_number') }}" required autocomplete="off" min="0"/>
                             </div>
                             <div class="mt-10">
-                                <input type="number" class="single-input" name="price" placeholder="&Ccedil;mimi" onfocus="this.placeholder = ''" onblur="this.placeholder = '&Ccedil;mimi'" value="{{ old('price') }}" step="0.01" min="0"/>
+                                <input type="number" class="single-input" name="price" placeholder="&Ccedil;mimi" onfocus="this.placeholder = ''" onblur="this.placeholder = '&Ccedil;mimi'" value="{{ old('price') }}" required autocomplete="off" step="0.01" min="0"/>
                             </div>
                             <div class="input-group-icon mt-10">
                                 <div class="form-select" id="default-select">
