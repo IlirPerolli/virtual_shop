@@ -36,7 +36,7 @@
                     <form action="{{route('search.posts')}}" method="GET" role="search">
 
                         <div class="input-group d-flex flex-row">
-                            <input name="q" placeholder="K&euml;rko postime" onfocus="this.placeholder = ''" onblur="this.placeholder = 'K&euml;rko postime'" type="text" style="background:white;border: 1px solid #d6d6d6;color:black" autocomplete="off">
+                            <input name="q" placeholder="K&euml;rko postime" onfocus="this.placeholder = ''" onblur="this.placeholder = 'K&euml;rko postime'" type="text" style="background:white;border: 1px solid #d6d6d6;color:black" value="@if(isset($_GET['q'])){{$_GET['q']}} @endif" autocomplete="off">
                             <button class="btn sub-btn" type="submit"><span class="lnr lnr-arrow-right"></span></button>
 
                         </div>

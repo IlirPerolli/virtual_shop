@@ -58,6 +58,11 @@
                     </div>
                 </li>
             @endforeach
+                <nav aria-label="Pagination">
+                    <ul class="pagination justify-content-center">
+                        {{$posts->links()}}
+                    </ul>
+                </nav>
         @else
             <h4 style="margin-bottom: 20px; color:red" class="text-center">Nuk u gjet&euml;n postime</h4>
         @endif
@@ -110,11 +115,7 @@
     </div>
 
 </div>
-<nav aria-label="Pagination">
-    <ul class="pagination justify-content-center">
-        {{$posts->links()}}
-    </ul>
-</nav>
+
 
 <!--================End Home Gallery Area =================-->
 
