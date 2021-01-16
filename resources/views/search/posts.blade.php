@@ -1,6 +1,6 @@
 @extends('layouts.index')
 @section('title')
-    <title>Bufi &#8226; K&euml;rko </title>
+    <title>Bufi &#8226; K&euml;rko postime </title>
 @endsection
 @section('styles')
     <style>body{

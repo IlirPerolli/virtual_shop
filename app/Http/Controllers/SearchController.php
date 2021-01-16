@@ -20,10 +20,22 @@ class SearchController extends Controller
     }
 
     public function users(Request $request)
-    {
+    { $categories = Category::orderBy('id', 'ASC')->take(10)->get();
+        if(auth()->check()){
+
+            $users_user_may_know = auth()->user()->followings()->pluck('leader_id');
+            $user = auth()->user()->id;
+            $users_user_may_know->push($user);
+            $users_user_may_know = User::whereNotIn('id', $users_user_may_know)->orderBy('name', 'ASC')->take(5)->get();
+        }
+        else{
+            $users_user_may_know = User::orderBy('name', 'ASC')->take(5)->get();
+        }
         $input = $request->q;
 
         if ($input!='') {
+
+
             $users = User::where(DB::raw('CONCAT( name, " ", surname)'), 'like', '%' . $input . '%')
                 ->orWhere(DB::raw('CONCAT( surname, " ", name)'), 'like', '%' . $input . '%')
                 ->orWhere(DB::raw('CONCAT( name, surname)'), 'like', '%' . $input . '%')
@@ -35,13 +47,14 @@ class SearchController extends Controller
                 ->paginate(10)->appends(request()->query());
             //Kjo appends per te marrur edhe get requestat tjere ne get metoden
             if(count($users)>0){
-                return view('search.users', compact('users'));
+                return view('search.users', compact('users','categories', 'users_user_may_know'));
             }
             else{
                 session()->flash('user_not_found', "Nuk u gjet asnjë përdorues");
                 return redirect()->route('search.users');
 
             }
+
         }
 
         return view('search.users');

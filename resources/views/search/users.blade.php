@@ -1,9 +1,26 @@
 @extends('layouts.index')
 @section('title')
-    <title>Bufi &#8226; K&euml;rko </title>
+    <title>Bufi &#8226; K&euml;rko p&euml;rdorues</title>
 @endsection
 @section('styles')
-    <style>body{
+    <style>
+        @media screen and (max-width: 960px) {
+
+            .user-media{ /* Njerez qe mund ti njihni*/
+                width:auto !important;
+                display: flex;
+                text-align: left;
+
+            }
+            .user-media-body{/* Njerez qe mund ti njihni*/
+                margin: 0!important;
+                width: 90% !important;
+                margin-top: 25px !important;
+                margin-left: 10px !important;
+            }
+        }
+
+        body{
             background: #F9F9FF;
         }
         ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -28,6 +45,8 @@
                 margin: 0!important;
                 width: 90% !important;
             }
+
+
         }
     </style>
 @endsection
@@ -54,7 +73,10 @@
             </div>
 
             @if(isset($users))
+                <div class="row">
+                <div class="col-lg-9 col-12" >
                 <h4>Rezultatet p&euml;r: {{$_GET['q']}}</h4>
+
             @foreach($users as $user)
             <div class="media">
                 <a href="{{route('user.show',$user->slug)}}"> <img class="align-self-start mr-3 rounded-circle" src="{{$user->photo->photo}}" alt="{{$user->name . " ". $user->surname}}" width="50px" height="50px"></a>
@@ -72,12 +94,60 @@
 
             @endforeach
 
+
                 <nav aria-label="Pagination">
                     <ul class="pagination justify-content-center">
                         {{$users->links()}}
                     </ul>
                 </nav>
-            @endif
+                </div>
+                <div class="col-lg-3 col-12" >
+                    <div class="card m-auto" style="width: 18rem; padding: 20px; background: #FCFCFC">
+                        <h5 class="card-title text-center p-2">Njer&euml;z q&euml; mund t'i njihni</h5>
+                        @if(count($users_user_may_know )>0)
+                            @foreach($users_user_may_know as $user)
+                                <div class="user-media media mb-4">
+                                    <a href="{{route('user.show',$user->slug)}}"> <img class="align-self-start mr-3 rounded-circle user-avatar" src="{{$user->photo->photo}}" alt="{{$user->name . " ". $user->surname}}" width="50px" height="50px"></a>
+                                    <div class="user-media-body media-body">
+
+                                        <a href="{{route('user.show',$user->slug)}}"> <h5 class="mt-0">@if($user->is_business == 1)
+                                                    {{$user->business_name}}
+                                                @else {{$user->name . " ". $user->surname}}
+                                                @endif</h5></a>
+                                        <form action="{{route('user.follow',$user->id)}}" method="post">
+
+                                            @csrf
+                                            @method('post')
+                                            <button type="submit" class="btn btn-link" style="padding:0; margin:0; margin-top: -15px; cursor: pointer; text-decoration: none">Ndjek</button>
+                                        </form>
+
+
+                                    </div>
+
+                                </div>
+
+                            @endforeach
+                        @else
+                            <h4 style="margin-bottom: 20px; color:red" class="text-center">Nuk u gjet&euml;n p&euml;rdorues</h4>
+                        @endif
+                        <a href="{{route('search.users')}}"><h6 class="text-center">K&euml;rko p&euml;rdorues</h6></a>
+                    </div>
+
+
+
+                    <div class="card m-auto" style="width: 18rem; margin-top:24px !important; padding: 20px; background: #FCFCFC">
+                        <a href="{{route('categories')}}"><h5 class="card-title text-center p-2">Eksploro kategori</h5></a>
+                        <div style="display: inline-block" class="pb-4">
+
+                            @foreach($categories as $category)
+                                <a href="{{route('category.show',$category->slug)}}" style="padding: 5px">{{$category->name}}</a>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+                    @endif
             @if(Session::has('user_not_found'))
                         <div class="alert alert-danger">{{session('user_not_found')}}</div>
                     @endif
