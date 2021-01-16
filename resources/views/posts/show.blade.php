@@ -27,6 +27,13 @@
                 width:100% !important;
             }
         }
+       .carousel-photo-container{
+           display: flex;
+           flex-direction: row;
+           justify-content: center;
+           align-items: center;
+           height: 600px;
+       }
       </style>
 @endsection
 @section('content')
@@ -58,6 +65,9 @@
 
 
                                     </ol>
+                                    <div class="carousel-photo-container">
+
+
                                     <div class="carousel-inner">
 
 
@@ -78,7 +88,7 @@
                                             </div>
                                         @endif
 
-                                    </div>
+                                    </div></div>
                                     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                         <span class="sr-only">Previous</span>
