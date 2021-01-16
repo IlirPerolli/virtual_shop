@@ -6,6 +6,12 @@
             margin-right: 0px !important;
             margin-top: 25px;
         }
+        .product-photo{
+            max-width: 100% !important;
+            max-height: 100% !important;
+
+        }
+
     }</style>
 <div class="container d-flex justify-content-center flex-wrap" style="margin-top: 100px">
 

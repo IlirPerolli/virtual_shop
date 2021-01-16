@@ -107,7 +107,8 @@ class PostsController extends Controller
         $post->update(['views'=>$views]);
         $comments = $post->comments;
         $category = $post->category;
-        return view('posts.show', compact('post','followers' , 'followings','user_posts', 'likes','views', 'comments', 'category'));
+        $posts = Post::where('category_id',$post->category_id)->where('id','<>',$post->id)->take(5)->get();
+        return view('posts.show', compact('post','followers' , 'followings','user_posts', 'likes','views', 'comments', 'category', 'posts'));
     }
     public function edit($slug)
     {
