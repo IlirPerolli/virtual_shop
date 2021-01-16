@@ -97,7 +97,7 @@
             @else
                 <h4 style="margin-bottom: 20px; color:red" class="text-center">Nuk u gjet&euml;n p&euml;rdorues</h4>
             @endif
-            <a href="{{route('search.users')}}"><h6 class="text-center">K&euml;rko p&euml;rdorues</h6></a>
+            <a href="{{route('search.users')}}"><h6 class="text-center mt-3">K&euml;rko p&euml;rdorues</h6></a>
         </div>
 
 

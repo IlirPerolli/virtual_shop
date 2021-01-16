@@ -4,21 +4,7 @@
 @endsection
 @section('styles')
     <style>
-        @media screen and (max-width: 960px) {
 
-            .user-media{ /* Njerez qe mund ti njihni*/
-                width:auto !important;
-                display: flex;
-                text-align: left;
-
-            }
-            .user-media-body{/* Njerez qe mund ti njihni*/
-                margin: 0!important;
-                width: 90% !important;
-                margin-top: 25px !important;
-                margin-left: 10px !important;
-            }
-        }
 
         body{
             background: #F9F9FF;
@@ -47,6 +33,24 @@
             }
 
 
+        }
+        @media screen and (max-width: 960px) {
+            .users_user_may_know{
+                margin-top: 30px!important;
+            }
+            .user-media{ /* Njerez qe mund ti njihni*/
+                width:auto !important;
+                display: flex;
+                text-align: left;
+                margin-top:25px !important;
+
+            }
+            .user-media-body{/* Njerez qe mund ti njihni*/
+                margin: 0!important;
+                width: 90% !important;
+
+                margin-left: 10px !important;
+            }
         }
     </style>
 @endsection
@@ -102,7 +106,7 @@
                 </nav>
                 </div>
                 <div class="col-lg-3 col-12" >
-                    <div class="card m-auto" style="width: 18rem; padding: 20px; background: #FCFCFC">
+                    <div class="card m-auto users_user_may_know" style="width: 18rem; padding: 20px; background: #FCFCFC">
                         <h5 class="card-title text-center p-2">Njer&euml;z q&euml; mund t'i njihni</h5>
                         @if(count($users_user_may_know )>0)
                             @foreach($users_user_may_know as $user)
@@ -130,7 +134,7 @@
                         @else
                             <h4 style="margin-bottom: 20px; color:red" class="text-center">Nuk u gjet&euml;n p&euml;rdorues</h4>
                         @endif
-                        <a href="{{route('search.users')}}"><h6 class="text-center">K&euml;rko p&euml;rdorues</h6></a>
+                        <a href="{{route('search.users')}}"><h6 class="text-center mt-3">K&euml;rko p&euml;rdorues</h6></a>
                     </div>
 
 
