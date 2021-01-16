@@ -10,7 +10,7 @@
             }
 
         }
-            .similar-products{
+            .similar-posts{
             font-size: 20px;
         }
         body{
@@ -355,7 +355,7 @@
     </section>
     <!--================Blog Area =================-->
 <div class="container d-flex justify-content-center flex-wrap">
-    <div class="similar-products">Produkte t&euml; ngjajshme</div>
+    <div class="similar-posts">Postime t&euml; ngjajshme</div>
     <ul class="list-unstyled col-lg-12 col-12 m-auto" style="margin-bottom: 50px !important;">
         @if(count($posts)>0)
             @foreach($posts as $post)
