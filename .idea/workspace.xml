@@ -3,9 +3,34 @@
   <component name="ChangeListManager">
     <list default="true" id="00153e13-9524-46f1-a4c4-64867ab51702" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/16108207328c240577-039e-46bf-9f84-5979ac1f8af51999.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/1_16108207328c240577-039e-46bf-9f84-5979ac1f8af51999.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CategoriesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CategoriesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CitiesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CitiesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DiscoverController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DiscoverController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PostsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PostsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SearchController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SearchController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserProfileController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_07_124840_create_categories_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_07_124840_create_categories_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/1602453432kafshe-shtepiake.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/1602453439makina.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/1602453446rrobaqepes.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/1602453452tech.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/1602453457thumbnail_sport.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/1602453465thumbnail_kozmetike.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/1602453482thumbnail_fitnes.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/1602453489thumbnail_shtepi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/1602453495thumbnail_bizhuteri.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/1602453503thumbnail_shendetesi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/1602453509thumbnail_libraria.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/1602621951thumbnail_frizer.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/1602621962thumbnail_techbardhe.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/16108234881.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/1_16108234881.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/categories/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/categories/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/categories/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/categories/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/includes/gallery_area.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/gallery_area.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/includes/profile_gallery_area.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/profile_gallery_area.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/posts/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/posts/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -281,7 +306,7 @@
       <workItem from="1610660251367" duration="265000" />
       <workItem from="1610814553427" duration="645000" />
       <workItem from="1610817816685" duration="3332000" />
-      <workItem from="1610823459372" duration="307000" />
+      <workItem from="1610823459372" duration="9500000" />
     </task>
     <servers />
   </component>

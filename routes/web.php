@@ -30,6 +30,12 @@ Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::middleware(['auth', 'admin'])->group(function(){
     Route::get('/admin/posts', 'App\Http\Controllers\AdminController@index')->name('admin.posts');
     Route::delete('admin/post/{post}','App\Http\Controllers\AdminController@destroy')->name('admin.post.destroy');
+    Route::get('/city/create','App\Http\Controllers\CitiesController@create')->name('city.create');
+    Route::post('/city','App\Http\Controllers\CitiesController@store')->name('city.store');
+    Route::delete('/city/{city}/destroy','App\Http\Controllers\CitiesController@destroy')->name('city.destroy');
+    Route::get('/category/create','App\Http\Controllers\CategoriesController@create')->name('category.create');
+    Route::post('/category','App\Http\Controllers\CategoriesController@store')->name('category.store');
+    Route::delete('/category/{category}/destroy','App\Http\Controllers\CategoriesController@destroy')->name('category.destroy');
 });
 Route::middleware('auth')->group(function(){
     Route::get('/post/create','App\Http\Controllers\PostsController@create')->name('post.create');
@@ -52,12 +58,7 @@ Route::middleware('auth')->group(function(){
     Route::resource('comment/reply', 'App\Http\Controllers\CommentRepliesController');
     Route::post('/post/{post}/like', 'App\Http\Controllers\LikesController@like')->name('post.like');
     Route::post('/post/{post}/unlike', 'App\Http\Controllers\LikesController@unlike')->name('post.unlike');
-    Route::get('/city/create','App\Http\Controllers\CitiesController@create')->name('city.create');
-    Route::post('/city','App\Http\Controllers\CitiesController@store')->name('city.store');
-    Route::delete('/city/{city}/destroy','App\Http\Controllers\CitiesController@destroy')->name('city.destroy');
-    Route::get('/category/create','App\Http\Controllers\CategoriesController@create')->name('category.create');
-    Route::post('/category','App\Http\Controllers\CategoriesController@store')->name('category.store');
-    Route::delete('/category/{category}/destroy','App\Http\Controllers\CategoriesController@destroy')->name('category.destroy');
+
 
 
 });

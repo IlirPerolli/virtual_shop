@@ -31,13 +31,13 @@ class DiscoverController extends Controller
             $posts = Post::whereNotIn('user_id', $users)->orderBy('created_at', 'DESC')->paginate(20);
 
             $users = User::whereNotIn('id', $users)->orderBy('name', 'ASC')->take(5)->get();
-            $categories = Category::orderBy('name', 'ASC')->take(20)->get();
+            $categories = Category::orderBy('id', 'ASC')->take(10)->get();
             return view('discover.posts', compact('posts', 'users', 'categories'));
         }
         else{
             $posts = Post::orderBy('created_at', 'desc')->paginate(20);
             $users = User::orderBy('name', 'ASC')->take(5)->get();
-            $categories = Category::orderBy('name', 'ASC')->take(20)->get();
+            $categories = Category::orderBy('id', 'ASC')->take(10)->get();
             return view('discover.posts', compact('posts', 'users', 'categories'));
         }
     }

@@ -51,7 +51,7 @@ class SearchController extends Controller
     public function posts(Request $request)
     {
         $input = $request->q;
-        $categories = Category::orderBy('name', 'ASC')->take(20)->get();
+        $categories = Category::orderBy('id', 'ASC')->take(10)->get();
         //Show users that current user may know
         if(auth()->check()){
 

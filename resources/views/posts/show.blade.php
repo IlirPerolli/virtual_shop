@@ -104,7 +104,7 @@
                             <div class="blog_info text-right">
 
                                 <ul class="blog_meta list">
-                                    <li><a href="{{route('user.show', $post->user->slug)}}">@if($post->user->is_business == 1){{$post->user->business_name}} @else {{$post->user->name . " ". $post->user->surname}}@endif<i class="lnr lnr-user"></i></a></li>
+                                    <li><a href="{{route('user.show', $post->user->slug)}}">@if($post->user->is_business == 1){{$post->user->business_name}}@else {{$post->user->name . " ". $post->user->surname}}@endif<i class="lnr lnr-user"></i></a></li>
                                     <li><a href="{{route('category.show', $post->category->slug)}}">{{$post->category->name}}<i class="fa fa-list-alt" aria-hidden="true"></i></a></li>
                                     <li><a href="{{route('city.show', $post->city->slug)}}">{{$post->city->name}}<i class="fa fa-globe" aria-hidden="true"></i></a></li>
                                     <li><a href="#">{{$post->mobile_number}}<i class="fa fa-phone" aria-hidden="true"></i></a></li>
@@ -296,7 +296,7 @@
 {{--                            <div class="br"></div>--}}
 {{--                        </aside>--}}
                         <aside class="single_sidebar_widget author_widget">
-                            <img class="author_img rounded-circle" src="{{$post->user->photo->photo}}" alt="" style="width:250px; height: 250px">
+                            <a href="{{route('user.show', $post->user->slug)}}"><img class="author_img rounded-circle" src="{{$post->user->photo->photo}}" alt="" style="width:250px; height: 250px"></a>
                             <a href="{{route('user.show', $post->user->slug)}}"><h4>@if($post->user->is_business == 1)
                                         {{$post->user->business_name}}
                                     @else {{$post->user->name . " ". $post->user->surname}}
@@ -376,7 +376,7 @@
                     </div>
                     <div class="media-body product-body">
                         @if($post->title)
-                            <a href="{{route('post.show',$post->slug)}}">  <h5 class="mt-0 mb-1"> {{Str::limit($post->title, 50)}}</h5></a>
+                            <a href="{{route('post.show',$post->slug)}}">  <h5 class="mt-0 mb-1"> {{Str::limit($post->title, 150)}}</h5></a>
                         @else
                             <a href="{{route('post.show',$post->slug)}}">  <h5 class="mt-0 mb-1">(Ska p&euml;rshkrim)</h5></a>
                         @endif

@@ -17,8 +17,21 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        $categories = Category::orderBy('name','asc')->paginate(20);
-        return view('categories.index', compact('categories'));
+        //Show users that current user may know
+        if(auth()->check()){
+
+            $users = auth()->user()->followings()->pluck('leader_id');
+            $user = auth()->user()->id;
+            $users->push($user);
+            $users = User::whereNotIn('id', $users)->orderBy('name', 'ASC')->take(5)->get();
+        }
+        else{
+            $users = User::orderBy('name', 'ASC')->take(5)->get();
+        }
+        $allcategories = Category::orderBy('id', 'ASC')->get();
+        $categories = Category::orderBy('id', 'ASC')->take(10)->get();
+
+        return view('categories.index', compact('users','categories', 'allcategories'));
     }
 
     /**
@@ -28,7 +41,7 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        $categories = Category::orderBy('name','asc')->get();
+        $categories = Category::orderBy('id', 'ASC')->get();
         return view ('categories.create', compact('categories'));
     }
 
@@ -40,21 +53,8 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate(['name'=>'required|min:2|max:255','photo_id'=>'required|image|mimes:jpeg,png,jpg,svg|max:4096']);
+        $request->validate(['name'=>'required|min:2|max:255']);
         $input = $request->all();
-        if ($file = $request->file('photo_id')){
-
-                $name = time() . $file->getClientOriginalName();
-            $upload_url = public_path('/images').'/'.$name;
-            $filename = $this->compress_image($_FILES["photo_id"]["tmp_name"], $upload_url, 40);
-              //  $file->move('images', $name);
-
-            }
-
-            //$upload_url = public_path('/images').'/'.$name;
-            //$filename = $this->compress_image($_FILES["photo_id"]["tmp_name"], $upload_url, 40);
-            $photo = Photo::create(['photo'=>$name]);
-            $input['photo_id']=$photo->id;
 
         Category::create($input);
         session()->flash('added_category', 'Kategoria u shtua me sukses.');
@@ -84,7 +84,7 @@ class CategoriesController extends Controller
 
         $category = Category::findBySlugOrFail($slug);
         $posts = $category->posts()->orderBy('created_at','DESC')->paginate(20);
-        $categories = Category::orderBy('name', 'ASC')->take(20)->get();
+        $categories = Category::orderBy('id', 'ASC')->take(10)->get();
         return view('categories.show', compact('posts', 'category', 'users', 'categories' ));
     }
 
@@ -120,22 +120,9 @@ class CategoriesController extends Controller
     public function destroy(Category $category)
     {
 
-      $photo = $category->photo->photo;
-      unlink(public_path().$photo);
-
         $category->delete();
         session()->flash('deleted_category', 'Kategoria u fshi me sukses.');
         return back();
     }
-        public  function compress_image($source_url, $destination_url, $quality) {
-        $info = getimagesize($source_url);
-        if ($info['mime'] == 'image/jpeg')
-            $image = imagecreatefromjpeg($source_url);
-        elseif ($info['mime'] == 'image/gif')
-            $image = imagecreatefromgif($source_url);
-        elseif ($info['mime'] == 'image/png')
-            $image = imagecreatefrompng($source_url);
-        imagejpeg($image, $destination_url, $quality);
-        return $destination_url;
-    }
+
 }

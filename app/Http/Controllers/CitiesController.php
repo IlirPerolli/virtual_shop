@@ -66,7 +66,7 @@ class CitiesController extends Controller
         }
 
         $city = City::findBySlugOrFail($slug);
-        $categories = Category::orderBy('name', 'ASC')->take(20)->get();
+        $categories = Category::orderBy('id', 'ASC')->take(10)->get();
         $posts = $city->posts()->orderBy('created_at','DESC')->paginate(20);
         return view('cities.show', compact('posts', 'city',  'users', 'categories'));
     }

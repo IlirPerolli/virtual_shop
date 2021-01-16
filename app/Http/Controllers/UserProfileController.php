@@ -64,7 +64,7 @@ class UserProfileController extends Controller
         $followings = $user->followings->count();
         $user_posts = $user->posts->count();
         $posts = $user->posts()->orderBy('created_at', 'desc')->paginate(10);
-        $categories = Category::orderBy('name', 'ASC')->take(20)->get();
+        $categories = Category::orderBy('id', 'ASC')->take(10)->get();
         return view('user.show', compact('user','posts', 'followers', 'followings','user_posts', 'users', 'categories' ));
     }
 

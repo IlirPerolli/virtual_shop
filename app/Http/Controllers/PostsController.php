@@ -20,7 +20,7 @@ class PostsController extends Controller
     }
     public function create()
     {
-        $categories = Category::orderBy('name','asc')->get();
+        $categories = Category::orderBy('id', 'ASC')->get();
         $cities = City::orderBy('name','asc')->get();
         return view('posts.create', compact('categories', 'cities'));
     }
@@ -116,7 +116,7 @@ class PostsController extends Controller
         if (auth()->user()->id != $post->user->id){
             abort(403, 'Unauthorized action.');
         }
-        $categories = Category::orderBy('name','asc')->get();
+        $categories = Category::orderBy('id', 'ASC')->get();
         $cities = City::orderBy('name','asc')->get();
         return view('posts.edit', compact('post','categories', 'cities'));
     }

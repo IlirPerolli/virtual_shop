@@ -41,10 +41,7 @@
                         @csrf
                         @method('POST')
                         <div class="mt-10">
-                            <input type="text" class="single-input" name="name" autofocus placeholder="Emri" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Emri'" value="{{ old('name') }}"/>
-                        </div>
-                        <div class="mt-10">
-                            <input type="file" name="photo_id" multiple class="single-input">
+                            <input type="text" class="single-input" name="name" autocomplete="off" autofocus placeholder="Emri" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Emri'" value="{{ old('name') }}"/>
                         </div>
                         <div class="mt-10 float-right">
                             <button class="genric-btn primary circle arrow" type="submit" >Create <span class="lnr lnr-arrow-right"></span></button>
