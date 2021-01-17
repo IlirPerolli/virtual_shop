@@ -5,6 +5,9 @@
 @section('styles')
     <style>
         @media screen and (max-width: 960px) {
+            .carousel-photo-container{
+                height: 400px !important;
+            }
             .media-body {
                 width: 100% !important;
             }
