@@ -23,7 +23,9 @@
             margin-top: 25px !important;
             margin-left: 10px !important;
         }
-
+        .people-you-may-know{
+            margin-bottom: 50px !important;
+        }
 
     }</style>
 <div class="container d-flex justify-content-center flex-wrap" style="margin-top: 100px">
@@ -68,7 +70,7 @@
         @endif
 
     </ul>
-    <div class="col-lg-3 col-12" >
+    <div class="col-lg-3 col-12 people-you-may-know"  >
         <div class="card m-auto" style="width: 18rem; margin-top:24px !important; padding: 20px; background: #FCFCFC">
             <h5 class="card-title text-center p-2">Njer&euml;z q&euml; mund t'i njihni</h5>
             @if(count($users)>0)
