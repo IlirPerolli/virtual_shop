@@ -32,7 +32,7 @@
 
     }</style>
 @if (auth()->check())
-    @if(auth()->user()->followings->count()>0)
+
 <div class="container d-flex justify-content-center flex-wrap" style="margin-top: 100px">
     <div class="col-9"><h3 class="text-center mt-4">Ballina</h3></div><div class="col-3 d-none d-lg-block"></div>
 
@@ -68,7 +68,13 @@
                 </li>
             @endforeach
         @else
+
+
             <h4 style="margin-bottom: 20px; color:red" class="text-center">Nuk u gjet&euml;n postime</h4>
+            @if(auth()->user()->followings->count()==0)
+                <h4 style="margin-bottom: 20px;" class="text-center"> Si thua te ndjekesh dike?</h4>
+
+                @endif
         @endif
 
     </ul>
@@ -116,17 +122,8 @@
 
 </div>
 
-    @else
-
-        <div class="container">
-
-            <h4 class="text-center">Nuk u gjet&euml;n postime</h4>
-            <h4 class="text-center" style="margin-bottom: 50px">Si thua t&euml; ndjek&euml;sh dik&euml;?</h4>
-
-        </div>
 
 
-    @endif
 
     <nav aria-label="Pagination" style="margin-top: 50px">
         <ul class="pagination justify-content-center">
