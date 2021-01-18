@@ -65,7 +65,12 @@ class PostsController extends Controller
 
                 if($iteration == 1){
                     $image_resize = Image::make($file->getRealPath());
-                    $image_resize->fit(300, 300);
+                    // resize the image so that the largest side fits within the limit; the smaller
+// side will be scaled to maintain the original aspect ratio
+                    $image_resize->resize(250, 250, function ($constraint) {
+                        $constraint->aspectRatio();
+                        $constraint->upsize();
+                    });
                     $image_resize->save('images/'.$name);  //ME RESIZE
                     $images[] = $name;  //ME RESIZE
                 }

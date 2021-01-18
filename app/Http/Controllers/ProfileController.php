@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -43,6 +44,11 @@ class ProfileController extends Controller
         return back();
     }
     public function posts(){
+
+
+
+
+
         if(auth()->check()){
             // $users = auth()->user()->followings;
 //
@@ -50,7 +56,14 @@ class ProfileController extends Controller
             $users = auth()->user()->followings()->pluck('leader_id');
             $posts = Post::whereIn('user_id', $users)->orderBy('created_at', 'DESC')->paginate(20);
 
-            return view('index', compact('posts'));
+
+            $categories = Category::orderBy('id', 'ASC')->take(10)->get();
+
+            //Per te marrur perdoruesit qe mund t'i njeh perdoruesi i kyqur
+            $user = auth()->user()->id;
+            $users->push($user);
+            $users = User::whereNotIn('id', $users)->orderBy('name', 'ASC')->take(5)->get();
+            return view('index', compact('posts', 'users', 'categories'));
         }
         else{
             return redirect()->route('discover.posts');

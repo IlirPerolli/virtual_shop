@@ -58,7 +58,7 @@ body{
     .box img{ width: 100% !important;}
 
     .media-list img{
-        width: 100% !important;
+        width: auto !important;
     }
 
 }
