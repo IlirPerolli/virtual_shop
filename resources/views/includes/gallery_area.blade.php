@@ -1,4 +1,9 @@
-<style>@media screen and (max-width: 960px){
+<style>
+    .people-you-may-know{
+        margin-bottom: 50px !important;
+    }
+
+    @media screen and (max-width: 960px){
         .media-body{
             width: 100% !important;
         }
@@ -23,8 +28,9 @@
             margin-top: 25px !important;
             margin-left: 10px !important;
         }
-        .people-you-may-know{
-            margin-bottom: 50px !important;
+
+        .whole-wrap{
+            margin-bottom: 100px !important;
         }
 
     }</style>

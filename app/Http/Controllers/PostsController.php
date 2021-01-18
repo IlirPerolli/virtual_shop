@@ -32,7 +32,7 @@ class PostsController extends Controller
         $input = $request->all();
         $request->validate(['photo_id'=>'required','photo_id.*' => 'image|mimes:jpeg,png,jpg,svg|max:4096',
             'title'=>'required|max:255|min:2',
-            'body'=>'required|max:1000|min:2',
+            'body'=>'required|max:2000|min:2',
             'mobile_number'=>'required|numeric|min:0',
             'price'=>'required|numeric|min:0',
             'category_id' => 'required|integer',
@@ -135,7 +135,7 @@ class PostsController extends Controller
         $post->city_id = $request->city_id;
         $slug = $post->slug;
         $request->validate([ 'title'=>'required|max:255|min:2',
-            'body'=>'required|max:1000|min:2',
+            'body'=>'required|max:2000|min:2',
             'mobile_number'=>'required|numeric|min:0',
             'price'=>'required|numeric|min:0',
             'category_id' => 'required|integer',

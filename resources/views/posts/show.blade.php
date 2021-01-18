@@ -5,9 +5,8 @@
 @section('styles')
     <style>
         @media screen and (max-width: 960px) {
-            .carousel-photo-container{
-                height: 400px !important;
-            }
+
+
             .media-body {
                 width: 100% !important;
             }
@@ -35,7 +34,7 @@
            flex-direction: row;
            justify-content: center;
            align-items: center;
-           height: 600px;
+           height: 450px;
        }
       </style>
 @endsection
@@ -79,15 +78,15 @@
 
                                                 @if ($loop->index==0) @continue @endif
 {{--                                                Per te pare se ne cilin iterim eshte perdoret $loop --}}
-                                                <div class="carousel-item {{$loop->index == 1 ? "active" : '' }}" style="max-height: 600px">
-                                                <img class="d-block img-fluid" src="{{'/images/'.$photo}}" style="max-height: 600px; margin:auto" alt="First slide">
+                                                <div class="carousel-item {{$loop->index == 1 ? "active" : '' }}" style="max-height: 450px">
+                                                <img class="d-block img-fluid" src="{{'/images/'.$photo}}" style="max-height: 450px; margin:auto" alt="First slide">
                                                 </div>
 
                                             @endforeach
 
                                         @else
-                                            <div class="carousel-item active" style="max-height: 600px">
-                                            <img class="d-block img-fluid" src="{{$post->photo->photo}}"  style="max-height: 600px; margin:auto" alt="First slide">
+                                            <div class="carousel-item active" style="max-height: 450px">
+                                            <img class="d-block img-fluid" src="{{$post->photo->photo}}"  style="max-height: 450px; margin:auto" alt="First slide">
                                             </div>
                                         @endif
 
@@ -114,11 +113,7 @@
                                     <li><a href="#">{{$post->price}} &#8364;<i class="fa fa-money" aria-hidden="true"></i></a></li>
                                     <li><a href="#">{{$post->created_at->diffForHumans()}}<i class="lnr lnr-calendar-full"></i></a></li>
                                     <li><a href="{{route('post.likes',$post->slug)}}">{{$likes}} P&euml;lqime<i class="fa fa-heart" aria-hidden="true"></i></a> </li>
-                                    @if(auth()->check())
-                                    @if($post->user_id == auth()->user()->id)
-                                    <li><a href="#">{{$post->views}} Views<i class="lnr lnr-eye"></i></a></li>
-                                    @endif
-                                    @endif
+                                    <li><a href="#">{{$post->views}} Shikime<i class="lnr lnr-eye"></i></a></li>
                                     @if(auth()->check())
                                     @if(auth()->user()->likes->contains($post))
                                         <li>
@@ -358,7 +353,7 @@
     </section>
     <!--================Blog Area =================-->
 <div class="container d-flex justify-content-center flex-wrap">
-    <div class="similar-posts">Postime t&euml; ngjajshme</div>
+    <div class="similar-posts">Postime t&euml; ngjashme</div>
     <ul class="list-unstyled col-lg-12 col-12 m-auto" style="margin-bottom: 50px !important;">
         @if(count($posts)>0)
             @foreach($posts as $post)
