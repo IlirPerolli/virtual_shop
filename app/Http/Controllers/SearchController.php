@@ -32,8 +32,8 @@ class SearchController extends Controller
             $users_user_may_know = User::orderBy('name', 'ASC')->take(5)->get();
         }
         $input = $request->q;
-        $separated_input = explode(' ', $input);
-
+       // $separated_input = preg_split('/\s+/', $input, -1, PREG_SPLIT_NO_EMPTY);
+        $separated_input = preg_split('/(?<=\w)\b\s*[!?.]*/', $input, -1, PREG_SPLIT_NO_EMPTY);
         if ($input!='') {
 
             //Metoda tani duke i ndare fjalet e fjalise edhe duke kerkuar bazuar ne ato fjale
@@ -68,7 +68,7 @@ class SearchController extends Controller
     public function posts(Request $request)
     {
         $input = $request->q;
-        $separated_input = explode(' ', $input);
+        $separated_input = preg_split('/(?<=\w)\b\s*[!?.]*/', $input, -1, PREG_SPLIT_NO_EMPTY);
         $categories = Category::orderBy('id', 'ASC')->take(10)->get();
         //Show users that current user may know
         if(auth()->check()){
