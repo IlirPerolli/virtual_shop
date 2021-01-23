@@ -32,19 +32,23 @@ class SearchController extends Controller
             $users_user_may_know = User::orderBy('name', 'ASC')->take(5)->get();
         }
         $input = $request->q;
+        $separated_input = explode(' ', $input);
 
         if ($input!='') {
 
+            //Metoda tani duke i ndare fjalet e fjalise edhe duke kerkuar bazuar ne ato fjale
+            $users = User::where(function ($q) use ($separated_input) {
+                foreach ($separated_input as $input) {
+                    $q->orWhere('name', 'like', "%{$input}%")
+                        ->orWhere('surname', 'like', "%{$input}%")
+                        ->orWhere('business_name', 'like', "%{$input}%")
+                        ->orWhere('username', 'like', "%{$input}%")
+                        ->orWhere('slug', 'like', "%{$input}%")
+                        ->orWhere('email', 'like', "%{$input}%");
+                }
+            }) ->paginate(10)->appends(request()->query());
 
-            $users = User::where(DB::raw('CONCAT( name, " ", surname)'), 'like', '%' . $input . '%')
-                ->orWhere(DB::raw('CONCAT( surname, " ", name)'), 'like', '%' . $input . '%')
-                ->orWhere(DB::raw('CONCAT( name, surname)'), 'like', '%' . $input . '%')
-                ->orWhere(DB::raw('CONCAT( surname, name)'), 'like', '%' . $input . '%')
-                ->orWhere(DB::raw('CONCAT( business_name)'), 'like', '%' . $input . '%')
-                ->orWhere(DB::raw('CONCAT( username)'), 'like', '%' . $input . '%')
-                ->orWhere(DB::raw('CONCAT( slug)'), 'like', '%' . $input . '%')
-                ->orWhere('email', 'like', '%' . $input . '%')
-                ->paginate(10)->appends(request()->query());
+
             //Kjo appends per te marrur edhe get requestat tjere ne get metoden
             if(count($users)>0){
                 return view('search.users', compact('users','categories', 'users_user_may_know'));
@@ -64,6 +68,7 @@ class SearchController extends Controller
     public function posts(Request $request)
     {
         $input = $request->q;
+        $separated_input = explode(' ', $input);
         $categories = Category::orderBy('id', 'ASC')->take(10)->get();
         //Show users that current user may know
         if(auth()->check()){
@@ -78,14 +83,27 @@ class SearchController extends Controller
         }
 
         if ($input!='') {
-            $posts = Post::where(DB::raw('CONCAT( title, " ", body)'), 'like', '%' . $input . '%')
-                ->orWhere(DB::raw('CONCAT( body, " ", title)'), 'like', '%' . $input . '%')
-                ->orWhere(DB::raw('CONCAT( title, body)'), 'like', '%' . $input . '%')
-                ->orWhere(DB::raw('CONCAT( body, title)'), 'like', '%' . $input . '%')
-                ->orWhere(DB::raw('CONCAT( price)'), 'like', '%' . $input . '%')
-                ->orWhere(DB::raw('CONCAT( mobile_number)'), 'like', '%' . $input . '%')
-                ->orWhere(DB::raw('CONCAT( slug)'), 'like', '%' . $input . '%')
-                ->paginate(10)->appends(request()->query());
+            //METODA E MEPARSHME
+//            $posts = Post::where(DB::raw('CONCAT( title, " ", body)'), 'like', '%' . $input . '%')
+//                ->orWhere(DB::raw('CONCAT( body, " ", title)'), 'like', '%' . $input . '%')
+//                ->orWhere(DB::raw('CONCAT( title, body)'), 'like', '%' . $input . '%')
+//                ->orWhere(DB::raw('CONCAT( body, title)'), 'like', '%' . $input . '%')
+//                ->orWhere(DB::raw('CONCAT( price)'), 'like', '%' . $input . '%')
+//                ->orWhere(DB::raw('CONCAT( mobile_number)'), 'like', '%' . $input . '%')
+//                ->orWhere(DB::raw('CONCAT( slug)'), 'like', '%' . $input . '%')
+//                ->paginate(10)->appends(request()->query());
+            //Metoda tani duke i ndare fjalet e fjalise edhe duke kerkuar bazuar ne ato fjale
+            $posts = Post::where(function ($q) use ($separated_input) {
+                foreach ($separated_input as $input) {
+                    $q->orWhere('title', 'like', "%{$input}%")
+                        ->orWhere('body', 'like', "%{$input}%")
+                        ->orWhere('price', 'like', "%{$input}%")
+                        ->orWhere('mobile_number', 'like', "%{$input}%")
+                        ->orWhere('slug', 'like', "%{$input}%");
+                }
+            }) ->paginate(10)->appends(request()->query());
+
+
             //Kjo appends per te marrur edhe get requestat tjere ne get metoden
             if(count($posts)>0){
                 return view('search.posts', compact('posts','users', 'categories'));
