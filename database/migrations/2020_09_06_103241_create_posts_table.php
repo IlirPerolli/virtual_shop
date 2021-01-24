@@ -17,10 +17,10 @@ class CreatePostsTable extends Migration
             $table->id();
             $table->bigInteger('user_id')->unsigned()->index();//Kete bigInteger e kemi bere per tu pershtatur me $table->id te tabeles users per te bere te mundur onDelete('cascaden') qe kur te fshihet perdoruesi te fshihet postimi i tij automatikisht
             $table->integer('photo_id')->unsigned()->index();
-            $table->text('title')->nullable();
-            $table->text('body')->nullable();
-            $table->integer('mobile_number');
-            $table->double('price')->nullable();
+            $table->text('title')->nullable()->index();
+            $table->text('body')->nullable()->index();
+            $table->integer('mobile_number')->index();
+            $table->double('price')->nullable()->index();
             $table->integer('category_id')->nullable();
             $table->integer('views')->default(0);
             $table->timestamps();

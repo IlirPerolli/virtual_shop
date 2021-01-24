@@ -53,6 +53,9 @@
             @if(Session::has('post_not_found'))
                 <div class="alert alert-danger">{{session('post_not_found')}}</div>
             @endif
+            @if(Session::has('min_length_input'))
+                <div class="alert alert-danger">{{session('min_length_input')}}</div>
+            @endif
         </div>
 
 

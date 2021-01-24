@@ -34,19 +34,27 @@ class SearchController extends Controller
         $input = $request->q;
        // $separated_input = preg_split('/\s+/', $input, -1, PREG_SPLIT_NO_EMPTY);
         $separated_input = preg_split('/(?<=\w)\b\s*[!?.]*/', $input, -1, PREG_SPLIT_NO_EMPTY);
+
         if ($input!='') {
+            if (strlen($input)<=2){
+                session()->flash('min_length_input', "Ju lutem jepni nje fjale me te gjate");
+                return redirect()->route('search.users');
+            }
 
             //Metoda tani duke i ndare fjalet e fjalise edhe duke kerkuar bazuar ne ato fjale
-            $users = User::where(function ($q) use ($separated_input) {
+            $users_by_sentence = User::Where(DB::raw('CONCAT(name, " ", surname)'), 'like', '%' . $input . '%')->orderBy('name','ASC');//kerko me fjali
+            $users_by_word = User::where(function ($q) use ($separated_input) {
                 foreach ($separated_input as $input) {
+                    if (strlen($input)<2){continue;}
                     $q->orWhere('name', 'like', "%{$input}%")
                         ->orWhere('surname', 'like', "%{$input}%")
                         ->orWhere('business_name', 'like', "%{$input}%")
                         ->orWhere('username', 'like', "%{$input}%")
                         ->orWhere('slug', 'like', "%{$input}%")
-                        ->orWhere('email', 'like', "%{$input}%");
+                        ->orWhere('email', 'like', "%{$input}%")->orderBy('name','ASC');
                 }
-            }) ->paginate(10)->appends(request()->query());
+            });
+            $users = $users_by_sentence->union($users_by_word)->paginate(10)->appends(request()->query());
 
 
             //Kjo appends per te marrur edhe get requestat tjere ne get metoden
@@ -82,7 +90,11 @@ class SearchController extends Controller
             $users = User::orderBy('name', 'ASC')->take(5)->get();
         }
 
-        if ($input!='') {
+      if ($input!='') {
+          if (strlen($input)<=2){
+              session()->flash('min_length_input', "Ju lutem jepni nje fjale me te gjate");
+              return redirect()->route('search.posts');
+          }
             //METODA E MEPARSHME
 //            $posts = Post::where(DB::raw('CONCAT( title, " ", body)'), 'like', '%' . $input . '%')
 //                ->orWhere(DB::raw('CONCAT( body, " ", title)'), 'like', '%' . $input . '%')
@@ -93,16 +105,19 @@ class SearchController extends Controller
 //                ->orWhere(DB::raw('CONCAT( slug)'), 'like', '%' . $input . '%')
 //                ->paginate(10)->appends(request()->query());
             //Metoda tani duke i ndare fjalet e fjalise edhe duke kerkuar bazuar ne ato fjale
-            $posts = Post::where(function ($q) use ($separated_input) {
+            $posts_by_sentence = Post::Where('title', 'like', "%{$input}%")->orderBy('title','ASC');//kerko me fjali
+                $posts_by_word = Post::Where(function ($q) use ($separated_input) { //kerko me fjale
                 foreach ($separated_input as $input) {
+                    if (strlen($input)<2){continue;}
                     $q->orWhere('title', 'like', "%{$input}%")
-                        ->orWhere('body', 'like', "%{$input}%")
-                        ->orWhere('price', 'like', "%{$input}%")
-                        ->orWhere('mobile_number', 'like', "%{$input}%")
-                        ->orWhere('slug', 'like', "%{$input}%");
+                        //->orWhere('body', 'like', "%{$input}%")
+                        //->orWhere('price', 'like', "%{$input}%")
+                        //->orWhere('mobile_number', 'like', "%{$input}%")
+                        ->orWhere('slug', 'like', "%{$input}%")->orderBy('title','ASC');
                 }
-            }) ->paginate(10)->appends(request()->query());
+            });
 
+            $posts = $posts_by_sentence->union($posts_by_word)->paginate(10)->appends(request()->query());
 
             //Kjo appends per te marrur edhe get requestat tjere ne get metoden
             if(count($posts)>0){
