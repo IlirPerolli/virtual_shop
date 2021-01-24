@@ -79,7 +79,7 @@
             @if(isset($users))
                 <div class="row">
                 <div class="col-lg-9 col-12" >
-                <h4>Rezultatet p&euml;r: {{$_GET['q']}}</h4>
+                <h4>Rezultatet p&euml;r: {{$_GET['q']}} <span style="color:#e65228;font-size: 15px">({{$users_count}} p&euml;rdorues)</span></h4>
 
             @foreach($users as $user)
             <div class="media">

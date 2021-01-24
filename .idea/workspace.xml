@@ -4,10 +4,6 @@
     <list default="true" id="00153e13-9524-46f1-a4c4-64867ab51702" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SearchController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SearchController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_06_103241_create_posts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_06_103241_create_posts_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_19_141616_add_slug_column_to_users.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_19_141616_add_slug_column_to_users.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_19_144228_add_slug_column_to_posts.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_19_144228_add_slug_column_to_posts.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/search/posts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/search/posts.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/search/users.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/search/users.blade.php" afterDir="false" />
     </list>
@@ -299,7 +295,7 @@
       <workItem from="1611501647630" duration="1656000" />
       <workItem from="1611505366712" duration="751000" />
       <workItem from="1611514893665" duration="1097000" />
-      <workItem from="1611516102044" duration="7289000" />
+      <workItem from="1611516102044" duration="8454000" />
     </task>
     <servers />
   </component>
