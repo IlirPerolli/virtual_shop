@@ -2,12 +2,6 @@
 @section('title')
     <title>Bufi &#8226; Krijo kategori </title>
 @endsection
-@section('styles')
-    <style>body{
-            background: #F9F9FF;
-        }
-    </style>
-@endsection
 @section('content')
 
     <div class="whole-wrap" style="margin-top: 150px; margin-bottom: 150px">

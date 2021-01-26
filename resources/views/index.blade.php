@@ -1,12 +1,4 @@
 @extends('layouts.index')
-@section('styles')
-    <style>body{
-            background: #F9F9FF;
-        }
-
-
-    </style>
-        @endsection
 @section('title')
     <title>Bufi &#8226; Ballina </title>
     @endsection

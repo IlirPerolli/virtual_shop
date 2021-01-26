@@ -3,9 +3,7 @@
 <title>Bufi &#8226; Krijo postim </title>
 @endsection
 @section('styles')
-    <style>body{
-            background: #F9F9FF;
-        }
+    <style>
         .form-select .nice-select .list{
             height: 250px;
             overflow: auto;

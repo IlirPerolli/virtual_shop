@@ -15,9 +15,6 @@
             .similar-posts{
             font-size: 20px;
         }
-        body{
-            background: #F9F9FF;
-        }
         .product-photo{
             max-width: 100% !important;
             max-height: 100% !important;

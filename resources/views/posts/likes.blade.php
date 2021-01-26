@@ -4,9 +4,7 @@
     <title>{{$post->title}} &#8226; P&euml;lqimet </title>
 @endsection
 @section('styles')
-    <style>body{
-            background: #F9F9FF;
-        }
+    <style>
         ::placeholder {
             color: black !important;
             opacity: 1;

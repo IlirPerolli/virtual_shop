@@ -4,11 +4,6 @@
 @endsection
 @section('styles')
     <style>
-
-
-        body{
-            background: #F9F9FF;
-        }
         ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
             color: black !important;
             opacity: 1; /* Firefox */

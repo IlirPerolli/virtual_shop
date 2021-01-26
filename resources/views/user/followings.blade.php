@@ -4,9 +4,7 @@
 @endsection
 
 @section('styles')
-    <style>body{
-            background: #F9F9FF;
-        }
+    <style>
         ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
             color: black !important;
             opacity: 1; /* Firefox */
