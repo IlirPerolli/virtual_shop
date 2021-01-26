@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="00153e13-9524-46f1-a4c4-64867ab51702" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SearchController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SearchController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/search/posts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/search/posts.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/search/users.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/search/users.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/includes/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/posts/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/posts/create.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,6 +166,7 @@
       <recent name="C:\xampp\htdocs\Laravel Projects\virtual_shop\resources\views\admin" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\Laravel Projects\virtual_shop\public\css" />
       <recent name="C:\xampp\htdocs\Laravel Projects\virtual_shop\public\img" />
       <recent name="C:\xampp\htdocs\Laravel Projects\bigfishV1.0\public\img" />
       <recent name="C:\xampp\htdocs\Laravel Projects\bigfishV1.0\public\images" />
@@ -295,7 +295,8 @@
       <workItem from="1611501647630" duration="1656000" />
       <workItem from="1611505366712" duration="751000" />
       <workItem from="1611514893665" duration="1097000" />
-      <workItem from="1611516102044" duration="8454000" />
+      <workItem from="1611516102044" duration="8699000" />
+      <workItem from="1611683477030" duration="2507000" />
     </task>
     <servers />
   </component>

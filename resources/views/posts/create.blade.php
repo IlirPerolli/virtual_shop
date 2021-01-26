@@ -93,22 +93,22 @@
                             @csrf
                             @method('POST')
                             <div class="mt-10">
-                                <input type="text" class="single-input" name="title" placeholder="Titulli" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Titulli'" value="{{ old('title') }}" autocomplete="off" required/>
+                                <input type="text" class="single-input" name="title" id="title" placeholder="Titulli" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Titulli'" value="{{ old('title') }}" autocomplete="off" required/>
                             </div>
                             <div class="mt-10">
-                                <textarea class="single-textarea" name="body" placeholder="P&euml;rshkrimi" onfocus="this.placeholder = ''" onblur="this.placeholder = 'P&euml;rshkrimi'" autocomplete="off" required>{{@old('body')}}</textarea>
+                                <textarea class="single-textarea" name="body" id="body" placeholder="P&euml;rshkrimi" onfocus="this.placeholder = ''" onblur="this.placeholder = 'P&euml;rshkrimi'" autocomplete="off" required>{{@old('body')}}</textarea>
                             </div>
                             <div class="mt-10">
-                                <input type="number" class="single-input" name="mobile_number" placeholder="Numri i telefonit" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Numri i telefonit'" value="{{ old('mobile_number') }}" required autocomplete="off" min="0"/>
+                                <input type="number" class="single-input" name="mobile_number" id="mobile_number" placeholder="Numri i telefonit" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Numri i telefonit'" value="{{ old('mobile_number') }}" required autocomplete="off" min="0"/>
                             </div>
                             <div class="mt-10">
-                                <input type="number" class="single-input" name="price" placeholder="&Ccedil;mimi" onfocus="this.placeholder = ''" onblur="this.placeholder = '&Ccedil;mimi'" value="{{ old('price') }}" required autocomplete="off" step="0.01" min="0"/>
+                                <input type="number" class="single-input" name="price" id="price" placeholder="&Ccedil;mimi" onfocus="this.placeholder = ''" onblur="this.placeholder = '&Ccedil;mimi'" value="{{ old('price') }}" required autocomplete="off" step="0.01" min="0"/>
                             </div>
                             <div class="input-group-icon mt-10">
                                 <div class="form-select" id="default-select">
 
                                     <div class="icon"> <i class="fa fa-list" aria-hidden="true" style="margin-top: 15px"></i></div>
-                                    <select name="category_id">
+                                    <select name="category_id" id="category">
                                         <option value="" selected>Kategoria</option>
                                        @foreach($categories as $category)
                                             <option value="{{$category->id}}" {{ old('category_id') == $category->id ? 'selected' : ''}} >{{$category->name}}</option>
@@ -121,7 +121,7 @@
                                 <div class="form-select" id="default-select">
 
                                     <div class="icon"> <i class="fa fa-globe" aria-hidden="true" style="margin-top: 14px"></i></div>
-                                    <select name="city_id">
+                                    <select name="city_id" id="city">
                                         <option value="" selected>Qyteti</option>
                                         @foreach($cities as $city)
                                             <option value="{{$city->id}}" {{ old('city_id') == $city->id ? 'selected' : ''}} >{{$city->name}}</option>
@@ -131,15 +131,17 @@
                             </div>
 
                             <div class="mt-10">
-                                <input type="file" name="photo_id[]" multiple class="single-input">
+                                <span style="margin-left: 20px;">*Max 5 foto</span>
+                                <input type="file" name="photo_id[]" id="file" multiple class="single-input">
+
                             </div>
 
 
                             <div class="mt-10 float-right">
-                                <button class="genric-btn primary circle arrow" type="submit" >Krijo <span class="lnr lnr-arrow-right"></span></button>
+                                <button class="genric-btn primary circle arrow" type="submit" id="submit" >Krijo <span class="lnr lnr-arrow-right"></span></button>
 
                             </div>
-
+                            <div class="loader loader-default" data-text="Duke u postuar..."></div>
 
                         </form>
                     </div>
@@ -151,44 +153,15 @@
 
 @endsection
 @section('scripts')
-
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCyB6K1CFUQ1RwVJ-nyXxd6W0rfiIBe12Q&libraries=places"
-        type="text/javascript"></script>
-
-        <script>
-            var map = new google.maps.Map(document.getElementById('map-canvas'),{
-                center:{
-                    lat: 42.38,
-                    lng: 20.42
-                },
-                zoom:15
-            });
-            var marker = new google.maps.Marker({
-                position: {
-                    lat: 42.38,
-                    lng: 20.42
-                },
-                map: map,
-                draggable: true
-            });
-            var searchBox = new google.maps.places.SearchBox(document.getElementById('searchmap'));
-            google.maps.event.addListener(searchBox,'places_changed',function(){
-                var places = searchBox.getPlaces();
-                var bounds = new google.maps.LatLngBounds();
-                var i, place;
-                for(i=0; place=places[i];i++){
-                    bounds.extend(place.geometry.location);
-                    marker.setPosition(place.geometry.location); //set marker position new...
+    <script>
+        $(document).ready(function(){
+            $('#submit').click(function(){
+                if (($('#title') .val().length !== 0) && ($('#body') .val().length !== 0) && ($('#price') .val().length !== 0) && ($('#mobile_number') .val().length !== 0) && ($('#category').val() != "") && ($('#city').val() != "") && ($('#city').val() != "") && ($('#file').val().length !== 0) ){
+                    $( ".loader" ).addClass( "is-active" );
                 }
-                map.fitBounds(bounds);
-                map.setZoom(15);
-            });
-            google.maps.event.addListener(marker,'position_changed',function(){
-                var lat = marker.getPosition().lat();
-                var lng = marker.getPosition().lng();
-                $('#lat').val(lat);
-                $('#lng').val(lng);
-            });
-        </script>
 
+            });
+        });
+    </script>
 @endsection
+
