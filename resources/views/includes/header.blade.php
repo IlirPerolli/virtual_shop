@@ -3,8 +3,15 @@
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=0, shrink-to-fit=no">
+    <meta property="og:image" content="img/avatar.jpg" />
+    <meta name="description" content="Bufi, platforma per shitblerje" />
+    <meta name="keywords" content="bufi, postime, perdorues, kompani, produkte, shitblerje" />
     <link rel="icon" href="{{asset('img/bufi.png')}}" type="image/png">
+    <meta property="og:image" content="{{asset('img/bufi.png')}}" />
+    <meta name="theme-color" content="#FF9666">
+    <meta name="msapplication-navbutton-color" content="#FF9666">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#FF9666">
     @yield('title')
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{asset('css/bootstrap.css')}}">
