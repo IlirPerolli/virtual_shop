@@ -181,12 +181,16 @@ class PostsController extends Controller
         if ($post->photo){
             if (strpos($post->photo->photo,',') !== false){
                 foreach(explode(',',$post->photo->photo) as $photo){
+                    if (file_exists(public_path()."/images/".$photo)){//kontrollo nese ekziston foto ne storage para se te fshihet
                     unlink(public_path()."/images/".$photo);
+                }
                 }
 
             }
-            else{
-                unlink(public_path().$post->photo->photo);
+            else {
+                if (file_exists(public_path() . "/images/" . $post->photo->photo)) {//kontrollo nese ekziston foto ne storage para se te fshihet
+                    unlink(public_path() . $post->photo->photo);
+                }
             }
 
 
