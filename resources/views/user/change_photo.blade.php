@@ -57,7 +57,7 @@
                                         @csrf
                                         @method('PATCH')
                                         <div class="mt-10">
-                                            <input type="file" name="photo_id" class="single-input">
+                                            <input type="file" name="photo_id" id="file" class="single-input">
                                         </div>
                                         @error('photo_id')
                                         <span style="color:red">{{ $message }}</span>
@@ -65,8 +65,9 @@
 
 
                                         <div class="mt-10 float-right">
-                                            <button class="genric-btn primary circle arrow" type="submit" >Ndrysho <span class="lnr lnr-arrow-right"></span></button>
+                                            <button class="genric-btn primary circle arrow"  type="submit" id="submit">Ndrysho <span class="lnr lnr-arrow-right"></span></button>
                                         </div>
+                                        <div class="loader loader-default" data-text="Duke u ngarkuar..."></div>
                                         <br>
                                         <br>
                                     </form>
@@ -91,6 +92,19 @@
         var cw = $('.author_img').width();
         $('.author_img').css({
             'height': cw + 'px'
+        });
+    </script>
+    <script>
+        $(document).ready(function(){
+            $('#submit').click(function(){
+                if (($('#file').val().length !== 0) ) {
+                    $( ".loader" ).addClass( "is-active" );
+                }
+                else{
+                    event.preventDefault();
+                }
+
+            });
         });
     </script>
 @endsection

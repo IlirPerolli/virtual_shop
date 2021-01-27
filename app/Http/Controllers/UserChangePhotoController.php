@@ -77,10 +77,11 @@ class UserChangePhotoController extends Controller
         $user = auth()->user();
         $input= $request->all();
         if($file = $request->file('photo_id')){
-            if ($user->photo_id !=1){
-                unlink(public_path().$user->photo->photo);
+            if ($user->photo_id !=1) {
+                if (file_exists(public_path() . $user->photo->photo)) {//kontrollo nese ekziston foto ne storage para se te fshihet
+                    unlink(public_path() . $user->photo->photo);
+                }
             }
-
                 $request->validate(['photo_id'=>'required|mimes:jpeg,png,jpg,svg|max:10240']);
             if (strpos($file->getClientOriginalName(),'chat') !== false) {
                 $file_name = $file->getClientOriginalName();
@@ -105,6 +106,9 @@ $images[] = $name;
 
 
         }
+        else{//nese nuk ngarkon foto
+            return back();
+        }
 
 
 
@@ -124,7 +128,10 @@ $images[] = $name;
             abort(403, 'Unauthorized action.');
         }
         else{
-            unlink(public_path().$user->photo->photo);
+            if (file_exists(public_path().$user->photo->photo)) {//kontrollo nese ekziston foto ne storage para se te fshihet
+
+                unlink(public_path() . $user->photo->photo);
+            }
             $user->update(['photo_id'=>1]);
             session()->flash('deleted_photo', 'Foto e profilit u fshi me sukses.');
             return back();
