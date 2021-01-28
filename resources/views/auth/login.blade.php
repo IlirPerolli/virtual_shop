@@ -53,7 +53,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" id="submit" class="btn btn-primary">
                                     Ky&ccedil;u
                                 </button>
 
@@ -64,10 +64,33 @@
                                 @endif
                             </div>
                         </div>
+                        <div class="loader loader-default" data-text="Duke u ky&ccedil;ur..."></div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+@section('scripts')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#submit').click(function(){
+                var email = $('#email').val();
+                if (($('#email') .val().length !== 0) &&  ($('#password') .val().length !== 0) && validateEmail(email)){
+                    $( ".loader" ).addClass( "is-active" );
+                }
+
+            });
+
+            function validateEmail(email)
+            {
+                var re = /\S+@\S+\.\S+/;
+                return re.test(email);
+            }
+        });
+    </script>
 @endsection
+@endsection
+
