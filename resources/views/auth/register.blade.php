@@ -160,11 +160,12 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" id="submit" class="btn btn-primary">
                                    Regjistrohu
                                 </button>
                             </div>
                         </div>
+                        <div class="loader loader-default" data-text="Duke krijuar llogarine..."></div>
                     </form>
                 </div>
             </div>
@@ -174,6 +175,7 @@
 
 
 @section('scripts')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script>
 
 
@@ -187,6 +189,16 @@
             document.getElementById('business').style.display = "none";
         }
 
+    </script>
+    <script>
+        $(document).ready(function(){
+            $('#submit').click(function(){
+                if (($('#name') .val().length !== 0) && ($('#surname') .val().length !== 0) && ($('#username') .val().length !== 0) && ($('#email') .val().length !== 0) &&  ($('#password') .val().length !== 0) &&  ($('#password-confirm') .val().length !== 0)){
+                    $( ".loader" ).addClass( "is-active" );
+                }
+
+            });
+        });
     </script>
 @endsection
 
