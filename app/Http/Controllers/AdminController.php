@@ -87,16 +87,20 @@ class AdminController extends Controller
      */
     public function destroy(Post $post)
     {
-	  
+
         if ($post->photo){
             if (strpos($post->photo->photo,',') !== false){
-                foreach(explode(',',$post->photo->photo) as $photo){
-                    unlink(public_path()."/images/".$photo);
+                foreach(explode(',',$post->photo->photo) as $photo) {
+                    if (file_exists(public_path() . "/images/" . $photo)) {//kontrollo nese ekziston foto ne storage para se te fshihet
+                        unlink(public_path() . "/images/" . $photo);
+                    }
                 }
 
             }
             else{
-                unlink(public_path().$post->photo->photo);
+                if (file_exists(public_path() .  $post->photo->photo)) {//kontrollo nese ekziston foto ne storage para se te fshihet
+                    unlink(public_path().$post->photo->photo);
+            }
             }
 
 

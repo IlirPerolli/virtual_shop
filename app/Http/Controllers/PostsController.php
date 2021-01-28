@@ -188,7 +188,7 @@ class PostsController extends Controller
 
             }
             else {
-                if (file_exists(public_path() . "/images/" . $post->photo->photo)) {//kontrollo nese ekziston foto ne storage para se te fshihet
+                if (file_exists(public_path() . $post->photo->photo)) {//kontrollo nese ekziston foto ne storage para se te fshihet
                     unlink(public_path() . $post->photo->photo);
                 }
             }

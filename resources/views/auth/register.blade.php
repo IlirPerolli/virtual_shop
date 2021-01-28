@@ -16,7 +16,7 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">Emri</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="off" autofocus>
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -29,7 +29,7 @@
                             <label for="surname" class="col-md-4 col-form-label text-md-right">Mbiemri</label>
 
                             <div class="col-md-6">
-                                <input id="surname" type="text" class="form-control @error('surname') is-invalid @enderror" name="surname" value="{{ old('surname') }}" required autocomplete="name" autofocus>
+                                <input id="surname" type="text" class="form-control @error('surname') is-invalid @enderror" name="surname" value="{{ old('surname') }}" required autocomplete="off" autofocus>
 
                                 @error('surname')
                                 <span class="invalid-feedback" role="alert">
@@ -68,7 +68,7 @@
                             <label for="business_name" class="col-md-4 col-form-label text-md-right">Emri i kompanis&euml;</label>
 
                             <div class="col-md-6">
-                                <input id="business_name" type="text" class="form-control @error('business_name') is-invalid @enderror" name="business_name" value="{{ old('business_name') }}" autocomplete="business_name" >
+                                <input id="business_name" type="text" class="form-control @error('business_name') is-invalid @enderror" name="business_name" value="{{ old('business_name') }}" autocomplete="off" >
 
 
 
@@ -85,7 +85,7 @@
                             <label for="username" class="col-md-4 col-form-label text-md-right">{{ __('Username') }}</label>
 
                             <div class="col-md-6">
-                                <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username">
+                                <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="off">
 
                                 @error('username')
                                 <span class="invalid-feedback" role="alert">
@@ -126,7 +126,7 @@
                             <label for="email" class="col-md-4 col-form-label text-md-right">E-mail adresa</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="off">
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -140,7 +140,7 @@
                             <label for="password" class="col-md-4 col-form-label text-md-right">Fjal&euml;kalimi</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="off">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -154,7 +154,7 @@
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right">Ri-shkruaj fjal&euml;kalimin</label>
 
                             <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="off">
                             </div>
                         </div>
 
