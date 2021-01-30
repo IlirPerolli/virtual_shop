@@ -58,14 +58,14 @@ class SearchController extends Controller
             $users_count = $users->count();
 
             //Kjo appends per te marrur edhe get requestat tjere ne get metoden
-            if(count($users)>0){
                 return view('search.users', compact('users','categories', 'users_user_may_know', 'users_count'));
-            }
-            else{
-                session()->flash('user_not_found', "Nuk u gjet asnjë përdorues");
-                return redirect()->route('search.users');
 
-            }
+//                session()->flash('user_not_found', "Nuk u gjet asnjë përdorues");
+//                return redirect()->route('search.users');
+                return view('search.users', compact('users','categories', 'users_user_may_know', 'users_count'));
+
+
+
 
         }
 
@@ -120,14 +120,9 @@ class SearchController extends Controller
             $posts = $posts_by_sentence->union($posts_by_word)->paginate(10)->appends(request()->query());
             $posts_count = $posts->count();
             //Kjo appends per te marrur edhe get requestat tjere ne get metoden
-            if(count($posts)>0){
-                return view('search.posts', compact('posts','users', 'categories', 'posts_count'));
-            }
-            else{
-                session()->flash('post_not_found', "Nuk u gjet asnjë postim.");
-                return redirect()->route('search.posts');
 
-            }
+                return view('search.posts', compact('posts','users', 'categories', 'posts_count'));
+
         }
 
         return view('search.posts', compact('users', 'categories'));

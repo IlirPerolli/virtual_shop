@@ -218,4 +218,6 @@ class PostsController extends Controller
 //$image_resize->resize(300, 300);
 //$image_resize->save('images/'.$name);
 //$images[] = $name; ME RESIZE
+
 }
+

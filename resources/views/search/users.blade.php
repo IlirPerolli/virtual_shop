@@ -75,7 +75,7 @@
                 <div class="row">
                 <div class="col-lg-9 col-12" >
                 <h4>Rezultatet p&euml;r: {{$_GET['q']}} <span style="color:#e65228;font-size: 15px">({{$users_count}} p&euml;rdorues)</span></h4>
-
+            @if (count($users)>0)
             @foreach($users as $user)
             <div class="media">
                 <a href="{{route('user.show',$user->slug)}}"> <img class="align-self-start mr-3 rounded-circle" src="{{$user->photo->photo}}" alt="{{$user->name . " ". $user->surname}}" width="50px" height="50px"></a>
@@ -99,7 +99,11 @@
                         {{$users->links()}}
                     </ul>
                 </nav>
+                    @else
+                        <h4 style="margin-bottom: 20px; color:red" class="text-center">Nuk u gjet&euml;n p&euml;rdorues</h4>
+                    @endif
                 </div>
+
                 <div class="col-lg-3 col-12" >
                     <div class="card m-auto users_user_may_know" style="width: 18rem; padding: 20px; background: #FCFCFC">
                         <h5 class="card-title text-center p-2">Njer&euml;z q&euml; mund t'i njihni</h5>
@@ -146,7 +150,8 @@
                 </div>
                 </div>
 
-                    @endif
+
+            @endif
             @if(Session::has('user_not_found'))
                         <div class="alert alert-danger">{{session('user_not_found')}}</div>
                     @endif
