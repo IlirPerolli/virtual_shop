@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\City;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Facades\DB;
 
 class SearchController extends Controller
@@ -76,6 +78,23 @@ class SearchController extends Controller
     public function posts(Request $request)
     {
         $input = $request->q;
+        $city = $request->city;
+        $category = $request->category;
+        if ($city != ''){
+            $city = City::findBySlugOrFail($city);
+            $city = $city->id;
+        }
+        if ($category != ''){
+            $category = Category::findBySlugOrFail($category);
+            $category = $category->id;
+        }
+
+
+
+
+        $allcategories = Category::all();
+
+        $cities = City::orderBy('name','asc')->get();
         $separated_input = preg_split('/(?<=\w)\b\s*[!?.]*/', $input, -1, PREG_SPLIT_NO_EMPTY);
         $categories = Category::orderBy('id', 'ASC')->take(10)->get();
         //Show users that current user may know
@@ -114,18 +133,32 @@ class SearchController extends Controller
                         //->orWhere('price', 'like', "%{$input}%")
                         //->orWhere('mobile_number', 'like', "%{$input}%")
                         ->orWhere('slug', 'like', "%{$input}%")->orderBy('title','ASC');
+
                 }
             });
+            if ($city !='' && $category != ''){//nese ipet qyteti edhe kategoria atehere kerko
+                $posts = $posts_by_sentence->where('city_id', $city)->where('category_id', $category)->union($posts_by_word->where('city_id', $city)->where('category_id', $category))->paginate(10)->appends(request()->query());
 
-            $posts = $posts_by_sentence->union($posts_by_word)->paginate(10)->appends(request()->query());
+            }
+            else if ($category != ''){//nese ipet vetem kategoria
+                $posts = $posts_by_sentence->where('category_id', $category)->union($posts_by_word->where('category_id', $category))->paginate(10)->appends(request()->query());
+
+            }
+            else if ($city != ''){//nese ipet vetem qyteti
+                $posts = $posts_by_sentence->where('city_id', $city)->union($posts_by_word->where('city_id', $city))->paginate(10)->appends(request()->query());
+
+            }
+            else { //nese ipet veq inputi pa qytet ose kategori
+                $posts = $posts_by_sentence->union($posts_by_word)->paginate(10)->appends(request()->query());
+            }
             $posts_count = $posts->count();
             //Kjo appends per te marrur edhe get requestat tjere ne get metoden
 
-                return view('search.posts', compact('posts','users', 'categories', 'posts_count'));
+                return view('search.posts', compact('posts','users', 'categories', 'posts_count', 'cities', 'allcategories'));
 
         }
 
-        return view('search.posts', compact('users', 'categories'));
+        return view('search.posts', compact('users', 'categories', 'cities', 'allcategories'));
     }
     /**
      * Show the form for creating a new resource.
