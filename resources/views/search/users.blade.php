@@ -100,7 +100,7 @@
                     </ul>
                 </nav>
                     @else
-                        <h4 style="margin-bottom: 20px; color:red" class="text-center">Nuk u gjet&euml;n p&euml;rdorues</h4>
+                        <h4 style="margin-bottom: 20px; margin-top:20px; color:red" class="text-center">Nuk u gjet&euml;n p&euml;rdorues</h4>
                     @endif
                 </div>
 
