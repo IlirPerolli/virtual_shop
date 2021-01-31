@@ -80,6 +80,7 @@ class SearchController extends Controller
         $input = $request->q;
         $city = $request->city;
         $category = $request->category;
+        $order_by_price = $request->order_by_price;
         if ($city != ''){
             $city = City::findBySlugOrFail($city);
             $city = $city->id;
@@ -87,6 +88,15 @@ class SearchController extends Controller
         if ($category != ''){
             $category = Category::findBySlugOrFail($category);
             $category = $category->id;
+        }
+        if ($order_by_price == 'asc'){
+            $order = 'asc';
+        }
+        else  if ($order_by_price == 'desc') {
+            $order = 'desc';
+        }
+        else{
+            $order = 'asc';
         }
 
 
@@ -137,20 +147,41 @@ class SearchController extends Controller
                 }
             });
             if ($city !='' && $category != ''){//nese ipet qyteti edhe kategoria atehere kerko
-                $posts = $posts_by_sentence->where('city_id', $city)->where('category_id', $category)->union($posts_by_word->where('city_id', $city)->where('category_id', $category))->paginate(10)->appends(request()->query());
+                if ($order_by_price !=''){
+                    $posts = $posts_by_sentence->where('city_id', $city)->where('category_id', $category)->union($posts_by_word->where('city_id', $city)->where('category_id', $category))->orderBy('price', $order)->paginate(10)->appends(request()->query());
+                }
+                else{
+                    $posts = $posts_by_sentence->where('city_id', $city)->where('category_id', $category)->union($posts_by_word->where('city_id', $city)->where('category_id', $category))->paginate(10)->appends(request()->query());
+                }
 
             }
             else if ($category != ''){//nese ipet vetem kategoria
-                $posts = $posts_by_sentence->where('category_id', $category)->union($posts_by_word->where('category_id', $category))->paginate(10)->appends(request()->query());
+                if ($order_by_price !='') {
+                    $posts = $posts_by_sentence->where('category_id', $category)->union($posts_by_word->where('category_id', $category))->orderBy('price', $order)->paginate(10)->appends(request()->query());
+                }
+                else{
+                    $posts = $posts_by_sentence->where('category_id', $category)->union($posts_by_word->where('category_id', $category))->paginate(10)->appends(request()->query());
 
+                }
             }
             else if ($city != ''){//nese ipet vetem qyteti
-                $posts = $posts_by_sentence->where('city_id', $city)->union($posts_by_word->where('city_id', $city))->paginate(10)->appends(request()->query());
-
+                if ($order_by_price !='') {
+                    $posts = $posts_by_sentence->where('city_id', $city)->union($posts_by_word->where('city_id', $city))->orderBy('price', $order)->paginate(10)->appends(request()->query());
+                }
+                else{
+                    $posts = $posts_by_sentence->where('city_id', $city)->union($posts_by_word->where('city_id', $city))->paginate(10)->appends(request()->query());
+                }
             }
             else { //nese ipet veq inputi pa qytet ose kategori
-                $posts = $posts_by_sentence->union($posts_by_word)->paginate(10)->appends(request()->query());
-            }
+                if ($order_by_price !='') {
+                    $posts = $posts_by_sentence->union($posts_by_word)->orderBy('price', $order)->paginate(10)->appends(request()->query());
+
+                }
+                else {
+                    $posts = $posts_by_sentence->union($posts_by_word)->paginate(10)->appends(request()->query());
+                }
+                }
+
             $posts_count = $posts->count();
             //Kjo appends per te marrur edhe get requestat tjere ne get metoden
 

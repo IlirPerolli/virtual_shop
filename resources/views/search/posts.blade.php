@@ -30,7 +30,7 @@
         .container{
             margin-top: 10px!important;
         }
-        .form-select .nice-select .list{
+        #default-select .nice-select .list{
             height: 250px;
             overflow: auto;
         }
@@ -83,6 +83,20 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-12">
+                                    <div class="input-group-icon search-select mt-3">
+                                        <div class="form-select">
+
+                                            <div class="icon"> <i class="fa fa-layer-group" aria-hidden="true" style="margin-top: 14px"></i></div>
+                                            <select name="order_by_price" id="order_by_price">
+                                                <option value="" selected>Rëndit sipas relevancës</option>
+                                                    <option value="desc" @if (isset($_GET['order_by_price'])){{$_GET['order_by_price'] == 'desc' ? 'selected' : ''}}@endif>Rëndit sipas çmimit: të lartë deri tek të ulët</option>
+                                                    <option value="asc" @if (isset($_GET['order_by_price'])){{$_GET['order_by_price'] == 'asc' ? 'selected' : ''}}@endif>Rëndit sipas çmimit: të ulët deri tek të lartë</option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-12">
                                 <button class="genric-btn primary mt-3 search-submit" style="width:100%; display: none" type="submit" id="submit" >Krijo <span class="lnr lnr-arrow-right"></span></button>
                                 </div>
                             </div>
@@ -110,6 +124,23 @@
 
 
     </div>
+@section('scripts')
+    <script>
+      $(document).ready(function(){
+          $('#submit').click(function(){
+              if ($('#category').val().length == 0){//mos te hyne ne get metode inputi nese nuk zgjidhet
+                  $('#category').prop('disabled',true);
+              }
+              if ($('#city').val().length == 0){//mos te hyne ne get metode inputi nese nuk zgjidhet
+                  $('#city').prop('disabled',true);
+              }
+              if ($('#order_by_price').val().length == 0){//mos te hyne ne get metode inputi nese nuk zgjidhet
+                  $('#order_by_price').prop('disabled',true);
+              }
+          });
+      });
+    </script>
 
+    @endsection
     <!-- End Align Area -->
 @endsection
