@@ -46,7 +46,7 @@
                             <p style="margin-top: -5px">{{$following->bio}}</p>
                         @else
                             <a href="{{route('user.show',$following->slug)}}"> <h5 class="mt-0">@if($following->is_business == 1){{$following->business_name}} @else {{$following->name . " ". $following->surname}}@endif</h5></a>
-                            <p style="margin-top: -5px">(No bio available)</p>
+                            <p style="margin-top: -5px">(Nuk ka bio)</p>
                         @endif
 
                     </div>

@@ -97,7 +97,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-12">
-                                <button class="genric-btn primary mt-3 search-submit" style="width:100%; display: none" type="submit" id="submit" >Krijo <span class="lnr lnr-arrow-right"></span></button>
+                                <button class="genric-btn primary mt-3 search-submit" style="width:100%; display: none" type="submit" id="submit" >Kërko</button>
                                 </div>
                             </div>
 

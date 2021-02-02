@@ -14,7 +14,7 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function posts()
     {
 
             $posts = Post::orderBy('created_at', 'desc')->paginate(20);
@@ -22,6 +22,11 @@ class AdminController extends Controller
             $categories = Category::orderBy('name', 'ASC')->take(20)->get();
             return view('admin.posts', compact('posts', 'users', 'categories'));
 
+    }
+    public function users(){
+
+        $users = User::orderBy('name', 'ASC')->take(5)->paginate(20);
+        return view('admin.users', compact( 'users'));
     }
 
     /**
@@ -85,7 +90,7 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroyPosts(Post $post)
     {
 
         if ($post->photo){
@@ -108,5 +113,10 @@ class AdminController extends Controller
         $post->delete();
         session()->flash('deleted_post', 'Postimi u fshi me sukses.');
         return redirect()->route('admin.posts');
+    }
+    public function destroyUsers($slug){
+    $user = new UserProfileController();
+    $user->destroy($slug);
+
     }
 }

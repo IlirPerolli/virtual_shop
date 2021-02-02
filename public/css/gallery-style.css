@@ -1,6 +1,9 @@
 body{
     background: #f9f9ff;
 }
+.media-list{
+    background:white;
+}
 @media screen and (max-width: 340px) {
     .card{
         width:100% !important;

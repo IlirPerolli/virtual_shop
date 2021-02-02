@@ -28,8 +28,10 @@ Auth::routes();
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::middleware(['auth', 'admin'])->group(function(){
-    Route::get('/admin/posts', 'App\Http\Controllers\AdminController@index')->name('admin.posts');
-    Route::delete('admin/post/{post}','App\Http\Controllers\AdminController@destroy')->name('admin.post.destroy');
+    Route::get('/admin/posts', 'App\Http\Controllers\AdminController@posts')->name('admin.posts');
+    Route::get('/admin/users', 'App\Http\Controllers\AdminController@users')->name('admin.users');
+    Route::delete('admin/post/{post}/destroy','App\Http\Controllers\AdminController@destroyPosts')->name('admin.post.destroy');
+    Route::delete('admin/user/{post}/destroy','App\Http\Controllers\AdminController@destroyPosts')->name('admin.user.destroy');
     Route::get('/city/create','App\Http\Controllers\CitiesController@create')->name('city.create');
     Route::post('/city','App\Http\Controllers\CitiesController@store')->name('city.store');
     Route::delete('/city/{city}/destroy','App\Http\Controllers\CitiesController@destroy')->name('city.destroy');
@@ -58,6 +60,7 @@ Route::middleware('auth')->group(function(){
     Route::resource('comment/reply', 'App\Http\Controllers\CommentRepliesController');
     Route::post('/post/{post}/like', 'App\Http\Controllers\LikesController@like')->name('post.like');
     Route::post('/post/{post}/unlike', 'App\Http\Controllers\LikesController@unlike')->name('post.unlike');
+    Route::get('/user/{user}/destroy', 'App\Http\Controllers\UserProfileController@destroy')->name('user.destroy');
 
 
 
@@ -88,3 +91,4 @@ Route::get('/search/users', 'App\Http\Controllers\SearchController@users')->name
 Route::get('/search/posts', 'App\Http\Controllers\SearchController@posts')->name('search.posts');
 //Route::get('/check', 'App\Http\Controllers\PostsController@check');
 Route::get('/{user}','App\Http\Controllers\UserProfileController@show')->name('user.show');
+
