@@ -27,7 +27,7 @@ class CitiesController extends Controller
         else{
             $users = User::orderBy('name', 'ASC')->take(5)->get();
         }
-        $all_cities = City::orderBy('id', 'ASC')->get();
+        $all_cities = City::orderBy('name', 'ASC')->get();
         $categories = Category::orderBy('id', 'ASC')->take(10)->get();
         $cities = City::orderBy('id', 'ASC')->take(30)->get();
 

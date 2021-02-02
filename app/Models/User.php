@@ -60,6 +60,30 @@ class User extends Authenticatable
         }
         return false;
     }
+    public function setNameAttribute($value){
+        $name = $value;
+        $name = strtolower($name);
+        $name = ucfirst($name);
+        $this->attributes['name'] = $name;
+    }
+    public function setSurnameAttribute($value){
+        $surname = $value;
+        $surname = strtolower($surname);
+        $surname = ucfirst($surname);
+        $this->attributes['surname'] = $surname;
+    }
+    public function setUsernameAttribute($value){
+        $username = strtolower($value);
+        $this->attributes['username'] = $username;
+    }
+    public function setSlugAttribute($value){
+        $slug = strtolower($value);
+        $this->attributes['slug'] = $slug;
+    }
+    public function setEmailAttribute($value){
+        $email = strtolower($value);
+        $this->attributes['email'] = $email;
+    }
     /**
      * The attributes that should be hidden for arrays.
      *

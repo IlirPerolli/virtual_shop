@@ -78,8 +78,8 @@ class RegisterController extends Controller
             'business_name' => $data['business_name'],
             'gender' => $data['gender'],
             'is_business' => $data['is_business'],
-            'username' => strtolower($data['username']),
-            'slug'=>strtolower($data['username']),
+            'username' => $data['username'],
+            'slug'=>$data['username'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
