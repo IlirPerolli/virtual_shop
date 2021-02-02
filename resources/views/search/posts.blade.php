@@ -12,6 +12,9 @@
                 margin-right: 0 !important;
             }
             .search-submit{
+                width: 100% !important;
+            }
+            .search-submit{
                 display: block !important;
             }
         }
@@ -97,7 +100,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-12">
-                                <button class="genric-btn primary mt-3 search-submit" style="width:100%; display: none" type="submit" id="submit" >Kërko</button>
+                                <button class="genric-btn primary mt-3 search-submit" style="width:50%;" type="submit" id="submit" >Kërko</button>
                                 </div>
                             </div>
 
@@ -113,8 +116,20 @@
             </div>
 
             @if(isset($posts))
+                @if (isset($_GET['q']))
+                @if ($_GET['q'] != '')
                 <div class="col-lg-9 col-12"><h4 class="text-left mt-4 ml-3">Rezultatet e kërkimit për: {{$_GET['q']}} <span style="color:#e65228;font-size: 15px"> ({{$posts_count}} postime)</span></h4></div><div class="col-3 d-none d-lg-block"></div>
-                @include('includes.gallery_area')
+                    @else
+                        {{--                    //nese ka q po eshte e zbrazet--}}
+                        <div class="col-lg-9 col-12"><h4 class="text-left mt-4 ml-3">Rezultatet e kërkimit: <span style="color:#e65228;font-size: 15px"> ({{$posts_count}} postime)</span></h4></div><div class="col-3 d-none d-lg-block"></div>
+
+                    @endif
+                    @else
+{{--                    //nese nuk ka q fare--}}
+                        <div class="col-lg-9 col-12"><h4 class="text-left mt-4 ml-3">Rezultatet e kërkimit: <span style="color:#e65228;font-size: 15px"> ({{$posts_count}} postime)</span></h4></div><div class="col-3 d-none d-lg-block"></div>
+
+                    @endif
+                    @include('includes.gallery_area')
             @endif
             @if(Session::has('min_length_input'))
                 <div class="alert alert-danger">{{session('min_length_input')}}</div>
@@ -137,6 +152,7 @@
               if ($('#order_by_price').val().length == 0){//mos te hyne ne get metode inputi nese nuk zgjidhet
                   $('#order_by_price').prop('disabled',true);
               }
+
           });
       });
     </script>

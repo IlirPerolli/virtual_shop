@@ -100,11 +100,7 @@ class SearchController extends Controller
             $order = 'asc';
         }
 
-
-
-
         $allcategories = Category::all();
-
         $all_cities = City::orderBy('name','asc')->get();
         $separated_input = preg_split('/(?<=\w)\b\s*[!?.]*/', $input, -1, PREG_SPLIT_NO_EMPTY);
         $categories = Category::orderBy('id', 'ASC')->take(10)->get();
@@ -188,6 +184,36 @@ class SearchController extends Controller
             //Kjo appends per te marrur edhe get requestat tjere ne get metoden
 
                 return view('search.posts', compact('posts','users', 'categories','all_cities', 'posts_count', 'cities', 'allcategories'));
+
+        }
+        else if (($input=='') &&($category!='' || $city != '')){
+        if ($city !='' && $category != ''){
+                if ($order_by_price !='') {
+                    $posts = Post::Where('city_id', $city)->where('category_id', $category)->orderBy('price', $order)->paginate(10)->appends(request()->query());
+                }
+                else{
+                    $posts = Post::Where('city_id', $city)->where('category_id', $category)->orderBy('created_at', 'DESC')->paginate(10)->appends(request()->query());
+                }
+            }
+            else if ($city !=''){
+                if ($order_by_price !='') {
+                    $posts = Post::Where('city_id', $city)->orderBy('price', $order)->paginate(10)->appends(request()->query());
+                }
+                else{
+                    $posts = Post::Where('city_id', $city)->orderBy('created_at', 'DESC')->paginate(10)->appends(request()->query());
+                }
+            }
+            else if ($category != ''){
+                if ($order_by_price !='') {
+                    $posts = Post::Where('category_id', $category)->orderBy('price', $order)->paginate(10)->appends(request()->query());
+                }
+                else{
+                    $posts = Post::Where('category_id', $category)->orderBy('created_at', 'DESC')->paginate(10)->appends(request()->query());
+                }
+            }
+
+            $posts_count = $posts->count();
+            return view('search.posts', compact('posts','users', 'categories','all_cities', 'posts_count', 'cities', 'allcategories'));
 
         }
 
