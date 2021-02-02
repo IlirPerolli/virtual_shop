@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\City;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -20,7 +21,8 @@ class AdminController extends Controller
             $posts = Post::orderBy('created_at', 'desc')->paginate(20);
             $users = User::orderBy('name', 'ASC')->take(5)->get();
             $categories = Category::orderBy('name', 'ASC')->take(20)->get();
-            return view('admin.posts', compact('posts', 'users', 'categories'));
+        $cities = City::orderBy('id', 'ASC')->take(30)->get();
+            return view('admin.posts', compact('posts', 'users','cities', 'categories'));
 
     }
     public function users(){

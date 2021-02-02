@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\City;
 use App\Models\Photo;
 use App\Models\Post;
 use App\Models\User;
@@ -30,8 +31,8 @@ class CategoriesController extends Controller
         }
         $allcategories = Category::orderBy('id', 'ASC')->get();
         $categories = Category::orderBy('id', 'ASC')->take(10)->get();
-
-        return view('categories.index', compact('users','categories', 'allcategories'));
+        $cities = City::orderBy('id', 'ASC')->take(30)->get();
+        return view('categories.index', compact('users','categories','cities', 'allcategories'));
     }
 
     /**
@@ -85,7 +86,8 @@ class CategoriesController extends Controller
         $category = Category::findBySlugOrFail($slug);
         $posts = $category->posts()->orderBy('created_at','DESC')->paginate(20);
         $categories = Category::orderBy('id', 'ASC')->take(10)->get();
-        return view('categories.show', compact('posts', 'category', 'users', 'categories' ));
+        $cities = City::orderBy('id', 'ASC')->take(30)->get();
+        return view('categories.show', compact('posts', 'category','cities', 'users', 'categories' ));
     }
 
     /**

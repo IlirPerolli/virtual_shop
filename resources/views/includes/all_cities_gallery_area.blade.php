@@ -2,6 +2,7 @@
     .first-card{
         margin-top: 0px !important;
     }
+
     @media screen and (max-width: 960px){
         .media-body{
             width: 100% !important;
@@ -37,12 +38,12 @@
     @yield('gallery_title')
 
     <div class="list-group col-lg-9 col-12">
-        @foreach($allcategories as $category)
-            <a href="{{route('category.show', $category->slug)}}" class="list-group-item list-group-item-action">{{$category->name}}</a>
+        @foreach($all_cities as $city)
+            <a href="{{route('city.show', $city->slug)}}" class="list-group-item list-group-item-action">{{$city->name}}</a>
         @endforeach
     </div>
 
-    @include('includes.sidebar')
+   @include('includes.sidebar')
 
 </div>
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\City;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -58,12 +59,12 @@ class ProfileController extends Controller
 
 
             $categories = Category::orderBy('id', 'ASC')->take(10)->get();
-
+            $cities = City::orderBy('id', 'ASC')->take(30)->get();
             //Per te marrur perdoruesit qe mund t'i njeh perdoruesi i kyqur
             $user = auth()->user()->id;
             $users->push($user);
             $users = User::whereNotIn('id', $users)->orderBy('name', 'ASC')->take(5)->get();
-            return view('index', compact('posts', 'users', 'categories'));
+            return view('index', compact('posts', 'users','cities', 'categories'));
         }
         else{
             return redirect()->route('discover.posts');

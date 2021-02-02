@@ -63,7 +63,6 @@ Route::middleware('auth')->group(function(){
     Route::delete('/user/{user}/destroy', 'App\Http\Controllers\UserProfileController@destroy')->name('user.destroy');
 
 
-
 });
 //Route::resource('/post', 'PostsController');
 //Route::resource('/user', 'UserProfileController');
@@ -86,6 +85,7 @@ Route::get('/post/{post}/likes', 'App\Http\Controllers\LikesController@show')->n
 Route::get('/city/{city}','App\Http\Controllers\CitiesController@show')->name('city.show');
 Route::get('/category/{category}','App\Http\Controllers\CategoriesController@show')->name('category.show');
 Route::get('/categories','App\Http\Controllers\CategoriesController@index')->name('categories');
+Route::get('/cities','App\Http\Controllers\CitiesController@index')->name('cities');
 
 Route::get('/search/users', 'App\Http\Controllers\SearchController@users')->name('search.users');
 Route::get('/search/posts', 'App\Http\Controllers\SearchController@posts')->name('search.posts');

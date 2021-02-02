@@ -23,6 +23,7 @@ class SearchController extends Controller
 
     public function users(Request $request)
     { $categories = Category::orderBy('id', 'ASC')->take(10)->get();
+        $cities = City::orderBy('id', 'ASC')->take(30)->get();
         if(auth()->check()){
 
             $users_user_may_know = auth()->user()->followings()->pluck('leader_id');
@@ -60,11 +61,11 @@ class SearchController extends Controller
             $users_count = $users->count();
 
             //Kjo appends per te marrur edhe get requestat tjere ne get metoden
-                return view('search.users', compact('users','categories', 'users_user_may_know', 'users_count'));
+                return view('search.users', compact('users','categories','cities', 'users_user_may_know', 'users_count'));
 
 //                session()->flash('user_not_found', "Nuk u gjet asnjë përdorues");
 //                return redirect()->route('search.users');
-                return view('search.users', compact('users','categories', 'users_user_may_know', 'users_count'));
+                return view('search.users', compact('users','categories','cities', 'users_user_may_know', 'users_count'));
 
 
 
@@ -104,9 +105,10 @@ class SearchController extends Controller
 
         $allcategories = Category::all();
 
-        $cities = City::orderBy('name','asc')->get();
+        $all_cities = City::orderBy('name','asc')->get();
         $separated_input = preg_split('/(?<=\w)\b\s*[!?.]*/', $input, -1, PREG_SPLIT_NO_EMPTY);
         $categories = Category::orderBy('id', 'ASC')->take(10)->get();
+        $cities = City::orderBy('id', 'ASC')->take(30)->get();
         //Show users that current user may know
         if(auth()->check()){
 
@@ -185,11 +187,11 @@ class SearchController extends Controller
             $posts_count = $posts->count();
             //Kjo appends per te marrur edhe get requestat tjere ne get metoden
 
-                return view('search.posts', compact('posts','users', 'categories', 'posts_count', 'cities', 'allcategories'));
+                return view('search.posts', compact('posts','users', 'categories','all_cities', 'posts_count', 'cities', 'allcategories'));
 
         }
 
-        return view('search.posts', compact('users', 'categories', 'cities', 'allcategories'));
+        return view('search.posts', compact('users', 'categories', 'all_cities','cities', 'allcategories'));
     }
     /**
      * Show the form for creating a new resource.

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Http\Requests\UserEditRequest;
 use App\Models\Category;
+use App\Models\City;
 use App\Models\Photo;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -66,7 +67,8 @@ class UserProfileController extends Controller
         $user_posts = $user->posts->count();
         $posts = $user->posts()->orderBy('created_at', 'desc')->paginate(10);
         $categories = Category::orderBy('id', 'ASC')->take(10)->get();
-        return view('user.show', compact('user','posts', 'followers', 'followings','user_posts', 'users', 'categories' ));
+        $cities = City::orderBy('id', 'ASC')->take(30)->get();
+        return view('user.show', compact('user','posts', 'followers', 'followings','user_posts', 'users', 'categories' ,'cities' ));
     }
 
     /**

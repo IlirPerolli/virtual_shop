@@ -4,6 +4,9 @@ body{
 .media-list{
     background:white;
 }
+.first-card{
+    margin-top:24px!important;
+}
 @media screen and (max-width: 340px) {
     .card{
         width:100% !important;
