@@ -60,7 +60,7 @@ Route::middleware('auth')->group(function(){
     Route::resource('comment/reply', 'App\Http\Controllers\CommentRepliesController');
     Route::post('/post/{post}/like', 'App\Http\Controllers\LikesController@like')->name('post.like');
     Route::post('/post/{post}/unlike', 'App\Http\Controllers\LikesController@unlike')->name('post.unlike');
-    Route::get('/user/{user}/destroy', 'App\Http\Controllers\UserProfileController@destroy')->name('user.destroy');
+    Route::delete('/user/{user}/destroy', 'App\Http\Controllers\UserProfileController@destroy')->name('user.destroy');
 
 
 

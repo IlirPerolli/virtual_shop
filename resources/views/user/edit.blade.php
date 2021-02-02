@@ -95,7 +95,11 @@
 
                                 <h6 style="color:black; text-align: center; margin-top: 15px">Postime {{$user_posts}} | <a href="{{route('followings',$user->slug)}}" style="color:black">Ndjekje {{$followings}}</a> | <a href="{{route('followers',$user->slug)}}" style="color:black">Ndjek&euml;s {{$followers}}</a></h6>
                                 <p>{{$user->about}}</p>
-                                <a href="{{route('user.destroy', $user->slug)}}" style="color:red"> Fshi profilin</a>
+                                <form action="{{route('user.destroy', $user->slug)}}" method="POST" style="display: inline-block;margin:5px">
+                                    @csrf
+                                    @method('delete')
+                                    <button class="genric-btn danger-border circle" type="submit" >Fshij profilin</button>
+                                </form>
                             </aside>
                         </div>
                     </div>

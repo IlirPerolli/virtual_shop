@@ -18,7 +18,11 @@
         <td>{{$user->surname}}</td>
         <td>{{$user->username}}</td>
         <td>{{$user->email}}</td>
-        <td > <a href="{{route('user.destroy', $user->slug)}}" style="color:red"> Fshi përdoruesin</a></td>
+        <td> <form action="{{route('user.destroy', $user->slug)}}" method="POST" style="display: inline-block;margin:5px">
+                @csrf
+                @method('delete')
+                <button class="genric-btn danger-border circle" type="submit" >Fshij profilin</button>
+            </form></td>
     </tr>
     @endforeach
 
