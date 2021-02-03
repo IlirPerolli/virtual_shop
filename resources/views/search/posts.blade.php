@@ -131,7 +131,7 @@
                     @endif
             @if ($is_sentence_corrected == true)
 
-                        <div class="col-lg-9 col-12" style="margin-top: -30px!important;"><h5 class="text-left mt-4 ml-3"><span style="color:red">Mos keni menduar për:</span> <i><a href="{{route('search.posts')}}?q={{$corrected_sentence}}">{{$corrected_sentence}}</a></i> </h5></div><div class="col-3 d-none d-lg-block"></div>
+                        <div class="col-lg-9 col-12" style="margin-top: -27px!important;"><h5 class="text-left mt-4 ml-3"><span style="color:red">Mos keni menduar për:</span> <i><a onclick="correctedSentence('{{$_GET['q']}}', '{{$corrected_sentence}}')" href="#">{{$corrected_sentence}}</a></i> </h5></div><div class="col-3 d-none d-lg-block"></div>
 
                 @endif
                     @include('includes.gallery_area')
@@ -161,7 +161,16 @@
           });
       });
     </script>
+<script>
+ function correctedSentence(q,corrected_q){ //per te korrigjuar searchin si dhe te mirren get parametrat tjere
+     var currentLocation = window.location; //gjej lokacionin
+        var location = currentLocation.href; //merr vetem linkun
+     var url = location.replace(q, corrected_q);//bej ndryshimin e fjales
+     window.location.href = url;//dergo tek url
 
+ }
+
+</script>
     @endsection
     <!-- End Align Area -->
 @endsection

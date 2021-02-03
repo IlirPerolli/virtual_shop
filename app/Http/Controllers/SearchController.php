@@ -85,7 +85,7 @@ class SearchController extends Controller
         $order_by_price = $request->order_by_price;
         $corrected_sentence = '';
         $corrected_inputs = ['ejpell'=>'apple','ajfon'=>'iphone','ajfun'=>'iphone' ,'mekbuk'=>'macbook','mekbook'=>'macbook', 'ajmek'=>'imac', 'epell'=>'apple', 'tv'=>'televizor', 'tel'=>'telefon',
-            'ajped'=>'iped', 'zamzung'=>'samsung', 'lloptop'=>'laptop', 'llaptop'=>'laptop','vajrlles'=>'wireless', 'vajfaj'=>'WiFi'];
+            'ajped'=>'ipad', 'zamzung'=>'samsung', 'lloptop'=>'laptop', 'llaptop'=>'laptop','vajrlles'=>'wireless', 'vajfaj'=>'WiFi'];
 
         $is_sentence_corrected = false;
        // dd($corrected_inputs[$input]);
@@ -146,6 +146,8 @@ class SearchController extends Controller
                             $input = $corrected_inputs[$input];
                             $this->is_sentence_corrected = true;
                         }
+                        $corrected_sentence .= $input. " ";
+                        $this->corrected_sentence = $corrected_sentence;//per te bere kerkimin me mire
                         continue;
                     }
                     if (array_key_exists(strtolower($input), $corrected_inputs)){
