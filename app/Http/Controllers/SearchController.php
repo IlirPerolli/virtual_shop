@@ -141,6 +141,7 @@ class SearchController extends Controller
             $posts_by_sentence = Post::Where('title', 'like', "%{$input}%")->orderBy('title','ASC');//kerko me fjali
                 $posts_by_word = Post::Where(function ($q) use ($separated_input, $corrected_inputs, $corrected_sentence) { //kerko me fjale
                 foreach ($separated_input as $input) {
+                    $userinput = $input;//merr njehere inputin si te userit dhe kerko me ate input dhe pastaj ndrysho
                     if (strlen($input)<2){
                         if (array_key_exists(strtolower($input), $corrected_inputs)){
                             $input = $corrected_inputs[$input];
@@ -157,10 +158,13 @@ class SearchController extends Controller
                     $corrected_sentence .= $input. " ";
                     $this->corrected_sentence = $corrected_sentence;//per te bere kerkimin me mire
                     $q->orWhere('title', 'like', "%{$input}%")
+                    ->orWhere('title', 'like', "%{$userinput}%")
                         //->orWhere('body', 'like', "%{$input}%")
                         //->orWhere('price', 'like', "%{$input}%")
                         //->orWhere('mobile_number', 'like', "%{$input}%")
-                        ->orWhere('slug', 'like', "%{$input}%")->orderBy('title','ASC');
+                        ->orWhere('slug', 'like', "%{$input}%")
+                        ->orWhere('slug', 'like', "%{$userinput}%")
+                        ->orderBy('title','ASC');
 
                 }
             });
