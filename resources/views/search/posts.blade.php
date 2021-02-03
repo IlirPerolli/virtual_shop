@@ -129,6 +129,11 @@
                         <div class="col-lg-9 col-12"><h4 class="text-left mt-4 ml-3">Rezultatet e kërkimit: <span style="color:#e65228;font-size: 15px"> ({{$posts_count}} postime)</span></h4></div><div class="col-3 d-none d-lg-block"></div>
 
                     @endif
+            @if ($is_sentence_corrected == true)
+
+                        <div class="col-lg-9 col-12" style="margin-top: -30px!important;"><h5 class="text-left mt-4 ml-3"><span style="color:red">Mos keni menduar për:</span> <i><a href="{{route('search.posts')}}?q={{$corrected_sentence}}">{{$corrected_sentence}}</a></i> </h5></div><div class="col-3 d-none d-lg-block"></div>
+
+                @endif
                     @include('includes.gallery_area')
             @endif
             @if(Session::has('min_length_input'))

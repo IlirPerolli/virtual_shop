@@ -11,7 +11,8 @@ use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Facades\DB;
 
 class SearchController extends Controller
-{
+{   protected $corrected_sentence = '';//duhen te deklarohen ne nivel te klases qe te mund te qasen ne foreachin e qdo fjale ne fjali
+  protected $is_sentence_corrected= false;
     /**
      * Display a listing of the resource.
      *
@@ -82,6 +83,12 @@ class SearchController extends Controller
         $city = $request->city;
         $category = $request->category;
         $order_by_price = $request->order_by_price;
+        $corrected_sentence = '';
+        $corrected_inputs = ['ejpell'=>'apple','ajfon'=>'iphone','ajfun'=>'iphone' ,'mekbuk'=>'macbook','mekbook'=>'macbook', 'ajmek'=>'imac', 'epell'=>'apple', 'tv'=>'televizor', 'tel'=>'telefon',
+            'ajped'=>'iped', 'zamzung'=>'samsung', 'lloptop'=>'laptop', 'llaptop'=>'laptop','vajrlles'=>'wireless', 'vajfaj'=>'WiFi'];
+
+        $is_sentence_corrected = false;
+       // dd($corrected_inputs[$input]);
         if ($city != ''){
             $city = City::findBySlugOrFail($city);
             $city = $city->id;
@@ -99,13 +106,12 @@ class SearchController extends Controller
         else{
             $order = 'asc';
         }
-
         $allcategories = Category::all();
         $all_cities = City::orderBy('name','asc')->get();
         $separated_input = preg_split('/(?<=\w)\b\s*[!?.]*/', $input, -1, PREG_SPLIT_NO_EMPTY);
         $categories = Category::orderBy('id', 'ASC')->take(10)->get();
         $cities = City::orderBy('id', 'ASC')->take(30)->get();
-        //Show users that current user may know
+        //Shfaq njerezit qe perdoruesi i tanishem mund t'i njohe
         if(auth()->check()){
 
             $users = auth()->user()->followings()->pluck('leader_id');
@@ -133,9 +139,21 @@ class SearchController extends Controller
 //                ->paginate(10)->appends(request()->query());
             //Metoda tani duke i ndare fjalet e fjalise edhe duke kerkuar bazuar ne ato fjale
             $posts_by_sentence = Post::Where('title', 'like', "%{$input}%")->orderBy('title','ASC');//kerko me fjali
-                $posts_by_word = Post::Where(function ($q) use ($separated_input) { //kerko me fjale
+                $posts_by_word = Post::Where(function ($q) use ($separated_input, $corrected_inputs, $corrected_sentence) { //kerko me fjale
                 foreach ($separated_input as $input) {
-                    if (strlen($input)<2){continue;}
+                    if (strlen($input)<2){
+                        if (array_key_exists(strtolower($input), $corrected_inputs)){
+                            $input = $corrected_inputs[$input];
+                            $this->is_sentence_corrected = true;
+                        }
+                        continue;
+                    }
+                    if (array_key_exists(strtolower($input), $corrected_inputs)){
+                        $input = $corrected_inputs[strtolower($input)];
+                        $this->is_sentence_corrected = true;
+                    }
+                    $corrected_sentence .= $input. " ";
+                    $this->corrected_sentence = $corrected_sentence;//per te bere kerkimin me mire
                     $q->orWhere('title', 'like', "%{$input}%")
                         //->orWhere('body', 'like', "%{$input}%")
                         //->orWhere('price', 'like', "%{$input}%")
@@ -144,6 +162,8 @@ class SearchController extends Controller
 
                 }
             });
+          $corrected_sentence = ucfirst($this->corrected_sentence);
+          $is_sentence_corrected = $this->is_sentence_corrected;
             if ($city !='' && $category != ''){//nese ipet qyteti edhe kategoria atehere kerko
                 if ($order_by_price !=''){
                     $posts = $posts_by_sentence->where('city_id', $city)->where('category_id', $category)->union($posts_by_word->where('city_id', $city)->where('category_id', $category))->orderBy('price', $order)->paginate(10)->appends(request()->query());
@@ -183,7 +203,7 @@ class SearchController extends Controller
             $posts_count = $posts->count();
             //Kjo appends per te marrur edhe get requestat tjere ne get metoden
 
-                return view('search.posts', compact('posts','users', 'categories','all_cities', 'posts_count', 'cities', 'allcategories'));
+                return view('search.posts', compact('posts','users', 'categories','all_cities', 'posts_count', 'cities', 'allcategories', 'corrected_sentence', 'is_sentence_corrected'));
 
         }
         else if (($input=='') &&($category!='' || $city != '')){
@@ -213,11 +233,11 @@ class SearchController extends Controller
             }
 
             $posts_count = $posts->count();
-            return view('search.posts', compact('posts','users', 'categories','all_cities', 'posts_count', 'cities', 'allcategories'));
+            return view('search.posts', compact('posts','users', 'categories','all_cities', 'posts_count', 'cities', 'allcategories' ,'corrected_sentence', 'is_sentence_corrected'));
 
         }
 
-        return view('search.posts', compact('users', 'categories', 'all_cities','cities', 'allcategories'));
+        return view('search.posts', compact('users', 'categories', 'all_cities','cities', 'allcategories', 'corrected_sentence', 'is_sentence_corrected'));
     }
     /**
      * Show the form for creating a new resource.
