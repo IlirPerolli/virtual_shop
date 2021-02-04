@@ -22,7 +22,7 @@ class ProfileController extends Controller
             session()->flash('user_error','Nuk mund të ndiqni veten.' );
             return back();
         }
-        if (!$user->followers->contains(auth()->user()->id)) {//per mes mi bo "2her" follow
+        if (!$user->followers->contains(auth()->user()->id)) {//per mes mi bo "2her" follow nese 2 her preket follow te personi i njejte ne faqe te ndryshme
             $user->followers()->attach(auth()->user()->id);
         }
         session()->flash('success_follow','Përdoruesi u ndoq me sukses.' );
