@@ -131,7 +131,7 @@
                     @endif
             @if ($is_sentence_corrected == true)
 
-                        <div class="col-lg-9 col-12" style="margin-top: -27px!important;"><h5 class="text-left mt-4 ml-3"><span style="color:red">Mos keni menduar për:</span> <i><a href="?q={{$corrected_sentence}}">{{$corrected_sentence}}</a></i> </h5></div><div class="col-3 d-none d-lg-block"></div>
+                        <div class="col-lg-9 col-12" style="margin-top: -27px!important;"><h5 class="text-left mt-4 ml-3"><span style="color:red">Mos keni menduar për:</span> <i><a href="#" onclick="correctedSearch('{{$corrected_sentence}}')">{{$corrected_sentence}}</a></i> </h5></div><div class="col-3 d-none d-lg-block"></div>
 
                 @endif
                     @include('includes.gallery_area')
@@ -161,7 +161,32 @@
           });
       });
     </script>
+<script>
+    function correctedSearch(input) {
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        console.log(queryString);
+        if ((urlParams.has('city')) && (urlParams.has('category'))) {
+            const city = urlParams.get('city');
+            const category = urlParams.get('category');
+            window.location.href = '?q='+input+'&category='+category+'&city='+city;
+        }
+        else if (urlParams.has('city')) {
+            const city = urlParams.get('city');
+            window.location.href = '?q='+input+'&city='+city;
 
+        } else if (urlParams.has('category')) {
+            const category = urlParams.get('category')
+            window.location.href = '?q='+input+'&category='+category;
+        }
+        else{
+            window.location.href = '?q='+input;
+        }
+
+
+    }
+
+</script>
     @endsection
     <!-- End Align Area -->
 @endsection
