@@ -34,7 +34,7 @@
         }
 
     }</style>
-<div class="container d-flex justify-content-center flex-wrap" style="margin-top: 100px">
+<div class="container d-flex justify-content-center flex-wrap" style="margin-top: 20px">
     @yield('gallery_title')
     <ul class="list-unstyled col-lg-9 col-12">
         @if(count($posts)>0)

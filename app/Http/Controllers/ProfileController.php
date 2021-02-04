@@ -45,11 +45,6 @@ class ProfileController extends Controller
         return back();
     }
     public function posts(){
-
-
-
-
-
         if(auth()->check()){
             // $users = auth()->user()->followings;
 //
@@ -60,11 +55,13 @@ class ProfileController extends Controller
 
             $categories = Category::orderBy('id', 'ASC')->take(10)->get();
             $cities = City::orderBy('id', 'ASC')->take(30)->get();
+            $allcategories = Category::all();
+            $all_cities = City::orderBy('name','asc')->get();
             //Per te marrur perdoruesit qe mund t'i njeh perdoruesi i kyqur
             $user = auth()->user()->id;
             $users->push($user);
             $users = User::whereNotIn('id', $users)->orderBy('name', 'ASC')->take(5)->get();
-            return view('index', compact('posts', 'users','cities', 'categories'));
+            return view('index', compact('posts', 'users','cities', 'categories', 'allcategories','all_cities'));
         }
         else{
             return redirect()->route('discover.posts');

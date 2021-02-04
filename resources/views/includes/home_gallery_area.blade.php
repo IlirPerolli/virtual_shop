@@ -33,7 +33,7 @@
     }</style>
 @if (auth()->check())
 
-<div class="container d-flex justify-content-center flex-wrap" style="margin-top: 100px">
+<div class="container d-flex justify-content-center flex-wrap" style="margin-top: 20px">
     <div class="col-9"><h3 class="text-center mt-4">Ballina</h3></div><div class="col-3 d-none d-lg-block"></div>
 
     <ul class="list-unstyled col-lg-9 col-12">
