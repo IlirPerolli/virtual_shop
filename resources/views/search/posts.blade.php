@@ -166,7 +166,13 @@
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
         console.log(queryString);
-        if ((urlParams.has('city')) && (urlParams.has('category'))) {
+        if ((urlParams.has('city')) && (urlParams.has('category')) && (urlParams.has('order_by_price'))) {
+            const city = urlParams.get('city');
+            const category = urlParams.get('category');
+            const order_by_price = urlParams.get('order_by_price');
+            window.location.href = '?q='+input+'&category='+category+'&city='+city+ '&order_by_price='+order_by_price;
+        }
+        else if ((urlParams.has('city')) && (urlParams.has('category'))) {
             const city = urlParams.get('city');
             const category = urlParams.get('category');
             window.location.href = '?q='+input+'&category='+category+'&city='+city;
@@ -178,6 +184,10 @@
         } else if (urlParams.has('category')) {
             const category = urlParams.get('category')
             window.location.href = '?q='+input+'&category='+category;
+        }
+        else if (urlParams.has('order_by_price')) {
+            const order_by_price = urlParams.get('order_by_price')
+            window.location.href = '?q='+input+'&order_by_price='+order_by_price;
         }
         else{
             window.location.href = '?q='+input;
