@@ -84,8 +84,8 @@ class SearchController extends Controller
         $category = $request->category;
         $order_by_price = $request->order_by_price;
         $corrected_sentence = '';
-        $corrected_inputs = ['ejpell'=>'apple','ajfon'=>'iphone','ajfun'=>'iphone','mekbuk'=>'macbook','mekbook'=>'macbook', 'ajmek'=>'imac', 'epell'=>'apple', 'tv'=>'televizor',
-            'ajped'=>'ipad', 'zamzung'=>'samsung', 'lloptop'=>'laptop', 'llaptop'=>'laptop','laptp'=>'laptop','llaptp'=>'laptop','vajrlles'=>'wireless', 'vajfaj'=>'WiFi', 'llenovo'=>'lenovo',
+        $corrected_inputs = ['ejpell'=>'apple','ajfon'=>'iphone','ajfun'=>'iphone','mekbuk'=>'macbook','mekbook'=>'macbook', 'ajmek'=>'iMac', 'epell'=>'apple', 'tv'=>'televizor',
+            'ajped'=>'ipad', 'zamzung'=>'samsung', 'lloptop'=>'laptop','loptop'=>'laptop', 'llaptop'=>'laptop','laptp'=>'laptop','llaptp'=>'laptop','vajrlles'=>'wireless', 'vajfaj'=>'WiFi', 'llenovo'=>'lenovo',
             'telefon'=>'celular', 'tellefon'=>'telefon'];
 
         $is_sentence_corrected = false;

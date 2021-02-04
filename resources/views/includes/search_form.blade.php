@@ -1,6 +1,9 @@
 @section('styles')
     <style>
         @media screen and (max-width: 960px){
+            #search-container{
+                margin-top: 100px !important;
+            }
             .search-select{
                 margin-top: 16px !important;
                 width: 100% !important;
@@ -38,7 +41,7 @@
     <div class="input-group d-flex flex-row ">
         <div class="form-row col-12" style="width: 100% !important; padding:0 !important; margin:0 !important;">
             <div class="col-lg-4 col-12">
-                <input name="q" placeholder="K&euml;rko postime" onfocus="this.placeholder = ''" onblur="this.placeholder = 'K&euml;rko postime'" type="text" style="background:white;border: 1px solid #d6d6d6;color:black" value="@if(isset($_GET['q'])){{$_GET['q']}}@endif" autocomplete="off">
+                <input name="q" id="q" placeholder="K&euml;rko postime" onfocus="this.placeholder = ''" onblur="this.placeholder = 'K&euml;rko postime'" type="text" style="background:white;border: 1px solid #d6d6d6;color:black" value="@if(isset($_GET['q'])){{$_GET['q']}}@endif" autocomplete="off" >
             </div>
             <div class="col-lg-4 col-12">
                 <div class="input-group-icon search-select">
@@ -84,7 +87,7 @@
                 </div>
             </div>
             <div class="col-lg-4 col-12">
-                <button class="genric-btn primary mt-3 search-submit" style="width:50%;" type="submit" id="submit" >Kërko</button>
+                <button class="genric-btn primary mt-3 search-submit" style="width:50%;" type="submit" id="submit">Kërko</button>
             </div>
         </div>
 
@@ -94,3 +97,4 @@
 
 
 </form>
+

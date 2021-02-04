@@ -5,7 +5,7 @@
 @section('content')
 
 
-    <div class="container" style="margin-top: 120px">
+    <div class="container" id = "search-container" style="margin-top: 120px">
         <aside class="f_widget news_widget mt-5">
             @include('includes.search_form')
 

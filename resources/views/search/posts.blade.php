@@ -44,7 +44,7 @@
 
 
     <!-- Start Align Area -->
-    <div class="whole-wrap" style="margin-top: 150px; margin-bottom: 150px;">
+    <div class="whole-wrap" style="margin-top: 120px; margin-bottom: 150px;">
         <div class="container">
             <div class="col-lg-12 col-sm-12 m-auto" style="margin-bottom: 50px !important;">
                 <aside class="f_widget news_widget mt-5">
