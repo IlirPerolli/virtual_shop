@@ -33,7 +33,7 @@
             }
         }
     }</style>
-<div class="container d-flex justify-content-center flex-wrap">
+<div class="container d-flex justify-content-center flex-wrap" >
     @yield('gallery_title')
 
     <div class="list-group col-lg-9 col-12">
