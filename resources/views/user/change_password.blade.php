@@ -1,4 +1,7 @@
 @extends('layouts.index')
+@section('title')
+    <title>{{$user->name . " ". $user->surname}} &#8226; Profili</title>
+@endsection
 @section('styles')
     <style>
 
@@ -9,14 +12,12 @@
     </style>
 @endsection
 @section('content')
-    @section('title')
-    <title>{{$user->name . " ". $user->surname}} &#8226; Profili</title>
-    @endsection
-    @include('includes.profile_banner_area')
+
+{{--    @include('includes.profile_banner_area')--}}
 
 
     <!-- Start Align Area -->
-    <div class="whole-wrap">
+    <div class="whole-wrap" style="margin-top: 100px">
         <div class="container">
 
 
