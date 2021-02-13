@@ -3,8 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="00153e13-9524-46f1-a4c4-64867ab51702" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/includes/all_categories_gallery_area.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/all_categories_gallery_area.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/includes/category_gallery_area.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/category_gallery_area.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/includes/search_form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/search_form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/posts/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/posts/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/posts/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/posts/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/search/posts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/search/posts.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -337,7 +340,15 @@
       <workItem from="1612470772875" duration="2254000" />
       <workItem from="1612481119998" duration="618000" />
       <workItem from="1612481868599" duration="30000" />
-      <workItem from="1612542134659" duration="336000" />
+      <workItem from="1612542134659" duration="617000" />
+      <workItem from="1612620345455" duration="401000" />
+      <workItem from="1612643261761" duration="595000" />
+      <workItem from="1612721059677" duration="188000" />
+      <workItem from="1612808437020" duration="1478000" />
+      <workItem from="1612884432965" duration="6000" />
+      <workItem from="1613084561751" duration="50000" />
+      <workItem from="1613171072485" duration="1438000" />
+      <workItem from="1613254356234" duration="671000" />
     </task>
     <servers />
   </component>

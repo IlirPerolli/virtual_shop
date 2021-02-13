@@ -1,5 +1,5 @@
 @include('includes.header')
-@yield('scripts')
+
     @yield('content')
 
 

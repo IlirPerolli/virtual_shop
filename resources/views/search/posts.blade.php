@@ -84,59 +84,7 @@
 
 
     </div>
-@section('scripts')
-    <script>
-      $(document).ready(function(){
-          $('#submit').click(function(){
-              if ($('#category').val().length == 0){//mos te hyne ne get metode inputi nese nuk zgjidhet
-                  $('#category').prop('disabled',true);
-              }
-              if ($('#city').val().length == 0){//mos te hyne ne get metode inputi nese nuk zgjidhet
-                  $('#city').prop('disabled',true);
-              }
-              if ($('#order_by_price').val().length == 0){//mos te hyne ne get metode inputi nese nuk zgjidhet
-                  $('#order_by_price').prop('disabled',true);
-              }
-
-          });
-      });
-    </script>
-<script>
-    function correctedSearch(input) {
-        const queryString = window.location.search;
-        const urlParams = new URLSearchParams(queryString);
-        console.log(queryString);
-        if ((urlParams.has('city')) && (urlParams.has('category')) && (urlParams.has('order_by_price'))) {
-            const city = urlParams.get('city');
-            const category = urlParams.get('category');
-            const order_by_price = urlParams.get('order_by_price');
-            window.location.href = '?q='+input+'&category='+category+'&city='+city+ '&order_by_price='+order_by_price;
-        }
-        else if ((urlParams.has('city')) && (urlParams.has('category'))) {
-            const city = urlParams.get('city');
-            const category = urlParams.get('category');
-            window.location.href = '?q='+input+'&category='+category+'&city='+city;
-        }
-        else if (urlParams.has('city')) {
-            const city = urlParams.get('city');
-            window.location.href = '?q='+input+'&city='+city;
-
-        } else if (urlParams.has('category')) {
-            const category = urlParams.get('category')
-            window.location.href = '?q='+input+'&category='+category;
-        }
-        else if (urlParams.has('order_by_price')) {
-            const order_by_price = urlParams.get('order_by_price')
-            window.location.href = '?q='+input+'&order_by_price='+order_by_price;
-        }
-        else{
-            window.location.href = '?q='+input;
-        }
 
 
-    }
-
-</script>
-    @endsection
     <!-- End Align Area -->
 @endsection

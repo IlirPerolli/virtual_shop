@@ -97,7 +97,7 @@
                                 <textarea class="single-textarea" name="body" id="body" placeholder="P&euml;rshkrimi" onfocus="this.placeholder = ''" onblur="this.placeholder = 'P&euml;rshkrimi'" autocomplete="off" required>{{@old('body')}}</textarea>
                             </div>
                             <div class="mt-10">
-                                <input type="number" class="single-input" name="mobile_number" id="mobile_number" placeholder="Numri i telefonit" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Numri i telefonit'" value="{{ old('mobile_number') }}" required autocomplete="off" min="0"/>
+                                <input type="tel" class="single-input" name="mobile_number" id="mobile_number" placeholder="Numri i telefonit (04X123456) " pattern="[0-9]{9}" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Numri i telefonit (04X123456) '" value="{{ old('mobile_number') }}" required autocomplete="off"/>
                             </div>
                             <div class="mt-10">
                                 <input type="number" class="single-input" name="price" id="price" placeholder="&Ccedil;mimi" onfocus="this.placeholder = ''" onblur="this.placeholder = '&Ccedil;mimi'" value="{{ old('price') }}" required autocomplete="off" step="0.01" min="0"/>
