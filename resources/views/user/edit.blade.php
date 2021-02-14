@@ -30,6 +30,11 @@
                                 {{session('updated_user')}}
                             </div>
                         @endif
+                            @if(session()->has('username_changed'))<br>
+                            <div class="alert alert-success" role="alert">
+                                {{session('username_changed')}}
+                            </div>
+                            @endif
                         <h3 class="mb-30 title_color">Ndrysho profilin</h3>
 
 
@@ -78,7 +83,9 @@
 {{--                                <input type="password" name="password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" class="single-input">--}}
 {{--                            </div>--}}
                             <div class="mt-10 text-center">
+                                <a href="{{route('user.username.edit')}}">Ndrysho username</a> |
                                 <a href="{{route('user.password.edit')}}">Ndrysho fjal&euml;kalimin</a>
+
                             </div>
 
                             <div class="mt-10 float-right">

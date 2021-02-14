@@ -19,7 +19,8 @@ class User extends Authenticatable
     {
         return [
             'slug' => [
-
+                'source' => 'username',
+                'onUpdate'=> true,
             ]
         ];
     }
@@ -30,7 +31,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name','surname','business_name','gender','is_business','username','bio', 'email', 'password','photo_id','slug'
+        'name','surname','business_name','gender','is_business','username','bio', 'email', 'password','photo_id','slug', 'username_changed'
     ];
 
     public function photo(){
