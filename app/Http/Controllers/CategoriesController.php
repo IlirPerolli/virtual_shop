@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AdminStoreCategoriesRequest;
 use App\Models\Category;
 use App\Models\City;
 use App\Models\Photo;
@@ -52,9 +53,8 @@ class CategoriesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AdminStoreCategoriesRequest $request)
     {
-        $request->validate(['name'=>'required|min:2|max:255']);
         $input = $request->all();
 
         Category::create($input);

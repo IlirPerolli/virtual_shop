@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Http\Requests\UserStorePostCommentsRequest;
+use App\Http\Requests\UserStorePostRequest;
+use App\Http\Requests\UserUpdatePostCommentsRequest;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use App\Models\Comment;
 use Illuminate\Http\Request;
@@ -34,9 +37,9 @@ class PostCommentsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserStorePostCommentsRequest $request)
     {
-        $request->validate(['body'=>'required|max:255|min:2']);
+
         $user = Auth::user();
         $data = [
             'user_id'=>$user->id,
@@ -81,12 +84,11 @@ class PostCommentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Comment $comment)
+    public function update(UserUpdatePostCommentsRequest $request, Comment $comment)
     {
         if (auth()->user()->id != $comment->user->id){
             abort(403, 'Unauthorized action.');
         }
-        $request->validate(['body'=>'required|max:255|min:2']);
         $comment->body = $request->body;
         if($comment->isDirty('body')){
 

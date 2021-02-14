@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AdminStoreCitiesRequest;
 use App\Models\Category;
 use App\Models\City;
 use App\Models\User;
@@ -51,9 +52,9 @@ class CitiesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AdminStoreCitiesRequest $request)
     {
-        $request->validate(['name'=>'required|min:2|max:255']);
+
         $input = $request->all();
         City::create($input);
         session()->flash('added_city', 'Qyteti u shtua me sukses.');

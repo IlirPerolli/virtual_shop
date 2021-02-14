@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserStorePostRequest;
+use App\Http\Requests\UserUpdatePostRequest;
 use App\Models\Category;
 use App\Models\City;
 use App\Models\Photo;
@@ -24,20 +26,12 @@ class PostsController extends Controller
         $cities = City::orderBy('name','asc')->get();
         return view('posts.create', compact('categories', 'cities'));
     }
-    public function store(Request $request)
+    public function store(UserStorePostRequest $request)
     {
 
         $user = Auth::user();
 
         $input = $request->all();
-        $request->validate(['photo_id'=>'required','photo_id.*' => 'image|mimes:jpeg,png,jpg,svg|max:4096',
-            'title'=>'required|max:255|min:2',
-            'body'=>'required|max:2000|min:2',
-            'mobile_number'=>'required|numeric|min:0',
-            'price'=>'required|numeric|min:0',
-            'category_id' => 'required|integer',
-            'city_id' => 'required|integer',
-            ]);
         $category = Category::find($request->category_id);
         $city = City::find($request->city_id);
         if (!$category){
@@ -125,7 +119,7 @@ class PostsController extends Controller
         $cities = City::orderBy('name','asc')->get();
         return view('posts.edit', compact('post','categories', 'cities'));
     }
-    public function update(Request $request, Post $post)
+    public function update(UserUpdatePostRequest $request, Post $post)
     {
         if (auth()->user()->id != $post->user->id){
             abort(403, 'Unauthorized action.');
@@ -139,13 +133,7 @@ class PostsController extends Controller
         $post->category_id = $request->category_id;
         $post->city_id = $request->city_id;
         $slug = $post->slug;
-        $request->validate([ 'title'=>'required|max:255|min:2',
-            'body'=>'required|max:2000|min:2',
-            'mobile_number'=>'required|numeric|min:0',
-            'price'=>'required|numeric|min:0',
-            'category_id' => 'required|integer',
-            'city_id' => 'required|integer'
-            ]);
+
         if (!$category){
             session()->flash('category_error', 'Oops... Kategoria nuk u gjet.');
             return back();

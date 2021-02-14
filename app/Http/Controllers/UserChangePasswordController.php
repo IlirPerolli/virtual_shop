@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserChangePasswordRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -72,13 +73,8 @@ class UserChangePasswordController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(UserChangePasswordRequest $request)
     {
-        $this->validate($request, [
-            'current_password'     => 'required',
-            'password'     => 'required|min:8',
-            'password_confirmation' => 'required|same:password',
-        ]);
 
                 $current_password = auth()->user()->password;
 

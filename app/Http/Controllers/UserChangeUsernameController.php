@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Http\Requests\UserChangeUsernameRequest;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Http\Request;
 
@@ -70,7 +71,7 @@ class UserChangeUsernameController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(UserChangeUsernameRequest $request)
     {
         if (auth()->user()->username_changed == 1){
             session()->flash('username_exceeded','Username mund të ndryshohet vetëm një herë');
@@ -81,9 +82,6 @@ class UserChangeUsernameController extends Controller
             return back();
         }
 
-        $request->validate([
-            'username' => ['required', 'string','min:3', 'max:255','regex:/^[A-Za-z0-9]+$/', 'unique:users'],
-        ]);
         $request['username_changed']=1;
 
         $user = auth()->user();

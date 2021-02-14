@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserChangePhotoRequest;
 use App\Models\Photo;
 use Illuminate\Http\Request;
 use Intervention\Image\ImageManagerStatic as Image;
@@ -72,7 +73,7 @@ class UserChangePhotoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(UserChangePhotoRequest $request)
     {
         $user = auth()->user();
         $input= $request->all();
@@ -82,7 +83,6 @@ class UserChangePhotoController extends Controller
                     unlink(public_path() . $user->photo->photo);
                 }
             }
-                $request->validate(['photo_id'=>'required|mimes:jpeg,png,jpg,svg|max:10240']);
             if (strpos($file->getClientOriginalName(),'chat') !== false) {
                 $file_name = $file->getClientOriginalName();
                 $name = time().str_replace("chat",$user->username,$file_name); //Per shkak te serverit qe se perkrah fjalen chat

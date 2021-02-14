@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserStoreCommentRepliesRequest;
+use App\Http\Requests\UserUpdatePostCommentsRequest;
 use App\Models\CommentReply;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Http\Request;
@@ -35,9 +37,8 @@ class CommentRepliesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserStoreCommentRepliesRequest $request)
     {
-        $request->validate(['body'=>'required|max:255|min:2']);
         $user = Auth::user();
         $data = [
             'user_id'=>$user->id,
@@ -83,9 +84,8 @@ class CommentRepliesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, CommentReply $reply)
+    public function update(UserUpdateCommentRepliesRequest $request, CommentReply $reply)
     {
-        $request->validate(['body'=>'required|max:255|min:2']);
         if (auth()->user()->id != $reply->user->id){
             abort(403, 'Unauthorized action.');
         }
