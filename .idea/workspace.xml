@@ -3,10 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="00153e13-9524-46f1-a4c4-64867ab51702" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CommentRepliesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CommentRepliesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PostCommentsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PostCommentsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/categories/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/categories/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/cities/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cities/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/commentReplies/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/commentReplies/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/comments/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/comments/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/posts/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/posts/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/posts/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/posts/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/user/change_password.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/change_password.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/user/change_username.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/change_username.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -349,7 +355,9 @@
       <workItem from="1613171072485" duration="1438000" />
       <workItem from="1613254356234" duration="2336000" />
       <workItem from="1613326435044" duration="2606000" />
-      <workItem from="1613329076020" duration="927000" />
+      <workItem from="1613329076020" duration="1445000" />
+      <workItem from="1613330745473" duration="238000" />
+      <workItem from="1613335757667" duration="2108000" />
     </task>
     <servers />
   </component>

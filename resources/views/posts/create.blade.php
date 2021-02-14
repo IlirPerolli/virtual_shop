@@ -19,8 +19,6 @@
     <div class="whole-wrap" style="margin-top: 150px; margin-bottom: 150px">
         <div class="container">
 
-
-
                 <div class="row">
                     <div class="col-lg-8 col-md-8 m-auto">
                         @if(session()->has('added_post'))
@@ -28,62 +26,7 @@
                                 {{session('added_post')}}
                             </div>
                         @endif
-                            @if(session()->has('max_photos'))
-                            <div class="alert alert-danger" role="alert">
-                                {{session('max_photos')}}
-                            </div>
-                        @endif
-                            @if(session()->has('category_error'))
-                                <div class="alert alert-danger" role="alert">
-                                    {{session('category_error')}}
-                                </div>
-                            @endif
-                            @if(session()->has('city_error'))
-                                <div class="alert alert-danger" role="alert">
-                                    {{session('city_error')}}
-                                </div>
-                            @endif
 
-                            @error('title')
-                            <div class="alert alert-danger" role="alert">
-                                {{$message}}
-                            </div>
-                            @enderror
-                            @error('body')
-                            <div class="alert alert-danger" role="alert">
-                                {{$message}}
-                            </div>
-                            @enderror
-                            @error('mobile_number')
-                            <div class="alert alert-danger" role="alert">
-                                {{$message}}
-                            </div>
-                            @enderror
-                            @error('price')
-                            <div class="alert alert-danger" role="alert">
-                                {{$message}}
-                            </div>
-                            @enderror
-                            @error('category_id')
-                            <div class="alert alert-danger" role="alert">
-                                {{$message}}
-                            </div>
-                            @enderror
-                            @error('city_id')
-                            <div class="alert alert-danger" role="alert">
-                                {{$message}}
-                            </div>
-                            @enderror
-                            @error('photo_id')
-                            <div class="alert alert-danger" role="alert">
-                                {{$message}}
-                            </div>
-                            @enderror
-                            @error('photo_id.*')
-                            <div class="alert alert-danger" role="alert">
-                                {{$message}}
-                            </div>
-                            @enderror
                         <h3 class="mb-30 title_color">Krijo postim</h3>
 
 
@@ -93,15 +36,27 @@
                             <div class="mt-10">
                                 <input type="text" class="single-input" name="title" id="title" placeholder="Titulli" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Titulli'" value="{{ old('title') }}" autocomplete="off" required/>
                             </div>
+                            @error('title')
+                            <span style="color:red">{{ $message }}</span>
+                            @enderror
                             <div class="mt-10">
                                 <textarea class="single-textarea" name="body" id="body" placeholder="P&euml;rshkrimi" onfocus="this.placeholder = ''" onblur="this.placeholder = 'P&euml;rshkrimi'" autocomplete="off" required>{{@old('body')}}</textarea>
                             </div>
+                            @error('body')
+                            <span style="color:red">{{ $message }}</span>
+                            @enderror
                             <div class="mt-10">
                                 <input type="tel" class="single-input" name="mobile_number" id="mobile_number" placeholder="Numri i telefonit (04X123456) " pattern="[0-9]{9}" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Numri i telefonit (04X123456) '" value="{{ old('mobile_number') }}" required autocomplete="off"/>
                             </div>
+                            @error('mobile_number')
+                            <span style="color:red">{{ $message }}</span>
+                            @enderror
                             <div class="mt-10">
                                 <input type="number" class="single-input" name="price" id="price" placeholder="&Ccedil;mimi" onfocus="this.placeholder = ''" onblur="this.placeholder = '&Ccedil;mimi'" value="{{ old('price') }}" required autocomplete="off" step="0.01" min="0"/>
                             </div>
+                            @error('price')
+                            <span style="color:red">{{ $message }}</span>
+                            @enderror
                             <div class="input-group-icon mt-10">
                                 <div class="form-select" id="default-select">
 
@@ -114,7 +69,12 @@
                                     </select>
                                 </div>
                             </div>
-
+                            @error('category_id')
+                            <span style="color:red">{{ $message }}</span>
+                            @enderror
+                            @if(session()->has('category_error'))
+                                <span style="color:red">{{session('category_error')}}</span>
+                            @endif
                             <div class="input-group-icon mt-10">
                                 <div class="form-select" id="default-select">
 
@@ -127,12 +87,26 @@
                                     </select>
                                 </div>
                             </div>
-
+                            @error('city_id')
+                            <span style="color:red">{{ $message }}</span>
+                            @enderror
+                            @if(session()->has('city_error'))
+                                <span style="color:red">{{session('city_error')}}</span>
+                            @endif
                             <div class="mt-10">
                                 <span style="margin-left: 20px;">*Max 5 foto</span>
                                 <input type="file" name="photo_id[]" id="file" multiple class="single-input">
 
                             </div>
+                            @error('photo_id')
+                            <span style="color:red">{{ $message }}</span>
+                            @enderror
+                            @error('photo_id.*')
+                            <span style="color:red">{{ $message }}</span>
+                            @enderror
+                            @if(session()->has('max_photos'))
+                                <span style="color:red">{{session('max_photos')}}</span>
+                            @endif
 
 
                             <div class="mt-10 float-right">

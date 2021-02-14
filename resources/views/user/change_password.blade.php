@@ -34,7 +34,7 @@
                             @method('PATCH')
 
                             <div class="mt-10">
-                                <input type="password" name="current_password" placeholder="Fjal&euml;kalimi aktual" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Fjal&euml;kalimi aktual'" class="single-input">
+                                <input type="password" name="current_password" placeholder="Fjal&euml;kalimi aktual" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Fjal&euml;kalimi aktual'" class="single-input" required>
                             </div>
                             @error('current_password')
                             <span style="color:red">{{ $message }}</span>
@@ -43,13 +43,13 @@
                                 <span style="color:red">{{ session('invalid-current-password') }}</span>
                                 @endif
                             <div class="mt-10">
-                                <input type="password" name="password" placeholder="Fjal&euml;kalimi i ri" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Fjal&euml;kalimi i ri'" class="single-input">
+                                <input type="password" name="password" placeholder="Fjal&euml;kalimi i ri" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Fjal&euml;kalimi i ri'" class="single-input" required>
                             </div>
                             @error('password')
                             <span style="color:red">{{ $message }}</span>
                             @enderror
                             <div class="mt-10">
-                                <input type="password" name="password_confirmation" placeholder="Ri-shkruaj fjal&euml;kalimin e ri" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Ri-shkruaj fjal&euml;kalimin e ri'" class="single-input">
+                                <input type="password" name="password_confirmation" placeholder="Ri-shkruaj fjal&euml;kalimin e ri" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Ri-shkruaj fjal&euml;kalimin e ri'" class="single-input" required>
                             </div>
                             @error('password_confirmation')
                             <span style="color:red">{{ $message }}</span>

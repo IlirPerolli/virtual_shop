@@ -17,12 +17,6 @@
                         </div>
                     @endif
 
-                    @error('title')
-                    <div class="alert alert-danger" role="alert">
-                        {{$message}}
-                    </div>
-                    @enderror
-
                     <h3 class="mb-30 title_color">Qyteti</h3>
 
 
@@ -32,6 +26,9 @@
                         <div class="mt-10">
                             <input type="text" class="single-input" name="name" autofocus placeholder="Emri" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Emri'" value="{{ old('name') }}"/>
                         </div>
+                        @error('name')
+                        <span style="color:red">{{ $message }}</span>
+                        @enderror
 
                         <div class="mt-10 float-right">
                             <button class="genric-btn primary circle arrow" type="submit" >Krijo <span class="lnr lnr-arrow-right"></span></button>

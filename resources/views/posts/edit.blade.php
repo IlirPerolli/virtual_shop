@@ -28,46 +28,6 @@
                                     {{session('nothing_updated')}}
                                 </div>
                             @endif
-                            @if(session()->has('category_error'))
-                                <div class="alert alert-danger" role="alert">
-                                    {{session('category_error')}}
-                                </div>
-                            @endif
-                            @if(session()->has('city_error'))
-                                <div class="alert alert-danger" role="alert">
-                                    {{session('city_error')}}
-                                </div>
-                            @endif
-                            @error('title')
-                            <div class="alert alert-danger" role="alert">
-                                {{$message}}
-                            </div>
-                            @enderror
-                            @error('body')
-                            <div class="alert alert-danger" role="alert">
-                                {{$message}}
-                            </div>
-                            @enderror
-                            @error('mobile_number')
-                            <div class="alert alert-danger" role="alert">
-                                {{$message}}
-                            </div>
-                            @enderror
-                            @error('price')
-                            <div class="alert alert-danger" role="alert">
-                                {{$message}}
-                            </div>
-                            @enderror
-                            @error('category_id')
-                            <div class="alert alert-danger" role="alert">
-                                {{$message}}
-                            </div>
-                            @enderror
-                            @error('city_id')
-                            <div class="alert alert-danger" role="alert">
-                                {{$message}}
-                            </div>
-                            @enderror
 
 
                         <h3 class="mb-30 title_color">Ndrysho Postimin</h3>
@@ -80,15 +40,27 @@
                             <div class="mt-10">
                                 <input type="text" class="single-input" name="title" placeholder="Titulli" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Titulli'" value="{{$post->title}}"/>
                             </div>
+                            @error('title')
+                            <span style="color:red">{{ $message }}</span>
+                            @enderror
                             <div class="mt-10">
                                 <textarea class="single-textarea" name="body" placeholder="P&euml;rshkrimi" onfocus="this.placeholder = ''" onblur="this.placeholder = 'P&euml;rshkrimi'">{{$post->body}}</textarea>
                             </div>
+                            @error('body')
+                            <span style="color:red">{{ $message }}</span>
+                            @enderror
                             <div class="mt-10">
                                 <input type="tel" class="single-input" name="mobile_number" id="mobile_number" placeholder="Numri i telefonit (04X123456) " pattern="[0-9]{9}" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Numri i telefonit (04X123456) '" value="{{ $post->mobile_number }}" required autocomplete="off"/>
                             </div>
+                            @error('mobile_number')
+                            <span style="color:red">{{ $message }}</span>
+                            @enderror
                                 <div class="mt-10">
                                 <input type="number" class="single-input" name="price" placeholder="&Ccedil;mimi" onfocus="this.placeholder = ''" onblur="this.placeholder = '&Ccedil;mimi'" value="{{ $post->price}}" step="0.01"/>
                             </div>
+                            @error('price')
+                            <span style="color:red">{{ $message }}</span>
+                            @enderror
                             <div class="input-group-icon mt-10">
                                 <div class="form-select" id="default-select">
 
@@ -101,7 +73,12 @@
                                     </select>
                                 </div>
                             </div>
-
+                            @error('category_id')
+                            <span style="color:red">{{ $message }}</span>
+                            @enderror
+                            @if(session()->has('category_error'))
+                                <span style="color:red">{{session('category_error')}}</span>
+                            @endif
                             <div class="input-group-icon mt-10">
                                 <div class="form-select" id="default-select">
 
@@ -114,7 +91,12 @@
                                     </select>
                                 </div>
                             </div>
-
+                            @error('city_id')
+                            <span style="color:red">{{ $message }}</span>
+                            @enderror
+                            @if(session()->has('city_error'))
+                                <span style="color:red">{{session('city_error')}}</span>
+                            @endif
                             <div class="mt-10 float-right">
                                 <button class="genric-btn primary circle arrow" type="submit" >Ndrysho <span class="lnr lnr-arrow-right"></span></button>
 

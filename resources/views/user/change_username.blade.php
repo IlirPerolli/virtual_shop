@@ -32,15 +32,12 @@
                             @error('username')
                             <span style="color:red">{{ $message }}</span>
                             @enderror
+
                             @if(session()->has('current_username'))
-                                <div class="alert alert-danger" role="alert">
-                                    {{session('current_username')}}
-                                </div>
+                                <span style="color:red">{{session('current_username')}}</span>
                             @endif
                             @if(session()->has('username_exceeded'))
-                                <div class="alert alert-danger" role="alert">
-                                    {{session('username_exceeded')}}
-                                </div>
+                                <span style="color:red">{{session('username_exceeded')}}</span>
                             @endif
 
                             @if (auth()->user()->username_changed != 1)
@@ -49,7 +46,7 @@
                             @method('PATCH')
 
                             <div class="mt-10">
-                                <input type="text" name="username" placeholder="Shkruani usernamin e ri" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Shkruani usernamin e ri'" class="single-input" autocomplete="off">
+                                <input type="text" name="username" placeholder="Shkruani usernamin e ri" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Shkruani usernamin e ri'" class="single-input" autocomplete="off" required>
                                 <i><span style="color:red">Kujdes! </span> Vetëm një herë lejohet ndërrimi i username.</i>
                             </div>
                             <div class="mt-10 float-right">

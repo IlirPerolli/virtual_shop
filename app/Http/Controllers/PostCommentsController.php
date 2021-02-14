@@ -86,6 +86,7 @@ class PostCommentsController extends Controller
         if (auth()->user()->id != $comment->user->id){
             abort(403, 'Unauthorized action.');
         }
+        $request->validate(['body'=>'required|max:255|min:2']);
         $comment->body = $request->body;
         if($comment->isDirty('body')){
 

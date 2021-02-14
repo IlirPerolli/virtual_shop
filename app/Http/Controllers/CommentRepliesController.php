@@ -85,6 +85,7 @@ class CommentRepliesController extends Controller
      */
     public function update(Request $request, CommentReply $reply)
     {
+        $request->validate(['body'=>'required|max:255|min:2']);
         if (auth()->user()->id != $reply->user->id){
             abort(403, 'Unauthorized action.');
         }

@@ -30,6 +30,9 @@
                             <div class="mt-10">
                                 <textarea class="single-textarea" name="body" placeholder="P&euml;rgjigjja" onfocus="this.placeholder = ''" onblur="this.placeholder = 'P&euml;rgjigjja'">{{$reply->body}}</textarea>
                             </div>
+                            @error('body')
+                            <span style="color:red">{{ $message }}</span>
+                            @enderror
 
                             <div class="mt-10 float-right">
                                 <button class="genric-btn primary circle arrow" type="submit" >Ndrysho <span class="lnr lnr-arrow-right"></span></button>

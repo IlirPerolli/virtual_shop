@@ -17,16 +17,6 @@
                         </div>
                     @endif
 
-                    @error('name')
-                    <div class="alert alert-danger" role="alert">
-                        {{$message}}
-                    </div>
-                    @enderror
-                        @error('photo_id')
-                        <div class="alert alert-danger" role="alert">
-                            {{$message}}
-                        </div>
-                        @enderror
 
                     <h3 class="mb-30 title_color">Krijo kategori</h3>
 
@@ -37,6 +27,9 @@
                         <div class="mt-10">
                             <input type="text" class="single-input" name="name" autocomplete="off" autofocus placeholder="Emri" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Emri'" value="{{ old('name') }}"/>
                         </div>
+                        @error('name')
+                        <span style="color:red">{{ $message }}</span>
+                        @enderror
                         <div class="mt-10 float-right">
                             <button class="genric-btn primary circle arrow" type="submit" >Create <span class="lnr lnr-arrow-right"></span></button>
 
