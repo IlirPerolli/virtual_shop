@@ -51,16 +51,8 @@ class UserProfileController extends Controller
     public function show($slug)
     {
         //Show users that current user may know
-        if(auth()->check()){
+        $users = UsersYouMayKnowController::users();
 
-            $users = auth()->user()->followings()->pluck('leader_id');
-            $user = auth()->user()->id;
-            $users->push($user);
-            $users = User::whereNotIn('id', $users)->orderBy('name', 'ASC')->take(5)->get();
-        }
-        else{
-            $users = User::orderBy('name', 'ASC')->take(5)->get();
-        }
         $user = User::findBySlugOrFail($slug);
         $followers = $user->followers->count();
         $followings = $user->followings->count();

@@ -95,7 +95,7 @@
                             @endif
                             <div class="mt-10">
                                 <span style="margin-left: 20px;">*Max 5 foto</span>
-                                <input type="file" name="photo_id[]" id="file" multiple class="single-input">
+                                <input type="file" name="photo_id[]" accept='.jpeg,.jpg,.png,.svg' id="file" multiple class="single-input">
 
                             </div>
                             @error('photo_id')

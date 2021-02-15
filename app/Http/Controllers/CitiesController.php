@@ -70,16 +70,7 @@ class CitiesController extends Controller
     public function show($slug)
     {
         //Show users that current user may know
-        if(auth()->check()){
-
-            $users = auth()->user()->followings()->pluck('leader_id');
-            $user = auth()->user()->id;
-            $users->push($user);
-            $users = User::whereNotIn('id', $users)->orderBy('name', 'ASC')->take(5)->get();
-        }
-        else{
-            $users = User::orderBy('name', 'ASC')->take(5)->get();
-        }
+        $users = UsersYouMayKnowController::users();
 
         $city = City::findBySlugOrFail($slug);
         $categories = Category::orderBy('id', 'ASC')->take(10)->get();

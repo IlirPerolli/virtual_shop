@@ -78,8 +78,8 @@
                 <div class="row">
                 <div class="col-lg-9 col-12" >
                 <h4>Rezultatet p&euml;r: {{$_GET['q']}} <span style="color:#e65228;font-size: 15px">({{$users_count}} p&euml;rdorues)</span></h4>
-            @if (count($users)>0)
-            @foreach($users as $user)
+            @if (count($users_from_search)>0)
+            @foreach($users_from_search as $user)
             <div class="media">
                 <a href="{{route('user.show',$user->slug)}}"> <img class="align-self-start mr-3 rounded-circle" src="{{$user->photo->photo}}" alt="{{$user->name . " ". $user->surname}}" width="50px" height="50px"></a>
                 <div class="media-body">
@@ -99,7 +99,7 @@
 
                 <nav aria-label="Pagination">
                     <ul class="pagination justify-content-center">
-                        {{$users->links()}}
+                        {{$users_from_search->links()}}
                     </ul>
                 </nav>
                     @else

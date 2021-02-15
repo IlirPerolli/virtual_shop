@@ -58,7 +58,7 @@
                                         @csrf
                                         @method('PATCH')
                                         <div class="mt-10">
-                                            <input type="file" name="photo_id" id="file" class="single-input">
+                                            <input type="file" accept='.jpeg,.jpg,.png,.svg' name="photo_id" id="file" class="single-input">
                                         </div>
                                         @error('photo_id')
                                         <span style="color:red">{{ $message }}</span>

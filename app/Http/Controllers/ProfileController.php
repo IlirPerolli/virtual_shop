@@ -50,8 +50,7 @@ class ProfileController extends Controller
             // $users = auth()->user()->followings;
 //
 //                $users = auth()->user()->followings()->paginate(2);
-            $users = auth()->user()->followings()->pluck('leader_id');
-            $posts = Post::whereIn('user_id', $users)->orderBy('created_at', 'DESC')->paginate(20);
+
 
 
             $categories = Category::orderBy('id', 'ASC')->take(10)->get();
@@ -59,9 +58,11 @@ class ProfileController extends Controller
             $allcategories = Category::all();
             $all_cities = City::orderBy('name','asc')->get();
             //Per te marrur perdoruesit qe mund t'i njeh perdoruesi i kyqur
-            $user = auth()->user()->id;
-            $users->push($user);
-            $users = User::whereNotIn('id', $users)->orderBy('name', 'ASC')->take(5)->get();
+            $users = auth()->user()->followings()->pluck('leader_id');
+            $posts = Post::whereIn('user_id', $users)->orderBy('created_at', 'DESC')->paginate(20);
+
+            //Show users that current user may know
+            $users = UsersYouMayKnowController::users();
             return view('index', compact('posts', 'users','cities', 'categories', 'allcategories','all_cities'));
         }
         else{

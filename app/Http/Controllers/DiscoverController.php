@@ -33,14 +33,17 @@ class DiscoverController extends Controller
 
             $posts = Post::whereNotIn('user_id', $users)->orderBy('created_at', 'DESC')->paginate(20);
 
-            $users = User::whereNotIn('id', $users)->orderBy('name', 'ASC')->take(5)->get();
+            //Show users that current user may know
+            $users = UsersYouMayKnowController::users();
+
             $categories = Category::orderBy('id', 'ASC')->take(10)->get();
             $cities = City::orderBy('id', 'ASC')->take(30)->get();
             return view('discover.posts', compact('posts', 'users', 'cities','categories', 'all_cities','allcategories'));
         }
         else{
             $posts = Post::orderBy('created_at', 'desc')->paginate(20);
-            $users = User::orderBy('name', 'ASC')->take(5)->get();
+            //Show users that current user may know
+            $users = UsersYouMayKnowController::users();
             $categories = Category::orderBy('id', 'ASC')->take(10)->get();
             $cities = City::orderBy('id', 'ASC')->take(30)->get();
             return view('discover.posts', compact('posts', 'users','cities', 'categories', 'all_cities', 'allcategories'));

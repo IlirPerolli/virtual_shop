@@ -25,16 +25,9 @@ class SearchController extends Controller
     public function users(Request $request)
     { $categories = Category::orderBy('id', 'ASC')->take(10)->get();
         $cities = City::orderBy('id', 'ASC')->take(30)->get();
-        if(auth()->check()){
+        //Show users that current user may know
+        $users = UsersYouMayKnowController::users();
 
-            $users_user_may_know = auth()->user()->followings()->pluck('leader_id');
-            $user = auth()->user()->id;
-            $users_user_may_know->push($user);
-            $users_user_may_know = User::whereNotIn('id', $users_user_may_know)->orderBy('name', 'ASC')->take(5)->get();
-        }
-        else{
-            $users_user_may_know = User::orderBy('name', 'ASC')->take(5)->get();
-        }
         $input = $request->q;
        // $separated_input = preg_split('/\s+/', $input, -1, PREG_SPLIT_NO_EMPTY);
         $separated_input = preg_split('/(?<=\w)\b\s*[!?.]*/', $input, -1, PREG_SPLIT_NO_EMPTY);
@@ -58,15 +51,15 @@ class SearchController extends Controller
                         ->orWhere('email', 'like', "%{$input}%")->orderBy('name','ASC');
                 }
             });
-            $users = $users_by_sentence->union($users_by_word)->paginate(10)->appends(request()->query());
-            $users_count = $users->count();
+            $users_from_search = $users_by_sentence->union($users_by_word)->paginate(10)->appends(request()->query());
+            $users_count = $users_from_search->count();
 
             //Kjo appends per te marrur edhe get requestat tjere ne get metoden
-                return view('search.users', compact('users','categories','cities', 'users_user_may_know', 'users_count'));
+                return view('search.users', compact('users_from_search','categories','cities', 'users', 'users_count'));
 
 //                session()->flash('user_not_found', "Nuk u gjet asnjë përdorues");
 //                return redirect()->route('search.users');
-                return view('search.users', compact('users','categories','cities', 'users_user_may_know', 'users_count'));
+                return view('search.users', compact('users_from_search','categories','cities', 'users', 'users_count'));
 
 
 
@@ -112,17 +105,9 @@ class SearchController extends Controller
         $separated_input = preg_split('/(?<=\w)\b\s*[!?.]*/', $input, -1, PREG_SPLIT_NO_EMPTY);
         $categories = Category::orderBy('id', 'ASC')->take(10)->get();
         $cities = City::orderBy('id', 'ASC')->take(30)->get();
-        //Shfaq njerezit qe perdoruesi i tanishem mund t'i njohe
-        if(auth()->check()){
 
-            $users = auth()->user()->followings()->pluck('leader_id');
-            $user = auth()->user()->id;
-            $users->push($user);
-            $users = User::whereNotIn('id', $users)->orderBy('name', 'ASC')->take(5)->get();
-        }
-        else{
-            $users = User::orderBy('name', 'ASC')->take(5)->get();
-        }
+        //Show users that current user may know
+        $users = UsersYouMayKnowController::users();
 
       if ($input!='') {
           if (strlen($input)<=2){
