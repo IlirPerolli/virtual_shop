@@ -35,6 +35,7 @@ class UserChangeUsernameRequest extends FormRequest
             'username.min'=>'Username duhet të ketë minimum 3 karaktere.',
             'username.string'=>'Username duhet të jetë me shkronja.',
             'username.regex'=>'Username duhet të përmbajë shkronja A-Z dhe numra 0-9.',
+            'username.unique'=>'Username është në përdorim nga një përdorues tjetër.',
 
         ];
     }

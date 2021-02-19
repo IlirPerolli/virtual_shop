@@ -48,4 +48,8 @@ class Post extends Model
     {
         return $this->belongsToMany(User::class, 'likes', 'post_id', 'user_id')->withTimestamps()->withPivot('user_id', 'post_id');
     }
+    public function wishlist()
+    {
+        return $this->belongsToMany(Post::class, 'wishlist', 'post_id', 'user_id')->withTimestamps()->withPivot('user_id', 'post_id');
+    }
 }

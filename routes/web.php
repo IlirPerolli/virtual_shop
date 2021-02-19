@@ -63,7 +63,9 @@ Route::middleware('auth')->group(function(){
     Route::post('/post/{post}/like', 'App\Http\Controllers\LikesController@like')->name('post.like');
     Route::post('/post/{post}/unlike', 'App\Http\Controllers\LikesController@unlike')->name('post.unlike');
     Route::delete('/user/{user}/destroy', 'App\Http\Controllers\UserProfileController@destroy')->name('user.destroy');
-
+    Route::post('/post/{post}/wishlist/add','App\Http\Controllers\WishListController@store')->name('post.wishlist.add');
+    Route::delete('/post/{post}/wishlist/destroy','App\Http\Controllers\WishListController@destroy')->name('post.wishlist.destroy');
+    Route::get('/wishlist','App\Http\Controllers\WishListController@index')->name('wishlist.show');
 
 });
 //Route::resource('/post', 'PostsController');

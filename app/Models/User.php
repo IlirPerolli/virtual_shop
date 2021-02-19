@@ -52,6 +52,10 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Post::class, 'likes', 'user_id', 'post_id')->withTimestamps()->withPivot('user_id', 'post_id');
     }
+    public function wishlist()
+    {
+        return $this->belongsToMany(Post::class, 'wishlist', 'user_id', 'post_id')->withTimestamps()->withPivot('user_id', 'post_id');
+    }
     public function role(){
         return $this->belongsTo(Role::class);
     }

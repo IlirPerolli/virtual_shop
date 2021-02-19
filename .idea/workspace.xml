@@ -3,15 +3,19 @@
   <component name="ChangeListManager">
     <list default="true" id="00153e13-9524-46f1-a4c4-64867ab51702" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CategoriesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CategoriesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CitiesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CitiesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DiscoverController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DiscoverController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SearchController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SearchController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserProfileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/posts/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/posts/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/search/users.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/search/users.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user/change_photo.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/change_photo.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UsersYouMayKnowController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UsersYouMayKnowController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/UserChangeUsernameRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/UserChangeUsernameRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Post.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/16120470793c43793225d7167513691eb2a525df2e.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/161325478211.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/1_16120470793c43793225d7167513691eb2a525df2e.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/1_161325478211.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/auth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/includes/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/posts/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/posts/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -358,7 +362,15 @@
       <workItem from="1613330745473" duration="238000" />
       <workItem from="1613335757667" duration="6441000" />
       <workItem from="1613343560096" duration="1017000" />
-      <workItem from="1613420847186" duration="11731000" />
+      <workItem from="1613420847186" duration="13032000" />
+      <workItem from="1613479609592" duration="834000" />
+      <workItem from="1613480543510" duration="589000" />
+      <workItem from="1613481340867" duration="81000" />
+      <workItem from="1613482431078" duration="23000" />
+      <workItem from="1613482466739" duration="78000" />
+      <workItem from="1613501828741" duration="1654000" />
+      <workItem from="1613580373902" duration="520000" />
+      <workItem from="1613760713135" duration="7075000" />
     </task>
     <servers />
   </component>

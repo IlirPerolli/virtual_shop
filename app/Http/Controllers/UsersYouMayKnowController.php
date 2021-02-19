@@ -16,12 +16,16 @@ class UsersYouMayKnowController extends Controller
             $user = auth()->user()->id; //merr id e perdoruesit te kyqur
             $users->push($user); //fute ne varg
             $suggested_users = array();
-
+            $users_taken = 0;//per te zvogeluar kompleksitetin kohor
             foreach ($users as $user) {
                 $user = User::find($user);//gjej userin qe useri i kyqur e ka follow
                 $users_user_may_know = $user->followings->whereNotIn('id', $users)->pluck('id');
                 if (count($users_user_may_know) > 0) {//merr vetem ata perdorues qe kane followersa qe si ka perdoruesi i kyqur
                     $suggested_users[] = $users_user_may_know;//futi ne varg
+                    $users_taken++;
+                }
+                if ($users_taken == 5){
+                    break;
                 }
             }
             if (count($suggested_users) > 5) {//nese perdoruesi ka me shume se 5 followa

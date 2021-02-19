@@ -5,30 +5,23 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\City;
 use App\Models\Post;
-use App\Models\User;
 use Illuminate\Http\Request;
 
-class AdminController extends Controller
+class WishListController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function posts()
+    public function index()
     {
-
-            $posts = Post::orderBy('created_at', 'desc')->paginate(20);
+        $user = auth()->user();
+        $posts = $user->wishlist()->paginate(20);
         $users = UsersYouMayKnowController::users();
-            $categories = Category::orderBy('name', 'ASC')->take(20)->get();
+        $categories = Category::orderBy('name', 'ASC')->take(20)->get();
         $cities = City::orderBy('id', 'ASC')->take(30)->get();
-            return view('admin.posts', compact('posts', 'users','cities', 'categories'));
-
-    }
-    public function users(){
-
-        $users = User::orderBy('name', 'ASC')->take(5)->paginate(20);
-        return view('admin.users', compact( 'users'));
+        return view('wishlist.index', compact('posts', 'users','cities', 'categories'));
     }
 
     /**
@@ -47,9 +40,18 @@ class AdminController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($slug)
     {
-        //
+        $post = Post::findBySlugOrFail($slug);
+        $user = auth()->user();
+        if (!$user->wishlist->contains($post->id)) {//per mes mi bo "2her" follow nese 2 her preket follow te personi i njejte ne faqe te ndryshme
+            $user->wishlist()->attach($post->id);
+            session()->flash('success_wishlist','Postimi u vendos në listën e dëshirave me sukses.');
+        }
+        else{
+            session()->flash('wishlist_failure','Ky postim tashmë ekziston në listen e dëshirave.');
+        }
+        return back();
     }
 
     /**
@@ -92,33 +94,14 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroyPosts(Post $post)
+    public function destroy($slug)
     {
-
-        if ($post->photo){
-            if (strpos($post->photo->photo,',') !== false){
-                foreach(explode(',',$post->photo->photo) as $photo) {
-                    if (file_exists(public_path() . "/images/" . $photo)) {//kontrollo nese ekziston foto ne storage para se te fshihet
-                        unlink(public_path() . "/images/" . $photo);
-                    }
-                }
-
-            }
-            else{
-                if (file_exists(public_path() .  $post->photo->photo)) {//kontrollo nese ekziston foto ne storage para se te fshihet
-                    unlink(public_path().$post->photo->photo);
-            }
-            }
-
-
+        $post = Post::findBySlugOrFail($slug);
+        $user = auth()->user();
+        if ($user->wishlist->contains($post->id)) {
+            $user->wishlist()->detach($post->id);
+            session()->flash('wishlist_item_deleted','Postimi u fshi nga lista e dëshirave me sukses.');
         }
-        $post->delete();
-        session()->flash('deleted_post', 'Postimi u fshi me sukses.');
-        return redirect()->route('admin.posts');
-    }
-    public function destroyUsers($slug){
-    $user = new UserProfileController();
-    $user->destroy($slug);
-
+        return back();
     }
 }

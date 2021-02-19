@@ -36,6 +36,23 @@
       </style>
 @endsection
 @section('content')
+    @if(session('success_wishlist'))
+        <div class="alert alert-success alert-dismissible fade show text-center" role="alert" style="z-index: 999; position: fixed; width: 100% ">
+            <strong><b>Njoftim!</b></strong> {{session('success_wishlist')}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="cursor: pointer">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    @endif
+    @if(session('wishlist_failure'))
+        <div class="alert alert-warning alert-dismissible fade show text-center" role="alert"  style="z-index: 999;position: fixed; width: 100% ">
+            <strong><b>Njoftim!</b></strong> {{session('wishlist_failure')}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="cursor: pointer">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    @endif
+
 <br><br>
     <!--================Blog Area =================-->
     <section class="blog_area single-post-area">
@@ -111,43 +128,50 @@
                                     <li><a href="#">{{$post->created_at->diffForHumans()}}<i class="lnr lnr-calendar-full"></i></a></li>
                                     <li><a href="{{route('post.likes',$post->slug)}}">{{$likes}} P&euml;lqime<i class="fa fa-heart" aria-hidden="true"></i></a> </li>
                                     <li><a href="#">{{$post->views}} Shikime<i class="lnr lnr-eye"></i></a></li>
+                                   <li>
                                     @if(auth()->check())
                                     @if(auth()->user()->likes->contains($post))
-                                        <li>
-                                            <form action="{{route('post.unlike',$post->id)}}" method="post">
+
+                                            <form action="{{route('post.unlike',$post->id)}}" method="post" style="display: inline-block">
                                                 @csrf
 
 
-                                                <button type="submit" class="btn btn-danger" style="cursor:pointer;">E P&euml;lqyer <svg width="1em" height="1em" style="margin-bottom:-3px"  viewBox="0 0 16 16" class="bi bi-heart-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                <button type="submit" class="btn btn-danger" style="cursor:pointer;" id="unlike">E P&euml;lqyer <svg width="1em" height="1em" style="margin-bottom:-3px"  viewBox="0 0 16 16" class="bi bi-heart-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                         <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
                                                     </svg> </button>
 
 
 
                                             </form>
-                                        </li>
+
 
                                         @else
-                                        <li>
-                                            <form action="{{route('post.like',$post->id)}}" method="post">
+
+                                            <form action="{{route('post.like',$post->id)}}" method="post" style="display: inline-block">
                                                 @csrf
 
 
-                                                <button type="submit" class="btn btn-outline-danger" style="cursor:pointer;">P&euml;lqe <svg width="1em" height="1em" style="margin-bottom:-3px" viewBox="0 0 16 16" class="bi bi-heart" fill="currentColor" xmlns="http://www.w3.org/2000/svg"> <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/></svg> </button>
+                                                <button type="submit" class="btn btn-outline-danger" id="like" style="cursor:pointer;">P&euml;lqe <svg width="1em" height="1em" style="margin-bottom:-3px" viewBox="0 0 16 16" class="bi bi-heart" fill="currentColor" xmlns="http://www.w3.org/2000/svg"> <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/></svg> </button>
 
                                             </form>
-                                        </li>
+
                                     @endif
                                     @else
-                                        <li>
-                                            <form action="{{route('post.like',$post->id)}}" method="post">
+
+                                            <form action="{{route('post.like',$post->id)}}" method="post" style="display: inline-block">
                                                 @csrf
-                                                <button type="submit" class="btn btn-outline-danger" style="cursor:pointer;">P&euml;lqe <svg width="1em" height="1em" style="margin-bottom:-3px" viewBox="0 0 16 16" class="bi bi-heart" fill="currentColor" xmlns="http://www.w3.org/2000/svg"> <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/></svg> </button>
+                                                <button type="submit" class="btn btn-outline-danger" id="like" style="cursor:pointer;">P&euml;lqe <svg width="1em" height="1em" style="margin-bottom:-3px" viewBox="0 0 16 16" class="bi bi-heart" fill="currentColor" xmlns="http://www.w3.org/2000/svg"> <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/></svg> </button>
 
                                             </form>
-                                        </li>
+
                                     @endif
 
+                                        <form action="{{route('post.wishlist.add',$post->slug)}}" method="post" style="display: inline-block">
+                                            @csrf
+                                            <button type="submit" class="btn btn-outline-danger" id="add_post_to_wishlist" title="Shto në listën e dëshirave" style="cursor:pointer;" ><i class="fa fa-heart" aria-hidden="true"></i></button>
+
+                                        </form>
+                                        </li>
 
 
                                     <li><a href="#comments-area" style="margin-top: 15px">{{$comments->count()}} Komente<i class="lnr lnr-bubble"></i></a></li>
@@ -388,6 +412,7 @@
     </ul>
 
 </div>
+    <div class="loader loader-default" data-text="Ju lutem prisni..."></div>
 @endsection
 
 @section('scripts')
@@ -395,6 +420,19 @@
         var cw = $('.author_img').width();
         $('.author_img').css({
             'height': cw + 'px'
+        });
+    </script>
+    <script>
+        $(document).ready(function(){
+            $('#like').click(function(){
+                    $(".loader").addClass("is-active");
+            });
+            $('#unlike').click(function(){
+                $(".loader").addClass("is-active");
+            });
+            $('#add_post_to_wishlist').click(function(){
+                $(".loader").addClass("is-active");
+            });
         });
     </script>
 @endsection
