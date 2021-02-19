@@ -15,7 +15,32 @@
         }
     }
     #remove_post_from_wishlist{
-        right: 0;top: 0; position: absolute;cursor:pointer; font-size: 13px;color:red;
+        right: 0;top: 0; position: absolute;cursor:pointer; font-size: 15px;color:red;
+    }
+    #remove_post_from_wishlist:hover{
+        text-decoration: none;
+    }
+    .x-button{
+        width: 15px;
+        height: 15px;
+        border: 1px solid #dc3545;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        background: #dc3545;
+        color: white;
+        font-size: 13px;
+        margin-left: 3px;
+        margin-top: 1px;
+        padding-top: 1px;
+    }
+    .delete-post-container{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
     }
 
 </style>
@@ -58,7 +83,7 @@
                             <form action="{{route('post.wishlist.destroy',$post->slug)}}" method="post" style="display: inline-block">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-link" id="remove_post_from_wishlist" title="Largo nga lista e dëshirave">Largo</button>
+                                <button type="submit" class="btn btn-link" id="remove_post_from_wishlist" title="Largo nga lista e dëshirave"><div class="delete-post-container"><div>Largo</div> <div class="x-button" >&times;</div> </div></button>
 
                             </form>
                     </div>
