@@ -38,7 +38,7 @@
                         <h3 class="mb-30 title_color">Ndrysho profilin</h3>
 
 
-                        <form action="{{route('user.update',$user->id)}}" method="POST" enctype="multipart/form-data">
+                        <form action="{{route('user.update')}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('PATCH')
                             <div class="mt-10">

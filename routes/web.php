@@ -47,7 +47,7 @@ Route::middleware('auth')->group(function(){
     Route::get('/post/{post}/edit','App\Http\Controllers\PostsController@edit')->name('post.edit');
 
     Route::get('/user/edit','App\Http\Controllers\UserProfileController@edit')->name('user.edit');
-    Route::patch('/user/{user}','App\Http\Controllers\UserProfileController@update')->name('user.update');
+    Route::patch('/user/update','App\Http\Controllers\UserProfileController@update')->name('user.update');
     Route::get('/user/changePassword', 'App\Http\Controllers\UserChangePasswordController@index')->name('user.password.edit');
     Route::patch('/user/changePassword/update', 'App\Http\Controllers\UserChangePasswordController@update')->name('user.password.update');
     Route::get('/user/changeUsername', 'App\Http\Controllers\UserChangeUsernameController@index')->name('user.username.edit');
