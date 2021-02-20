@@ -86,7 +86,7 @@
                             <form action="{{route('post.wishlist.destroy',$post->slug)}}" method="post" style="display: inline-block">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-link" id="remove_post_from_wishlist" title="Largo nga lista e dëshirave"><div class="delete-post-container"><div>Largo</div> <div class="x-button" >&times;</div> </div></button>
+                                <button type="submit" class="btn btn-link remove_post_from_wishlist" id="remove_post_from_wishlist" title="Largo nga lista e dëshirave"><div class="delete-post-container"><div>Largo</div> <div class="x-button" >&times;</div> </div></button>
 
                             </form>
                     </div>

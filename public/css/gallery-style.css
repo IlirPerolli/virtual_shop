@@ -17,6 +17,7 @@ body{
     .author_img{
         margin:0!important;
         width: 70% !important;
+        height: auto !important;/* E shtuar */
         margin: auto !important;
     }
     .follow-form{

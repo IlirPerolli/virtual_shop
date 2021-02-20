@@ -1,6 +1,6 @@
 @extends('layouts.index')
 @section('title')
-    <title>Bufi &#8226; Eksploro postime </title>
+    <title>Bufi &#8226; Lista e dëshirave </title>
 @endsection
 @section('content')
 
@@ -36,7 +36,7 @@
 @section('scripts')
     <script>
         $(document).ready(function(){
-            $('#remove_post_from_wishlist').click(function(){
+            $('.remove_post_from_wishlist').click(function(){
                 $(".loader").addClass("is-active");
             });
         });
