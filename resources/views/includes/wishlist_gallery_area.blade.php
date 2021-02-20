@@ -13,6 +13,9 @@
         #wishlist_title{
             margin-left: 0px !important;
         }
+        .x-button{
+            margin-top: 2px !important;
+        }
     }
     #remove_post_from_wishlist{
         right: 0;top: 0; position: absolute;cursor:pointer; font-size: 15px;color:red;

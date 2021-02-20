@@ -59,7 +59,9 @@
                     <button class="genric-btn primary radius" type="submit">Ndjek</button>
                 </form>
             @endif
-
+                @if(auth()->check() && auth()->user()->id == $user->id)
+                <a href="{{route('user.edit')}}" class="btn btn-outline-primary btn-sm" style="cursor: pointer">Ndrysho profilin</a>
+                @endif
         </div>
     </div>
 

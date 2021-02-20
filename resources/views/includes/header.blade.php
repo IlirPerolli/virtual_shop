@@ -76,8 +76,8 @@
                                </a>
                             <ul class="dropdown-menu">
                                 <li class="nav-item"><a class="nav-link" href="{{route('user.show',auth()->user()->slug)}}">Shfaq profilin</a></li>
-                                <li class="nav-item"><a class="nav-link" href="{{route('user.edit',auth()->user()->slug)}}">Ndrysho profilin</a></li>
-                                <li class="nav-item"><a class="nav-link" href="{{route('wishlist.show')}}">Lista e dëshirave</a></li>
+{{--                                <li class="nav-item"><a class="nav-link" href="{{route('user.edit',auth()->user()->slug)}}">Ndrysho profilin</a></li>--}}
+                                <li class="nav-item"><a class="nav-link" href="{{route('wishlist.show')}}">Lista e dëshirave ({{auth()->user()->wishlist()->count()}})</a></li>
 
                             </ul>
                         </li>

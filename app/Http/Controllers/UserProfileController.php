@@ -69,12 +69,9 @@ class UserProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($slug)
+    public function edit()
     {
-        $user = User::findBySlugOrFail($slug);
-        if (auth()->user()->id != $user->id){
-            abort(403, 'Unauthorized action.');
-        }
+        $user = auth()->user();
         $followers = $user->followers->count();
         $followings = $user->followings->count();
         $user_posts = $user->posts->count();
@@ -88,12 +85,9 @@ class UserProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UserEditRequest $request, User $user)
+    public function update(UserEditRequest $request)
     {
-        if (auth()->user()->id != $user->id){
-            abort(403, 'Unauthorized action.');
-        }
-
+        $user = auth()->user();
         if ($user->is_business == 1){
             if ($request->business_name == null){
             $request->validate(['business_name'=>'string', 'min:2', 'max:255']);

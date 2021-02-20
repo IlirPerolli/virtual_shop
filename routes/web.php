@@ -46,7 +46,7 @@ Route::middleware('auth')->group(function(){
     Route::put('/post/{post}','App\Http\Controllers\PostsController@update')->name('post.update');
     Route::get('/post/{post}/edit','App\Http\Controllers\PostsController@edit')->name('post.edit');
 
-    Route::get('/user/{user}/edit','App\Http\Controllers\UserProfileController@edit')->name('user.edit');
+    Route::get('/user/edit','App\Http\Controllers\UserProfileController@edit')->name('user.edit');
     Route::patch('/user/{user}','App\Http\Controllers\UserProfileController@update')->name('user.update');
     Route::get('/user/changePassword', 'App\Http\Controllers\UserChangePasswordController@index')->name('user.password.edit');
     Route::patch('/user/changePassword/update', 'App\Http\Controllers\UserChangePasswordController@update')->name('user.password.update');
@@ -62,7 +62,7 @@ Route::middleware('auth')->group(function(){
     Route::resource('comment/reply', 'App\Http\Controllers\CommentRepliesController');
     Route::post('/post/{post}/like', 'App\Http\Controllers\LikesController@like')->name('post.like');
     Route::post('/post/{post}/unlike', 'App\Http\Controllers\LikesController@unlike')->name('post.unlike');
-    Route::delete('/user/{user}/destroy', 'App\Http\Controllers\UserProfileController@destroy')->name('user.destroy');
+    Route::delete('/user/destroy', 'App\Http\Controllers\UserProfileController@destroy')->name('user.destroy');
     Route::post('/post/{post}/wishlist/add','App\Http\Controllers\WishListController@store')->name('post.wishlist.add');
     Route::delete('/post/{post}/wishlist/destroy','App\Http\Controllers\WishListController@destroy')->name('post.wishlist.destroy');
     Route::get('/wishlist','App\Http\Controllers\WishListController@index')->name('wishlist.show');

@@ -44,7 +44,7 @@ class WishListController extends Controller
     {
         $post = Post::findBySlugOrFail($slug);
         $user = auth()->user();
-        if (!$user->wishlist->contains($post->id)) {//per mes mi bo "2her" follow nese 2 her preket follow te personi i njejte ne faqe te ndryshme
+        if (!$user->wishlist->contains($post->id)) {
             $user->wishlist()->attach($post->id);
             session()->flash('success_wishlist','Postimi u vendos në listën e dëshirave me sukses.');
         }
