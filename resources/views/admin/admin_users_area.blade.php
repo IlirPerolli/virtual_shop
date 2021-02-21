@@ -18,7 +18,7 @@
         <td>{{$user->surname}}</td>
         <td>{{$user->username}}</td>
         <td>{{$user->email}}</td>
-        <td> <form action="{{route('user.destroy', $user->slug)}}" method="POST" style="display: inline-block;margin:5px">
+        <td> <form action="{{route('admin.user.destroy', $user->slug)}}" method="POST" style="display: inline-block;margin:5px">
                 @csrf
                 @method('delete')
                 <button class="genric-btn danger-border circle" type="submit" >Fshij profilin</button>

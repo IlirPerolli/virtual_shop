@@ -117,8 +117,37 @@ class AdminController extends Controller
         return redirect()->route('admin.posts');
     }
     public function destroyUsers($slug){
-    $user = new UserProfileController();
-    $user->destroy($slug);
+        $user = User::findBySlugOrFail($slug);
+        if (auth()->user()->id != $user->id && !auth()->user()->isAdmin()){
+            abort(403, 'Unauthorized action.');
+        }
+        $posts = $user->posts;
+        foreach ($posts as $post){
+            if ($post->photo) {
+                if (strpos($post->photo->photo, ',') !== false) {
+                    foreach (explode(',', $post->photo->photo) as $photo) {
+                        if (file_exists(public_path() . "/images/" . $photo)) {//kontrollo nese ekziston foto ne storage para se te fshihet
+                            unlink(public_path() . "/images/" . $photo);
+                        }
+                    }
+
+                } else {
+                    if (file_exists(public_path() . $post->photo->photo)) {//kontrollo nese ekziston foto ne storage para se te fshihet
+                        unlink(public_path() . $post->photo->photo);
+                    }
+                }
+
+            }
+            $post->delete();
+        }
+        $user->delete();
+        if (auth()->user()->slug == $user->slug){
+            return redirect()->route('login');
+        }
+        else{
+            return back();
+        }
+
 
     }
 }

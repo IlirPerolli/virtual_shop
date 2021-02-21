@@ -31,7 +31,7 @@ Route::middleware(['auth', 'admin'])->group(function(){
     Route::get('/admin/posts', 'App\Http\Controllers\AdminController@posts')->name('admin.posts');
     Route::get('/admin/users', 'App\Http\Controllers\AdminController@users')->name('admin.users');
     Route::delete('admin/post/{post}/destroy','App\Http\Controllers\AdminController@destroyPosts')->name('admin.post.destroy');
-    Route::delete('admin/user/{post}/destroy','App\Http\Controllers\AdminController@destroyPosts')->name('admin.user.destroy');
+    Route::delete('admin/user/{user}/destroy','App\Http\Controllers\AdminController@destroyUsers')->name('admin.user.destroy');
     Route::get('/city/create','App\Http\Controllers\CitiesController@create')->name('city.create');
     Route::post('/city','App\Http\Controllers\CitiesController@store')->name('city.store');
     Route::delete('/city/{city}/destroy','App\Http\Controllers\CitiesController@destroy')->name('city.destroy');
@@ -62,7 +62,8 @@ Route::middleware('auth')->group(function(){
     Route::resource('comment/reply', 'App\Http\Controllers\CommentRepliesController');
     Route::post('/post/{post}/like', 'App\Http\Controllers\LikesController@like')->name('post.like');
     Route::post('/post/{post}/unlike', 'App\Http\Controllers\LikesController@unlike')->name('post.unlike');
-    Route::delete('/user/{user}destroy', 'App\Http\Controllers\UserProfileController@destroy')->name('user.destroy');
+    Route::get('/user/deleteAccount', 'App\Http\Controllers\UserDeleteAccountController@index')->name('user.delete.page');
+    Route::delete('/user/destroy', 'App\Http\Controllers\UserDeleteAccountController@destroy')->name('user.destroy');
     Route::post('/post/{post}/wishlist/add','App\Http\Controllers\WishListController@store')->name('post.wishlist.add');
     Route::delete('/post/{post}/wishlist/destroy','App\Http\Controllers\WishListController@destroy')->name('post.wishlist.destroy');
     Route::get('/wishlist','App\Http\Controllers\WishListController@index')->name('wishlist.show');
