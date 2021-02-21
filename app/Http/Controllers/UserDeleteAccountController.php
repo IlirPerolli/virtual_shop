@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserDeleteAccountRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -15,7 +16,7 @@ class UserDeleteAccountController extends Controller
         $user_posts = $user->posts->count();
         return view('user.delete_account', compact('user','followers','followings','user_posts'));
     }
-    public function destroy(Request $request)
+    public function destroy(UserDeleteAccountRequest $request)
     {
         $user = auth()->user();
         $current_password = auth()->user()->password;

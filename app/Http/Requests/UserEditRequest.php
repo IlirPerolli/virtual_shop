@@ -32,17 +32,17 @@ class UserEditRequest extends FormRequest
     }
     public function messages(){
         return [
-          'name.required'=>'Emri duhet te plotesohet',
-            'name.max'=>'Emri duhet te kete maksimum 255 karaktere',
-            'name.min'=>'Emri duhet te kete minimum 2 karaktere',
-            'surname.required'=>'Mbiemri duhet te plotesohet',
-            'surname.max'=>'Mbiemri duhet te kete maksimum 255 karaktere',
-            'surname.min'=>'Mbiemri duhet te kete minimum 2 karaktere',
-            'email.required'=>'Emaili duhet te plotesohet',
-            'email.max'=>'Emaili duhet te kete maksimum 255 karaktere',
-            'email.min'=>'Emaili duhet te kete minimum 5 karaktere',
-            'email.unique'=>'Ky email eshte ne perdorim',
-            'bio.max'=>'Bio duhet te kete maksimum 255 karaktere'
+          'name.required'=>'Emri duhet të plotesohet.',
+            'name.max'=>'Emri duhet të ketë maksimum 255 karaktere.',
+            'name.min'=>'Emri duhet të ketë minimum 2 karaktere.',
+            'surname.required'=>'Mbiemri duhet të plotësohet.',
+            'surname.max'=>'Mbiemri duhet të ketë maksimum 255 karaktere.',
+            'surname.min'=>'Mbiemri duhet të ketë minimum 2 karaktere.',
+            'email.required'=>'Emaili duhet të plotesohet.',
+            'email.max'=>'Emaili duhet të ketë maksimum 255 karaktere.',
+            'email.min'=>'Emaili duhet të ketë minimum 5 karaktere.',
+            'email.unique'=>'Ky email është në përdorim.',
+            'bio.max'=>'Bio duhet të ketë maksimum 255 karaktere.'
         ];
     }
 }

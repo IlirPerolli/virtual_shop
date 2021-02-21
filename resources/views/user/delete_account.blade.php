@@ -130,6 +130,9 @@
                             @if(session('invalid-current-password'))
                                 <span style="color:red">{{ session('invalid-current-password') }}</span>
                             @endif
+                            @error('current_password')
+                            <span style="color:red">{{ $message }}</span>
+                            @enderror
                             <div class="mt-10 float-right">
                                 <button type="button" class="genric-btn danger-border circle" id="delete_account"  data-toggle="modal" data-target="#deleteAccountModal" style="margin-top: 5px">Fshij profilin</button>
 
