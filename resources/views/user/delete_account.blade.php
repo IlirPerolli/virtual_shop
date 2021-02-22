@@ -151,7 +151,7 @@
                                         </div>
                                         <div class="modal-body" style="text-align: left">
                                             <p>Na vjen keq duke ju parë që ju shkoni!
-                                                Me këtë veprim ju do të fshini llogarinë përgjithmonë!
+                                                Me këtë veprim ju do të fshini llogarinë përgjithmonë!<br>
                                                 <strong><b>Ju lutemi vini re:</b></strong><br>
 
                                                 Fshirja e llogarisë suaj dhe të dhënat personale janë të përhershme dhe nuk mund të zhbëhen. Bufi nuk do të jetë në gjendje të rikuperojë llogarinë tuaj pasi të dhënat të jenë fshirë. Gjithashtu me këtë veprim do të fshihen të gjitha në lidhje me ju duke përfshirë: postimet, foto e profilit.</p>

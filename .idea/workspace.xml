@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="00153e13-9524-46f1-a4c4-64867ab51702" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserDeleteAccountController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserDeleteAccountController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/UserEditRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/UserEditRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/posts/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/posts/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/user/delete_account.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/delete_account.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -369,6 +369,8 @@
       <workItem from="1613863166148" duration="6371000" />
       <workItem from="1613869614783" duration="15000" />
       <workItem from="1613902370385" duration="460000" />
+      <workItem from="1613902897843" duration="208000" />
+      <workItem from="1614032197533" duration="1786000" />
     </task>
     <servers />
   </component>

@@ -10,6 +10,12 @@
             .media-body {
                 width: 100% !important;
             }
+            .carousel-photo-container{
+                height: 350px !important;
+            }
+            .carousel-photo-container img{
+                max-height: 350px !important;
+            }
 
         }
             .similar-posts{
@@ -21,18 +27,42 @@
 
         }
 
+
         @media screen and (max-width: 340px) {
             .author_img{
                 width:100% !important;
             }
         }
-       .carousel-photo-container{
-           display: flex;
-           flex-direction: row;
-           justify-content: center;
-           align-items: center;
-           height: 450px;
-       }
+        .carousel-photo-container{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            height: 450px;
+        }
+
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            /*height: 100px;*/
+            /*width: 100px;*/
+            outline: black;
+            background-size: 100%, 100%;
+            background-image: none;
+        }
+
+        .carousel-control-next-icon:after
+        {
+            content: '>';
+            font-size: 55px;
+            color: black;
+        }
+
+        .carousel-control-prev-icon:after {
+            content: '<';
+            font-size: 55px;
+            color: black;
+        }
       </style>
 @endsection
 @section('content')
