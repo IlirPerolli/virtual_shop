@@ -28,15 +28,7 @@ class UsersYouMayKnowController extends Controller
                     break;
                 }
             }
-            if (count($suggested_users) > 5) {//nese perdoruesi ka me shume se 5 followa
-                return $users = User::Where(function ($q) use ($suggested_users) {//merr ata followa
-                    foreach ($suggested_users as $users) {
-                        $q->OrwhereIn('id', $users);
-                    }
-
-                })->take(5)->get();
-            }
-            if (count($suggested_users) < 5 && count($suggested_users)>0) {//nese i ka me pak se 5 po me shume 0
+            if (count($suggested_users) >=1 && count($suggested_users)>0) {//nese i ka me pak se 5 po me shume 0
                 $users_user_may_know = User::Where(function ($q) use ($suggested_users) {
                     foreach ($suggested_users as $users) {
                         $q->OrwhereIn('id', $users);
@@ -72,15 +64,7 @@ class UsersYouMayKnowController extends Controller
                     $users_taken++;
                 }
             }
-            if (count($suggested_users) > 5) {//nese perdoruesi ka me shume se 5 followa
-                return $users = User::Where(function ($q) use ($suggested_users) {//merr ata followa
-                    foreach ($suggested_users as $users) {
-                        $q->OrwhereIn('id', $users);
-                    }
-
-                })->where('is_business',0)->paginate(20);
-            }
-            if (count($suggested_users) < 5 && count($suggested_users)>0) {//nese i ka me pak se 5 po me shume 0
+            if (count($suggested_users) >=1 && count($suggested_users)>0) {//nese i ka me pak se 5 po me shume 0
                 $users_user_may_know = User::Where(function ($q) use ($suggested_users) {
                     foreach ($suggested_users as $users) {
                         $q->OrwhereIn('id', $users);
@@ -116,15 +100,7 @@ class UsersYouMayKnowController extends Controller
                     $users_taken++;
                 }
             }
-            if (count($suggested_users) > 5) {//nese perdoruesi ka me shume se 5 followa
-                return $users = User::Where(function ($q) use ($suggested_users) {//merr ata followa
-                    foreach ($suggested_users as $users) {
-                        $q->OrwhereIn('id', $users);
-                    }
-
-                })->where('is_business',1)->paginate(20);
-            }
-            if (count($suggested_users) < 5 && count($suggested_users)>0) {//nese i ka me pak se 5 po me shume 0
+            if (count($suggested_users) >=1 && count($suggested_users)>0) {//nese i ka me pak se 5 po me shume 0
                 $users_user_may_know = User::Where(function ($q) use ($suggested_users) {
                     foreach ($suggested_users as $users) {
                         $q->OrwhereIn('id', $users);
