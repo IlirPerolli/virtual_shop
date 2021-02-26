@@ -46,11 +46,17 @@
                         </div>
 
                     @endforeach
+
                 @else
                     <h4 style="margin-bottom: 20px; color:red; margin:auto" class="text-center">Nuk u gjet asnj&euml; p&euml;rdorues</h4>
                 @endif
-            </div>
 
+            </div>
+            <nav aria-label="Pagination">
+                <ul class="pagination justify-content-center">
+                    {{$users->links()}}
+                </ul>
+            </nav>
 
 
         </div>

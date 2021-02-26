@@ -106,20 +106,7 @@ class PostsController extends Controller
         $post->update(['views'=>$views]);
         $comments = $post->comments;
         $category = $post->category;
-        $post_title= preg_split('/(?<=\w)\b\s*[!?.]*/', $post->title, -1, PREG_SPLIT_NO_EMPTY);//ndaj titullin e postimit ne varg
-        $similar_posts = Post::where('category_id',$post->category_id)->where('id','<>',$post->id);//gjej sygjerime sipas kategorise
-        $similar_posts_by_word = Post::Where(function ($q) use ($post_title) { //kerko me fjale qe te gjesh sygjerime
-            foreach ($post_title as $input) {
-                if (strlen($input)<2){
-                    continue;
-                }
-                $q->orWhere('title', 'like', "%{$input}%")
-                    ->orWhere('slug', 'like', "%{$input}%")
-                    ->orderBy('title','ASC');
-
-            }
-        });
-        $posts = $similar_posts->union($similar_posts_by_word->where('id','<>',$post->id))->take(5)->get();
+        $posts = Post::where('category_id',$post->category_id)->where('id','<>',$post->id)->take(5)->get();;
         return view('posts.show', compact('post','followers' , 'followings','user_posts', 'likes','views', 'comments', 'category', 'posts'));
     }
     public function edit($slug)
